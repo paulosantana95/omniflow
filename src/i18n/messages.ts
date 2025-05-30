@@ -1,0 +1,74 @@
+export const messages = {
+  "pt-BR": {
+    home: "Início",
+    headline: "Atendimento multicanal com bots e vários agentes",
+    sub: "Transforme seu WhatsApp em uma central de atendimento 24/7",
+    tryFree: "Testar grátis",
+    plans: "Planos",
+    contact: "Contato",
+    faq: "Perguntas Frequentes",
+    tutorials: "Tutoriais em Vídeo",
+    intro1: "Nosso sistema multicanal conecta seus clientes com múltiplos atendentes pelo mesmo número do WhatsApp, com bots operando 24h por dia. Agilize o suporte, aumente a satisfação e converta mais!",
+    intro2: "A integração com bots inteligentes permite atendimento automático e coleta de dados desde o primeiro contato.",
+    intro3: "Ideal para empresas com alto volume de mensagens que buscam qualidade e rastreabilidade.",
+    benefits: [
+      "Atenda com múltiplos agentes no mesmo canal",
+      "Bots disponíveis 24 horas por dia",
+      "Aumente sua produtividade e vendas"
+    ],
+    planTitle: ["Iniciante", "Profissional", "Empresarial"],
+    bestValue: "Melhor custo-benefício",
+    faq1: "Como funciona o atendimento com múltiplos agentes?",
+    faq1desc: "Cada agente acessa uma instância compartilhada do canal e responde diretamente no mesmo número.",
+    faq2: "É possível automatizar os atendimentos?",
+    faq2desc: "Sim! Bots disponíveis 24/7 ajudam a reduzir carga e atender rapidamente."
+  },
+  "en-US": {
+    home: "Home",
+    headline: "Omnichannel support with bots and multiple agents",
+    sub: "Turn your WhatsApp into a 24/7 support center",
+    tryFree: "Try for free",
+    plans: "Plans",
+    contact: "Contact",
+    faq: "FAQ",
+    tutorials: "Video Tutorials",
+    intro1: "Our omnichannel system connects your customers with multiple agents through the same WhatsApp number, with bots operating 24/7. Speed up support, increase satisfaction, and convert more!",
+    intro2: "Integration with smart bots enables automatic service and data collection from the first contact.",
+    intro3: "Ideal for companies with high message volume seeking quality and traceability.",
+    benefits: [
+      "Serve with multiple agents on the same channel",
+      "Bots available 24 hours a day",
+      "Increase your productivity and sales"
+    ],
+    planTitle: ["Starter", "Professional", "Enterprise"],
+    bestValue: "Best value",
+    faq1: "How does multi-agent support work?",
+    faq1desc: "Each agent accesses a shared channel instance and responds directly on the same number.",
+    faq2: "Is it possible to automate support?",
+    faq2desc: "Yes! Bots available 24/7 help reduce workload and provide quick responses."
+  },
+  "es-ES": {
+    home: "Inicio",
+    headline: "Atención multicanal con bots y varios agentes",
+    sub: "Convierte tu WhatsApp en un centro de atención 24/7",
+    tryFree: "Probar gratis",
+    plans: "Planes",
+    contact: "Contacto",
+    faq: "Preguntas Frecuentes",
+    tutorials: "Tutoriales en Video",
+    intro1: "Nuestro sistema multicanal conecta a tus clientes con múltiples agentes a través del mismo número de WhatsApp, con bots operando las 24 horas. ¡Agiliza el soporte, aumenta la satisfacción y convierte más!",
+    intro2: "La integración con bots inteligentes permite atención automática y recopilación de datos desde el primer contacto.",
+    intro3: "Ideal para empresas con alto volumen de mensajes que buscan calidad y trazabilidad.",
+    benefits: [
+      "Atiende com múltiplos agentes no mesmo canal",
+      "Bots disponíveis 24 horas por dia",
+      "Aumente sua produtividade e vendas"
+    ],
+    planTitle: ["Inicial", "Profesional", "Empresarial"],
+    bestValue: "Mejor relación calidad-precio",
+    faq1: "¿Cómo funciona la atención con múltiples agentes?",
+    faq1desc: "Cada agente accede a una instancia compartida del canal y responde directamente en el mismo número.",
+    faq2: "¿Es posible automatizar la atención?",
+    faq2desc: "¡Sí! Bots disponibles 24/7 ayudan a reducir la carga y atender rápidamente."
+  }
+};
