@@ -39,7 +39,7 @@ export default function App() {
         <div className="flex items-center justify-between w-full max-w-7xl mx-auto">
           <div className="text-2xl font-bold cursor-pointer px-4" onClick={scrollToTop}>
             <a href="#start" className="flex items-center gap-2">
-              <img className="w-56" src={theme !== 'light' ? '/logo-dark.png' : '/logo.png'} alt="" />
+              <img className="w-56" src={theme !== 'light' ? '/logo-dark.png' : '/logo.png'} alt="Logo da Omniflow - Atendimento Inteligente" />
             </a>
           </div>
           <div className="md:hidden px-4">
