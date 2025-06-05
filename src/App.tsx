@@ -34,8 +34,8 @@ export default function App() {
   };
 
   return (
-    <div className="font-sans text-primary min-h-screen w-full relative bg-background shadow-2xl">
-      <nav className="flex items-center justify-between">
+    <div className="font-sans text-primary min-h-screen w-full relative">
+      <nav className="fixed top-0 left-0 w-full z-50 bg-background flex items-center justify-between shadow-md">
         <div className="flex items-center justify-between w-full max-w-7xl mx-auto">
           <div className="text-2xl font-bold cursor-pointer px-4" onClick={scrollToTop}>
             <a href="#start" className="flex items-center gap-2">
@@ -48,20 +48,20 @@ export default function App() {
             </button>
           </div>
           <div className={`md:flex flex-wrap items-center gap-4 text-primary px-4 ${mobileMenuOpen ? "block mt-4" : "hidden md:flex"}`}>
-            <a href="#start" className="block cursor-pointer font-semibold text-md hover:text-muted-foreground">{t.home ?? "Início"}</a>
-            <a href="#plans" className="block cursor-pointer font-semibold text-md hover:text-muted-foreground">{t.plans}</a>
-            <a href="#faq" className="block cursor-pointer font-semibold text-md hover:text-muted-foreground">{t.faq}</a>
-            <a href="#contact" className="block cursor-pointer font-semibold text-md hover:text-muted-foreground">Contato</a>
-            <a href="#tutorials" className="block cursor-pointer font-semibold text-md hover:text-muted-foreground">{t.tutorials}</a>
-            <Button variant="outline" className="ml-8">Registrar-se</Button>
-            <Button variant="default" asChild >
+            <a href="#start" className="block cursor-pointer font-semibold text-md hover:text-muted-foreground text-shadow-2xs">{t.home ?? "Início"}</a>
+            <a href="#plans" className="block cursor-pointer font-semibold text-md hover:text-muted-foreground text-shadow-2xs">{t.plans}</a>
+            <a href="#faq" className="block cursor-pointer font-semibold text-md hover:text-muted-foreground text-shadow-2xs">{t.faq}</a>
+            <a href="#contact" className="block cursor-pointer font-semibold text-md hover:text-muted-foreground text-shadow-2xs">Contato</a>
+            <a href="#tutorials" className="block cursor-pointer font-semibold text-md hover:text-muted-foreground text-shadow-2xs">{t.tutorials}</a>
+            <Button variant="outline" className="ml-8 shadow-md">Registrar-se</Button>
+            <Button variant="default" asChild className="shadow-md">
               <a href="https://app.omniflow.chat">
                 <LogIn className="w-4 h-4 mr-2" />
                 Entrar
               </a>
             </Button>
             <ModeToggle />
-            <select
+            {/* <select
               onChange={(e) => setLocale(e.target.value)}
               className=" text-primary pl-2 font-semibold text-md rounded p-1 cursor-pointer"
               defaultValue={locale}
@@ -69,29 +69,29 @@ export default function App() {
               <option value="pt-BR">🇧🇷</option>
               <option value="en-US">🇺🇸</option>
               <option value="es-ES">🇪🇸</option>
-            </select>
+            </select> */}
           </div>
         </div>
       </nav >
 
-      <div className="pt-2">
-        <header id="start" className="bg-muted text-center py-16 px-4 md:py-24 text-primary shadow-2xl" data-aos="fade-up">
+      <div className="pt-6 shadow-md">
+        <header id="start" className="bg-muted text-center py-16 px-4 md:py-24 text-primary" data-aos="fade-up">
           <div className="max-w-3xl mx-auto">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 text-shadow-2xs">
               {t.headline}
             </h1>
             <p className="text-base sm:text-lg md:text-xl mb-6">{t.sub}</p>
-            <div className="space-y-4 text-base sm:text-lg">
+            <div className="space-y-10 text-base sm:text-lg">
               <p>{t.intro1}</p>
               <p>{t.intro2}</p>
               <p>{t.intro3}</p>
-              <Button variant="default" size="lg" className="mt-8 cursor-pointer bg-gradient-to-br from-green-500 to-blue-500 text-base">Registre-se e teste grátis</Button>
+              <Button variant="default" size="lg" className="mt-8 cursor-pointer bg-gradient-to-br from-green-500 to-blue-500 text-base shadow-md">Registre-se e teste grátis</Button>
             </div>
           </div>
         </header>
 
-        <section id="plans" className="bg-background text-primary py-16 px-4 sm:px-6 text-center" data-aos="fade-up">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-8">{t.plans}</h2>
+        <section id="plans" className="bg-background text-primary py-16 px-4 sm:px-6 text-center shadow-md" data-aos="fade-up">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-shadow-2xs">{t.plans}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {t.planTitle.map((title, index) => (
               <PlanCard
@@ -108,8 +108,8 @@ export default function App() {
           </div>
         </section>
 
-        <section id="faq" className="bg-muted text-primary py-16 px-4 sm:px-6" data-aos="fade-up">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8">{t.faq}</h2>
+        <section id="faq" className="bg-muted text-primary py-16 px-4 shadow-md sm:px-6" data-aos="fade-up">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 text-shadow-2xs">{t.faq}</h2>
           <div className="max-w-3xl mx-auto space-y-6">
             <details className="bg-background p-4 rounded shadow">
               <summary className="cursor-pointer font-semibold">{t.faq1}</summary>
@@ -122,17 +122,17 @@ export default function App() {
           </div>
         </section>
 
-        <section id="contact" className=" bg-background text-primary py-16 px-4 sm:px-6" data-aos="fade-up">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center">
+        <section id="contact" className=" bg-background text-primary py-16 px-4 shadow-md sm:px-6" data-aos="fade-up">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center text-shadow-2xs">
             Ficou interessado e quer testar o Omni
-            <span className="bg-gradient-to-br from-green-500 to-blue-500 bg-clip-text text-transparent">flow ?</span>
+            <span className="bg-gradient-to-br from-green-500 to-blue-500 bg-clip-text text-transparent">flow</span> ?
           </h2>
           <div className="max-w-3xl mx-auto">
             <ContactCard />
           </div>
         </section>
 
-        <section id="tutorials" className="bg-muted text-primary py-16 px-4 sm:px-6" data-aos="fade-up">
+        {/* <section id="tutorials" className="bg-muted text-primary py-16 px-4 shadow-md sm:px-6" data-aos="fade-up">
           <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8">{t.tutorials}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             <iframe
@@ -148,9 +148,9 @@ export default function App() {
               allowFullScreen
             ></iframe>
           </div>
-        </section>
+        </section> */}
 
-        <footer className="bg-foreground text-muted py-10 text-center text-sm">
+        <footer className="bg-foreground text-muted py-10 text-center text-sm shadow-md">
           <p>© {new Date().getFullYear()} <span className="font-bold">Omniflow</span> – Todos os direitos reservados.</p>
           <p className="mt-2">Feito com ❤️ para empresas que valorizam atendimento de qualidade.</p>
         </footer>

@@ -1,4 +1,3 @@
-// ==== Arquivo: src/components/PlanCard.tsx ====
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -49,13 +48,13 @@ export function PlanCard({
           )}
         >
           <CardHeader>
-            <CardTitle className="text-2xl font-bold mb-2">{title}</CardTitle>
+            <CardTitle className="text-2xl font-bold mb-2 text-shadow-2xs">{title}</CardTitle>
             <div className="text-3xl font-semibold bg-gradient-to-br from-green-500 to-blue-500 bg-clip-text text-transparent text-shadow-2xs">{price}</div>
           </CardHeader>
           <CardContent>
             <ul className="space-y-3 mb-6">
               {benefits.map((benefit, idx) => (
-                <li key={idx} className="flex items-center gap-2 text-base leading-tight">
+                <li key={idx} className="flex items-center gap-2 text-sm leading-tight">
                   <span className="flex items-center justify-center h-5">
                     <CheckCircle className="w-5 h-5 text-green-600" />
                   </span>
@@ -63,7 +62,7 @@ export function PlanCard({
                 </li>
               ))}
             </ul>
-            <Button className="w-full cursor-pointer bg-gradient-to-br from-green-500 to-blue-500  text-muted text-base py-2" onClick={onTry}>
+            <Button className="w-full cursor-pointer bg-gradient-to-br from-green-500 to-blue-500  text-muted text-base py-2 shadow-md" onClick={onTry}>
               {tryFree}
             </Button>
           </CardContent>
