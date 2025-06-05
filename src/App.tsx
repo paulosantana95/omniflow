@@ -9,9 +9,10 @@ import { messages } from "./i18n/messages";
 import { PlanCard } from "./components/PlanCard";
 import { SignupForm } from "./components/SignupForm";
 import { ContactCard } from "./components/ContactCard";
-import { Menu, MessageCircleMoreIcon, X } from "lucide-react";
+import { LogIn, Menu, X } from "lucide-react";
 import "aos/dist/aos.css";
 import AOS from "aos";
+import { Button } from "./components/ui/button";
 
 export default function App() {
   const [locale, setLocale] = useState("pt-BR");
@@ -30,13 +31,12 @@ export default function App() {
   };
 
   return (
-    <div className="font-sans text-white min-h-screen w-full relative bg-white">
-      <nav className="p-4 flex items-center justify-between bg-gradient-to-br from-blue-500 to-purple-500 z-50 fixed w-full top-0 backdrop-blur-lg">
+    <div className="font-sans text-primary min-h-screen w-full relative bg-gray-100 shadow-xl">
+      <nav className="p-4 flex items-center justify-between">
         <div className="flex items-center justify-between w-full max-w-7xl mx-auto">
           <div className="text-2xl font-bold cursor-pointer px-4" onClick={scrollToTop}>
             <a href="#start" className="flex items-center gap-2">
-              <MessageCircleMoreIcon className="w-6 h-6 text-white" />
-              OmniFlow
+              <img className="w-56" src="/logo.png" alt="" />
             </a>
           </div>
           <div className="md:hidden px-4">
@@ -44,15 +44,22 @@ export default function App() {
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
-          <div className={`md:flex flex-wrap items-center gap-4 text-white/90 px-4 ${mobileMenuOpen ? "block mt-4" : "hidden md:flex"}`}>
-            <a href="#start" className="block cursor-pointer font-semibold text-md underline hover:text-purple-200">{t.home ?? "Início"}</a>
-            <a href="#plans" className="block cursor-pointer font-semibold text-md underline hover:text-purple-200">{t.plans}</a>
-            <a href="#faq" className="block cursor-pointer font-semibold text-md underline hover:text-purple-200">{t.faq}</a>
-            <a href="#contact" className="block cursor-pointer font-semibold text-md underline hover:text-purple-200">Contato</a>
-            <a href="#tutorials" className="block cursor-pointer font-semibold text-md underline hover:text-purple-200">{t.tutorials}</a>
+          <div className={`md:flex flex-wrap items-center gap-4 text-primary px-4 ${mobileMenuOpen ? "block mt-4" : "hidden md:flex"}`}>
+            <a href="#start" className="block cursor-pointer font-semibold text-md hover:text-muted-foreground">{t.home ?? "Início"}</a>
+            <a href="#plans" className="block cursor-pointer font-semibold text-md hover:text-muted-foreground">{t.plans}</a>
+            <a href="#faq" className="block cursor-pointer font-semibold text-md hover:text-muted-foreground">{t.faq}</a>
+            <a href="#contact" className="block cursor-pointer font-semibold text-md hover:text-muted-foreground">Contato</a>
+            <a href="#tutorials" className="block cursor-pointer font-semibold text-md hover:text-muted-foreground">{t.tutorials}</a>
+            {/* <Button variant="default" className="bg-primary">Registrar-se</Button> */}
+            <Button variant="default" asChild className="ml-8">
+              <a href="https://app.omniflow.chat">
+                <LogIn className="w-4 h-4 mr-2" />
+                Entrar
+              </a>
+            </Button>
             <select
               onChange={(e) => setLocale(e.target.value)}
-              className=" text-white/90 pl-4 font-semibold text-md rounded p-1 cursor-pointer"
+              className=" text-primary pl-2 font-semibold text-md rounded p-1 cursor-pointer"
               defaultValue={locale}
             >
               <option value="pt-BR">🇧🇷</option>
@@ -63,8 +70,8 @@ export default function App() {
         </div>
       </nav >
 
-      <div className="pt-24">
-        <header id="start" className="text-center py-16 px-4 md:py-24 bg-gradient-to-br from-blue-500 to-purple-500 text-white shadow-md" data-aos="fade-up">
+      <div className="pt-2">
+        <header id="start" className="text-center py-16 px-4 md:py-24 bg-gradient-to-br from-blue-500 to-purple-500 text-white shadow-2xl" data-aos="fade-up">
           <div className="max-w-3xl mx-auto">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4">
               {t.headline}
