@@ -17,7 +17,7 @@ import { useTheme } from "./providers/theme-provider";
 import { ModeToggle } from "./components/mode-toggle";
 
 export default function App() {
-  const [locale, setLocale] = useState("pt-BR");
+  const [locale] = useState("pt-BR");
   const [openForm, setOpenForm] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { theme } = useTheme()
