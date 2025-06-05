@@ -13,9 +13,9 @@ export function ContactCard() {
   };
 
   return (
-    <section id="contact" className="text-black py-16 px-4 sm:px-6" data-aos="fade-up">
+    <section id="contact" className="text-primary py-16 sm:px-6" data-aos="fade-up">
       <div className="max-w-xl mx-auto">
-        <Card className="bg-white p-8 rounded-2xl shadow-md">
+        <Card className="bg-background p-8 rounded-2xl shadow-md">
           <CardHeader className="flex items-center gap-2 mb-4">
             <MessageCircle className="w-6 h-6 text-green-500" />
             <CardTitle className="text-2xl font-bold">Entre em Contato</CardTitle>
@@ -30,7 +30,7 @@ export function ContactCard() {
             />
             <Button
               onClick={handleRedirect}
-              className="w-full cursor-pointer bg-green-500 hover:bg-green-600 text-white text-base"
+              className="w-full cursor-pointer bg-green-500 hover:bg-green-600 text-muted text-base"
               disabled={!message.trim()}
             >
               Enviar via WhatsApp

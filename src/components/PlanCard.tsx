@@ -28,24 +28,29 @@ export function PlanCard({
     <div className="relative flex flex-col items-center w-full h-full">
       {highlight && (
         <div className="absolute -top-2 z-10 animate-pulse">
-          <Badge className="text-sm px-4 py-1 bg-purple-600 text-white rounded-full shadow-md">
+          <Badge className="text-sm px-4 py-1 bg-gradient-to-br from-green-500 to-blue-500 text-muted rounded-full shadow-xl">
             {highlight}
           </Badge>
         </div>
       )}
-      <div className="relative w-full max-w-md transition-shadow h-full">
+      <div className={clsx(
+        "relative w-full max-w-md transition-shadow h-full",
+        {
+          "p-[2px] bg-gradient-to-br from-green-500 to-blue-500 rounded-[18px]": animate,
+        }
+      )}>
         <Card
           className={clsx(
-            "bg-white text-black p-8 h-full rounded-2xl",
+            "bg-card text-primary p-8 h-full rounded-2xl",
             {
-              "border-2 border-purple-500 shadow-xl": animate,
+              "shadow-xl": animate,
               "shadow-md": !animate,
             }
           )}
         >
           <CardHeader>
             <CardTitle className="text-2xl font-bold mb-2">{title}</CardTitle>
-            <div className="text-3xl font-semibold text-purple-600">{price}</div>
+            <div className="text-3xl font-semibold bg-gradient-to-br from-green-500 to-blue-500 bg-clip-text text-transparent text-shadow-2xs">{price}</div>
           </CardHeader>
           <CardContent>
             <ul className="space-y-3 mb-6">
@@ -58,7 +63,7 @@ export function PlanCard({
                 </li>
               ))}
             </ul>
-            <Button className="w-full cursor-pointer bg-purple-600 hover:bg-purple-700 text-white text-base py-2" onClick={onTry}>
+            <Button className="w-full cursor-pointer bg-gradient-to-br from-green-500 to-blue-500  text-muted text-base py-2" onClick={onTry}>
               {tryFree}
             </Button>
           </CardContent>

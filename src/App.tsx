@@ -13,30 +13,33 @@ import { LogIn, Menu, X } from "lucide-react";
 import "aos/dist/aos.css";
 import AOS from "aos";
 import { Button } from "./components/ui/button";
+import { useTheme } from "./providers/theme-provider";
+import { ModeToggle } from "./components/mode-toggle";
 
 export default function App() {
   const [locale, setLocale] = useState("pt-BR");
   const [openForm, setOpenForm] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { theme } = useTheme()
   const t = messages[locale as keyof typeof messages];
 
   useEffect(() => {
     AOS.init({ once: true });
   }, []);
 
-  const planPrices = ["R$79/mês", "R$469/mês", "R$999/mês"];
+  const planPrices = ["R$-/mês", "R$-/mês", "R$-/mês"];
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
-    <div className="font-sans text-primary min-h-screen w-full relative bg-gray-100 shadow-xl">
-      <nav className="p-4 flex items-center justify-between">
+    <div className="font-sans text-primary min-h-screen w-full relative bg-background shadow-2xl">
+      <nav className="flex items-center justify-between">
         <div className="flex items-center justify-between w-full max-w-7xl mx-auto">
           <div className="text-2xl font-bold cursor-pointer px-4" onClick={scrollToTop}>
             <a href="#start" className="flex items-center gap-2">
-              <img className="w-56" src="/logo.png" alt="" />
+              <img className="w-56" src={theme !== 'light' ? '/logo-dark.png' : '/logo.png'} alt="" />
             </a>
           </div>
           <div className="md:hidden px-4">
@@ -50,13 +53,14 @@ export default function App() {
             <a href="#faq" className="block cursor-pointer font-semibold text-md hover:text-muted-foreground">{t.faq}</a>
             <a href="#contact" className="block cursor-pointer font-semibold text-md hover:text-muted-foreground">Contato</a>
             <a href="#tutorials" className="block cursor-pointer font-semibold text-md hover:text-muted-foreground">{t.tutorials}</a>
-            {/* <Button variant="default" className="bg-primary">Registrar-se</Button> */}
-            <Button variant="default" asChild className="ml-8">
+            <Button variant="outline" className="ml-8">Registrar-se</Button>
+            <Button variant="default" asChild >
               <a href="https://app.omniflow.chat">
                 <LogIn className="w-4 h-4 mr-2" />
                 Entrar
               </a>
             </Button>
+            <ModeToggle />
             <select
               onChange={(e) => setLocale(e.target.value)}
               className=" text-primary pl-2 font-semibold text-md rounded p-1 cursor-pointer"
@@ -71,7 +75,7 @@ export default function App() {
       </nav >
 
       <div className="pt-2">
-        <header id="start" className="text-center py-16 px-4 md:py-24 bg-gradient-to-br from-blue-500 to-purple-500 text-white shadow-2xl" data-aos="fade-up">
+        <header id="start" className="bg-muted text-center py-16 px-4 md:py-24 text-primary shadow-2xl" data-aos="fade-up">
           <div className="max-w-3xl mx-auto">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4">
               {t.headline}
@@ -81,11 +85,12 @@ export default function App() {
               <p>{t.intro1}</p>
               <p>{t.intro2}</p>
               <p>{t.intro3}</p>
+              <Button variant="default" size="lg" className="mt-8 cursor-pointer bg-gradient-to-br from-green-500 to-blue-500 text-base">Registre-se e teste grátis</Button>
             </div>
           </div>
         </header>
 
-        <section id="plans" className="bg-white text-black py-16 px-4 sm:px-6 text-center" data-aos="fade-up">
+        <section id="plans" className="bg-background text-primary py-16 px-4 sm:px-6 text-center" data-aos="fade-up">
           <h2 className="text-2xl sm:text-3xl font-bold mb-8">{t.plans}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {t.planTitle.map((title, index) => (
@@ -103,28 +108,31 @@ export default function App() {
           </div>
         </section>
 
-        <section id="faq" className="bg-gray-100 text-black py-16 px-4 sm:px-6" data-aos="fade-up">
+        <section id="faq" className="bg-muted text-primary py-16 px-4 sm:px-6" data-aos="fade-up">
           <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8">{t.faq}</h2>
           <div className="max-w-3xl mx-auto space-y-6">
-            <details className="bg-white p-4 rounded shadow">
+            <details className="bg-background p-4 rounded shadow">
               <summary className="cursor-pointer font-semibold">{t.faq1}</summary>
               <p className="mt-2">{t.faq1desc}</p>
             </details>
-            <details className="bg-white p-4 rounded shadow">
+            <details className="bg-background p-4 rounded shadow">
               <summary className="cursor-pointer font-semibold">{t.faq2}</summary>
               <p className="mt-2">{t.faq2desc}</p>
             </details>
           </div>
         </section>
 
-        <section id="contact" className=" bg-white text-black py-16 px-4 sm:px-6" data-aos="fade-up">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8">Entre em Contato</h2>
+        <section id="contact" className=" bg-background text-primary py-16 px-4 sm:px-6" data-aos="fade-up">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center">
+            Ficou interessado e quer testar o Omni
+            <span className="bg-gradient-to-br from-green-500 to-blue-500 bg-clip-text text-transparent">flow ?</span>
+          </h2>
           <div className="max-w-3xl mx-auto">
             <ContactCard />
           </div>
         </section>
 
-        <section id="tutorials" className="bg-gray-100 text-black py-16 px-4 sm:px-6" data-aos="fade-up">
+        <section id="tutorials" className="bg-muted text-primary py-16 px-4 sm:px-6" data-aos="fade-up">
           <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8">{t.tutorials}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             <iframe
@@ -142,8 +150,8 @@ export default function App() {
           </div>
         </section>
 
-        <footer className="bg-black text-white py-10 text-center text-sm">
-          <p>© {new Date().getFullYear()} <span className="font-bold">OmniFlow</span> – Todos os direitos reservados.</p>
+        <footer className="bg-foreground text-muted py-10 text-center text-sm">
+          <p>© {new Date().getFullYear()} <span className="font-bold">Omniflow</span> – Todos os direitos reservados.</p>
           <p className="mt-2">Feito com ❤️ para empresas que valorizam atendimento de qualidade.</p>
         </footer>
 
