@@ -9,12 +9,14 @@ import { messages } from "./i18n/messages";
 import { PlanCard } from "./components/PlanCard";
 import { SignupForm } from "./components/SignupForm";
 import { ContactCard } from "./components/ContactCard";
-import { LogIn, Menu, X } from "lucide-react";
+import { Bot, LogIn, Menu, SquareKanban, SquareUserRound, X } from "lucide-react";
 import "aos/dist/aos.css";
 import AOS from "aos";
 import { Button } from "./components/ui/button";
 import { useTheme } from "./providers/theme-provider";
 import { ModeToggle } from "./components/mode-toggle";
+import useEmblaCarousel from 'embla-carousel-react';
+import { useRef } from 'react';
 
 export default function App() {
   const [locale] = useState("pt-BR");
@@ -32,6 +34,55 @@ export default function App() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  // Carousel Embla
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const autoplayRef = useRef<NodeJS.Timeout | null>(null);
+  const slides = [
+    {
+      icon: (
+        <Bot className="w-24 h-24 text-primary" />
+      ),
+      text: t.intro1,
+    },
+    {
+      icon: (
+        <SquareKanban className="w-24 h-24 text-primary" />
+      ),
+      text: t.intro2,
+    },
+    {
+      icon: (
+        <SquareUserRound className="w-24 h-24 text-primary" />
+      ),
+      text: t.intro3,
+    },
+  ];
+
+  // Autoplay effect
+  useEffect(() => {
+    if (!emblaApi) return;
+    const autoplay = () => {
+      if (!emblaApi) return;
+      emblaApi.scrollNext();
+    };
+    autoplayRef.current = setInterval(autoplay, 4000);
+    return () => {
+      if (autoplayRef.current) clearInterval(autoplayRef.current);
+    };
+  }, [emblaApi]);
+
+  // Update selected index for dots
+  useEffect(() => {
+    if (!emblaApi) return;
+    const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
+    emblaApi.on('select', onSelect);
+    onSelect();
+    return () => {
+      emblaApi.off('select', onSelect);
+    };
+  }, [emblaApi]);
 
   return (
     <div className="font-sans text-primary min-h-screen w-full relative">
@@ -52,7 +103,7 @@ export default function App() {
             <a href="#plans" className="block cursor-pointer font-semibold text-md hover:text-muted-foreground text-shadow-2xs">{t.plans}</a>
             <a href="#faq" className="block cursor-pointer font-semibold text-md hover:text-muted-foreground text-shadow-2xs">{t.faq}</a>
             <a href="#contact" className="block cursor-pointer font-semibold text-md hover:text-muted-foreground text-shadow-2xs">Contato</a>
-            <a href="#tutorials" className="block cursor-pointer font-semibold text-md hover:text-muted-foreground text-shadow-2xs">{t.tutorials}</a>
+            {/* <a href="#tutorials" className="block cursor-pointer font-semibold text-md hover:text-muted-foreground text-shadow-2xs">{t.tutorials}</a> */}
             <Button variant="outline" className="ml-8 shadow-md">Registrar-se</Button>
             <Button variant="default" asChild className="shadow-md">
               <a href="https://app.omniflow.chat">
@@ -75,22 +126,47 @@ export default function App() {
       </nav >
 
       <div className="pt-6 shadow-md">
-        <header id="start" className="bg-muted text-center py-16 px-4 md:py-24 text-primary" data-aos="fade-up">
+        <header id="start" className="bg-background text-center py-16 px-4 md:py-24 text-primary" data-aos="fade-up">
           <div className="max-w-3xl mx-auto">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 text-shadow-2xs">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 text-shadow-lg">
               {t.headline}
             </h1>
-            <p className="text-base sm:text-lg md:text-xl mb-6">{t.sub}</p>
-            <div className="space-y-10 text-base sm:text-lg">
-              <p>{t.intro1}</p>
-              <p>{t.intro2}</p>
-              <p>{t.intro3}</p>
-              <Button variant="default" size="lg" className="mt-8 cursor-pointer bg-gradient-to-br from-green-500 to-blue-500 text-base shadow-md">Registre-se e teste grátis</Button>
+            <p className="text-base text-shadow-lg sm:text-lg md:text-xl mb-6">{t.sub}</p>
+
+            {/* Carousel de anúncios com Embla */}
+            <div className="max-w-2xl mx-auto mt-12">
+              <div className="overflow-hidden pb-2" ref={emblaRef}>
+                <div className="flex">
+                  {slides.map((slide, idx) => (
+                    <div
+                      className="min-w-0 flex-[0_0_100%] flex justify-center"
+                      key={idx}
+                    >
+                      <div className="bg-muted rounded-2xl p-12 shadow-lg flex flex-col items-center max-w-md w-full border-1 gap-4">
+                        <span className="text-primary">{slide.icon}</span>
+                        <div className="w-32 h-0.5 rounded-full bg-gradient-to-br from-green-500 to-blue-500 my-4" />
+                        <span className="text-center text-lg font-medium text-primary">{slide.text}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              {/* Bolinhas de paginação */}
+              <div className="flex justify-center gap-2 mt-4">
+                {slides.map((_, idx) => (
+                  <button
+                    key={idx}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${selectedIndex === idx ? 'bg-gradient-to-br from-green-500 to-blue-5000 scale-125' : 'bg-muted-foreground/40'}`}
+                    onClick={() => emblaApi && emblaApi.scrollTo(idx)}
+                    aria-label={`Ir para slide ${idx + 1}`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </header>
 
-        <section id="plans" className="bg-background text-primary py-16 px-4 sm:px-6 text-center shadow-md" data-aos="fade-up">
+        <section id="plans" className="bg-muted text-primary py-16 px-4 sm:px-6 text-center shadow-md" data-aos="fade-up">
           <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-shadow-2xs">{t.plans}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {t.planTitle.map((title, index) => (
@@ -108,7 +184,7 @@ export default function App() {
           </div>
         </section>
 
-        <section id="faq" className="bg-muted text-primary py-16 px-4 shadow-md sm:px-6" data-aos="fade-up">
+        <section id="faq" className="bg-background text-primary py-16 px-4 shadow-md sm:px-6" data-aos="fade-up">
           <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 text-shadow-2xs">{t.faq}</h2>
           <div className="max-w-3xl mx-auto space-y-6">
             <details className="bg-background p-4 rounded shadow">
@@ -122,9 +198,9 @@ export default function App() {
           </div>
         </section>
 
-        <section id="contact" className=" bg-background text-primary py-16 px-4 shadow-md sm:px-6" data-aos="fade-up">
+        <section id="contact" className=" bg-muted text-primary py-16 px-4 shadow-md sm:px-6" data-aos="fade-up">
           <h2 className="text-2xl sm:text-3xl font-bold text-center text-shadow-2xs">
-            Ficou interessado e quer testar o Omni
+            Ficou interessado e quer sabre o Omni
             <span className="bg-gradient-to-br from-green-500 to-blue-500 bg-clip-text text-transparent">flow</span> ?
           </h2>
           <div className="max-w-3xl mx-auto">
@@ -149,8 +225,8 @@ export default function App() {
             ></iframe>
           </div>
         </section> */}
-
-        <footer className="bg-foreground text-muted py-10 text-center text-sm shadow-md">
+        <div className="w-full h-1 rounded-full bg-gradient-to-br from-green-500 to-blue-500" />
+        <footer className="bg-primary-foreground text-primary py-10 text-center text-sm shadow-md">
           <p>© {new Date().getFullYear()} <span className="font-bold">Omniflow</span> – Todos os direitos reservados.</p>
           <p className="mt-2">Feito com ❤️ para empresas que valorizam atendimento de qualidade.</p>
         </footer>
