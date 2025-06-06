@@ -30,7 +30,7 @@ export function ContactCard() {
             />
             <Button
               onClick={handleRedirect}
-              className="w-full cursor-pointer bg-green-500 hover:bg-green-600 text-muted text-base"
+              className="w-full cursor-pointer bg-green-500 hover:bg-green-600 text-base text-primary"
               disabled={!message.trim()}
             >
               Enviar via WhatsApp

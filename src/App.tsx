@@ -37,7 +37,7 @@ export default function App() {
   const [locale] = useState("pt-BR");
   const [openForm, setOpenForm] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { theme } = useTheme()
+  const { theme } = useTheme();
   const isSystemDark = useSystemTheme();
   const t = messages[locale as keyof typeof messages];
 
