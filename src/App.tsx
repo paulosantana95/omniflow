@@ -18,11 +18,27 @@ import { ModeToggle } from "./components/mode-toggle";
 import useEmblaCarousel from 'embla-carousel-react';
 import { useRef } from 'react';
 
+
+// Hook para detectar o modo do sistema
+function useSystemTheme() {
+  const [isDark, setIsDark] = useState(() =>
+    window.matchMedia('(prefers-color-scheme: dark)').matches
+  );
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-color-scheme: dark)');
+    const handler = (e: MediaQueryListEvent) => setIsDark(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
+  return isDark;
+}
+
 export default function App() {
   const [locale] = useState("pt-BR");
   const [openForm, setOpenForm] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { theme } = useTheme()
+  const isSystemDark = useSystemTheme();
   const t = messages[locale as keyof typeof messages];
 
   useEffect(() => {
@@ -97,7 +113,15 @@ export default function App() {
         <div className="flex items-center justify-between w-full max-w-7xl mx-auto">
           <div className="text-2xl font-bold cursor-pointer px-4" onClick={scrollToTop}>
             <a href="#start" className="flex items-center gap-2">
-              <img className="w-56" src={theme !== 'light' ? '/logo-dark.png' : '/logo.png'} alt="Logo da Omniflow - Atendimento Inteligente" />
+              <img
+                className="w-56"
+                src={
+                  theme === 'dark' || (theme === 'system' && isSystemDark)
+                    ? '/logo-dark.png'
+                    : '/logo.png'
+                }
+                alt="Logo da Omniflow - Atendimento Inteligente"
+              />
             </a>
           </div>
           <div className="md:hidden px-4">
@@ -105,29 +129,21 @@ export default function App() {
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
-          <div className={`md:flex flex-wrap items-center gap-4 text-primary px-4 ${mobileMenuOpen ? "block mt-4" : "hidden md:flex"}`}>
-            <a href="#start" className="block cursor-pointer font-semibold text-md hover:text-muted-foreground text-shadow-2xs">{t.home ?? "Início"}</a>
-            <a href="#plans" className="block cursor-pointer font-semibold text-md hover:text-muted-foreground text-shadow-2xs">{t.plans}</a>
-            <a href="#faq" className="block cursor-pointer font-semibold text-md hover:text-muted-foreground text-shadow-2xs">{t.faq}</a>
-            <a href="#contact" className="block cursor-pointer font-semibold text-md hover:text-muted-foreground text-shadow-2xs">Contato</a>
-            {/* <a href="#tutorials" className="block cursor-pointer font-semibold text-md hover:text-muted-foreground text-shadow-2xs">{t.tutorials}</a> */}
-            <Button variant="outline" className="ml-8 shadow-md">Registrar-se</Button>
-            <Button variant="default" asChild className="shadow-md">
+          <div className={`md:flex flex-wrap items-center gap-4 text-primary px-4 ${mobileMenuOpen ? "block absolute top-full left-0 w-full bg-background py-4 shadow-lg z-50" : "hidden md:flex"}`}>
+            <a href="#start" className="block cursor-pointer font-semibold text-md hover:text-muted-foreground text-shadow-2xs py-2 md:py-0 text-center">{t.home ?? "Início"}</a>
+            <a href="#plans" className="block cursor-pointer font-semibold text-md hover:text-muted-foreground text-shadow-2xs py-2 md:py-0 text-center">{t.plans}</a>
+            <a href="#faq" className="block cursor-pointer font-semibold text-md hover:text-muted-foreground text-shadow-2xs py-2 md:py-0 text-center">{t.faq}</a>
+            <a href="#contact" className="block cursor-pointer font-semibold text-md hover:text-muted-foreground text-shadow-2xs py-2 md:py-0 text-center">Contato</a>
+            <Button variant="outline" className="ml-0 md:ml-8 shadow-md w-full md:w-auto mt-2 md:mt-0">Registrar-se</Button>
+            <Button variant="default" asChild className="shadow-md w-full md:w-auto mt-2 md:mt-0">
               <a href="https://app.omniflow.chat">
                 <LogIn className="w-4 h-4 mr-2" />
                 Entrar
               </a>
             </Button>
-            <ModeToggle />
-            {/* <select
-              onChange={(e) => setLocale(e.target.value)}
-              className=" text-primary pl-2 font-semibold text-md rounded p-1 cursor-pointer"
-              defaultValue={locale}
-            >
-              <option value="pt-BR">🇧🇷</option>
-              <option value="en-US">🇺🇸</option>
-              <option value="es-ES">🇪🇸</option>
-            </select> */}
+            <div className="flex justify-center md:justify-start w-full md:w-auto mt-2 md:mt-0">
+              <ModeToggle />
+            </div>
           </div>
         </div>
       </nav >
@@ -193,19 +209,17 @@ export default function App() {
 
         <section id="integrations" className="bg-background text-primary py-16 px-4 text-center shadow-md sm:px-6" data-aos="fade-up">
           <h2 className="text-2xl sm:text-3xl font-bold mb-16 text-shadow-2xs">Principais Integrações</h2>
-          <div className="flex justify-evenly">
-            <img src="/whatsapp.png" alt="AI Assistant" className="w-24 h-24 object-contain" />
-            <img src="/telegram.png" alt="AI Assistant" className="w-24 h-24 object-contain" />
-            <img src="/email.png" alt="AI Assistant" className="w-24 h-24 object-contain" />
-            <img src="/sms.png" alt="AI Assistant" className="w-24 h-24 object-contain" />
-            <img src="/facebook.png" alt="AI Assistant" className="w-24 h-24 object-contain" />
-            <img src="/linkedin.png" alt="AI Assistant" className="w-24 h-24 object-contain" />
-            <img src="/chatgpt.png" alt="AI Assistant" className="w-24 h-24 object-contain" />
-            <img src="/google.png" alt="AI Assistant" className="w-24 h-24 object-contain" />
-            <img src="/tik-tok.png" alt="AI Assistant" className="w-24 h-24 object-contain" />
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-9 gap-4 md:gap-8 xl:gap-16 place-items-center max-w-6xl mx-auto">
+            <img src="/whatsapp.png" alt="WhatsApp" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
+            <img src="/telegram.png" alt="Telegram" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
+            <img src="/email.png" alt="E-mail" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
+            <img src="/sms.png" alt="SMS" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
+            <img src="/facebook.png" alt="Facebook" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
+            <img src="/linkedin.png" alt="LinkedIn" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
+            <img src="/chatgpt.png" alt="ChatGPT" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
+            <img src="/google.png" alt="Google" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
+            <img src="/tik-tok.png" alt="TikTok" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
           </div>
-
-
         </section>
 
         <section id="faq" className="bg-muted text-primary py-16 px-4 shadow-md sm:px-6" data-aos="fade-up">
