@@ -202,6 +202,7 @@ export default function App() {
             <img src="/linkedin.png" alt="AI Assistant" className="w-24 h-24 object-contain" />
             <img src="/chatgpt.png" alt="AI Assistant" className="w-24 h-24 object-contain" />
             <img src="/google.png" alt="AI Assistant" className="w-24 h-24 object-contain" />
+            <img src="/tik-tok.png" alt="AI Assistant" className="w-24 h-24 object-contain" />
           </div>
 
 
