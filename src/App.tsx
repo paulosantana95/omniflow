@@ -9,7 +9,7 @@ import { messages } from "./i18n/messages";
 import { PlanCard } from "./components/PlanCard";
 import { SignupForm } from "./components/SignupForm";
 import { ContactCard } from "./components/ContactCard";
-import { Bot, LogIn, Menu, SquareKanban, SquareUserRound, X } from "lucide-react";
+import { LogIn, Menu, X } from "lucide-react";
 import "aos/dist/aos.css";
 import AOS from "aos";
 import { Button } from "./components/ui/button";
@@ -42,21 +42,28 @@ export default function App() {
   const slides = [
     {
       icon: (
-        <Bot className="w-24 h-24 text-primary" />
+        <img src="/bot.png" alt="AI Assistant" className="w-24 h-24 object-contain" />
       ),
       text: t.intro1,
     },
     {
       icon: (
-        <SquareKanban className="w-24 h-24 text-primary" />
+        <img src="/bar-graph.png" alt="AI Assistant" className="w-24 h-24 object-contain" />
+
       ),
       text: t.intro2,
     },
     {
       icon: (
-        <SquareUserRound className="w-24 h-24 text-primary" />
+        <img src="/phone-message.png" alt="AI Assistant" className="w-24 h-24 object-contain" />
       ),
       text: t.intro3,
+    },
+    {
+      icon: (
+        <img src="/ai-assistant.png" alt="AI Assistant" className="w-24 h-24 object-contain" />
+      ),
+      text: "Plataforma que Integra com diversas IA's para tornar seu atendimento mais inteligente.",
     },
   ];
 
