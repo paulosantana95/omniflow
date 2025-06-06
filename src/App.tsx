@@ -191,7 +191,23 @@ export default function App() {
           </div>
         </section>
 
-        <section id="faq" className="bg-background text-primary py-16 px-4 shadow-md sm:px-6" data-aos="fade-up">
+        <section id="integrations" className="bg-background text-primary py-16 px-4 text-center shadow-md sm:px-6" data-aos="fade-up">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-16 text-shadow-2xs">Principais Integrações</h2>
+          <div className="flex justify-evenly">
+            <img src="/whatsapp.png" alt="AI Assistant" className="w-24 h-24 object-contain" />
+            <img src="/telegram.png" alt="AI Assistant" className="w-24 h-24 object-contain" />
+            <img src="/email.png" alt="AI Assistant" className="w-24 h-24 object-contain" />
+            <img src="/sms.png" alt="AI Assistant" className="w-24 h-24 object-contain" />
+            <img src="/facebook.png" alt="AI Assistant" className="w-24 h-24 object-contain" />
+            <img src="/linkedin.png" alt="AI Assistant" className="w-24 h-24 object-contain" />
+            <img src="/chatgpt.png" alt="AI Assistant" className="w-24 h-24 object-contain" />
+            <img src="/google.png" alt="AI Assistant" className="w-24 h-24 object-contain" />
+          </div>
+
+
+        </section>
+
+        <section id="faq" className="bg-muted text-primary py-16 px-4 shadow-md sm:px-6" data-aos="fade-up">
           <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 text-shadow-2xs">{t.faq}</h2>
           <div className="max-w-3xl mx-auto space-y-6">
             <details className="bg-background p-4 rounded shadow">
@@ -205,7 +221,7 @@ export default function App() {
           </div>
         </section>
 
-        <section id="contact" className=" bg-muted text-primary py-16 px-4 shadow-md sm:px-6" data-aos="fade-up">
+        <section id="contact" className=" bg-background text-primary py-16 px-4 shadow-md sm:px-6" data-aos="fade-up">
           <h2 className="text-2xl sm:text-3xl font-bold text-center text-shadow-2xs">
             Ficou interessado e quer sabre o Omni
             <span className="bg-gradient-to-br from-green-500 to-blue-500 bg-clip-text text-transparent">flow</span> ?
