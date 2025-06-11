@@ -1,7 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import { CheckCircle } from "lucide-react";
 import clsx from "clsx";
 
@@ -20,8 +20,8 @@ export function PlanCard({
   benefits,
   price,
   highlight,
-  tryFree,
-  onTry,
+  // tryFree,
+  // onTry,
   animate = false,
 }: PlanCardProps) {
   return (
