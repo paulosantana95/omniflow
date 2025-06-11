@@ -62,9 +62,9 @@ export function PlanCard({
                 </li>
               ))}
             </ul>
-            <Button className="w-full cursor-pointer bg-gradient-to-br from-green-500 to-blue-500  text-primary text-base py-2 shadow-md text-shadow-2xs" onClick={onTry}>
+            {/* <Button className="w-full cursor-pointer bg-gradient-to-br from-green-500 to-blue-500  text-primary text-base py-2 shadow-md text-shadow-2xs" onClick={onTry}>
               {tryFree}
-            </Button>
+            </Button> */}
           </CardContent>
         </Card>
       </div>
