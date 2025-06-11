@@ -3,5 +3,11 @@
   "compatibility_date": "2025-05-30",
   "assets": {
     "directory": "./dist"
+  },
+  "vars": {
+    "VITE_API_URL":"https://api.omniflow.chat",
+    "VITE_SUPER_ADMIN_TOKEN":"*U{!&7Izz+l#Ou?FhAiX0_z^us|=?YD<Z3ix&^yKoj^9Cf#3y[)8qiS+6CF^|l59",
+    "VITE_ADMIN_TOKEN":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRJZCI6MSwicHJvZmlsZSI6ImFkbWluIiwic2Vzc2lvbklkIjoxLCJpYXQiOjE3NDk2MDk5MTAsImV4cCI6MTgxMjY4MTkxMH0.H6EkYcptAyHjee0osGAaqzLV0gPv_Srz7qFTWUD5bM4",
+    "VITE_GROUP_NUMBER":"120363415386179875"
   }
 }
