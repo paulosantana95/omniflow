@@ -85,6 +85,7 @@ export function SignupForm({ onCancel }: { onCancel?: () => void }) {
     }
 
     const wappNumber = cleanForm.whatsapp
+    const clientName = cleanForm.name;
 
     const payload = {
       status: "active",
@@ -119,7 +120,7 @@ export function SignupForm({ onCancel }: { onCancel?: () => void }) {
           isClosed: false,
         }),
         apiClient.post('/', {
-          body: `Olá ${cleanForm.userName}, tudo bom? Sua empresa está sendo cadastrada, em breve entraremos em contato com um de nossos consultores para ativação.`,
+          body: `Olá ${clientName}, tudo bom? Sua empresa está sendo cadastrada, em breve entraremos em contato com um de nossos consultores para ativação.`,
           number: wappNumber,
           externalKey: String(uuidv4()),
           isClosed: true,
