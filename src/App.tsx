@@ -86,6 +86,8 @@ export default function App() {
 
   // Autoplay effect
   useEffect(() => {
+    console.log(import.meta.env.VITE_API_URL);
+
     if (!emblaApi) return;
     const autoplay = () => {
       if (!emblaApi) return;
