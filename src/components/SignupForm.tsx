@@ -2,9 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useState } from "react";
-import { api, apiClient } from "@/lib/axios";
 import { toast } from "sonner";
-import { v4 as uuidv4 } from 'uuid';
+import { n8n } from "@/lib/axios";
 
 export function SignupForm({ onCancel }: { onCancel?: () => void }) {
   const [form, setForm] = useState({
@@ -84,9 +83,6 @@ export function SignupForm({ onCancel }: { onCancel?: () => void }) {
       return;
     }
 
-    const wappNumber = cleanForm.whatsapp
-    const clientName = cleanForm.name;
-
     const payload = {
       status: "active",
       name: cleanForm.companyName,
@@ -98,36 +94,12 @@ export function SignupForm({ onCancel }: { onCancel?: () => void }) {
       userName: cleanForm.name,
       profile: "admin",
       acceptTerms: acceptTerms,
+      wppNumber: cleanForm.whatsapp
     };
     console.log("Payload:", payload);
 
     try {
-      const result = await api.post('/tenantApiStoreTenant', payload);
-
-      if (result.data?.tenant?.id && result.data?.tenant?.identity) {
-        console.log(result.data)
-        await api.post('/tenantApiUpdateTenant', {
-          identity: result.data.tenant.identity,
-          status: 'inactive'
-        })
-      }
-
-      await Promise.all([
-        apiClient.post('/group', {
-          body: `Empresa ${result.data.tenant.name} foi criada com sucesso! Algum administrador precisa ativar a conta e entrar em contato com o cliente de número ${wappNumber} no whatsapp para finalizar o processo de criação e orientação.`,
-          number: import.meta.env.VITE_GROUP_NUMBER,
-          externalKey: String(uuidv4()),
-          isClosed: false,
-        }),
-        apiClient.post('/', {
-          body: `Olá ${clientName}, tudo bom? Sua empresa está sendo cadastrada, em breve entraremos em contato com um de nossos consultores para ativação.`,
-          number: wappNumber,
-          externalKey: String(uuidv4()),
-          isClosed: true,
-        })
-      ])
-
-
+      await n8n.post('/create-tenant', payload);
       toast.success("Conta criada com sucesso! Em breve entraremos em contato.");
       if (onCancel) onCancel();
     } catch (error) {
