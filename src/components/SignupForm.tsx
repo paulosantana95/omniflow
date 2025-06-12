@@ -96,7 +96,6 @@ export function SignupForm({ onCancel }: { onCancel?: () => void }) {
       acceptTerms: acceptTerms,
       wppNumber: cleanForm.whatsapp
     };
-    console.log("Payload:", payload);
 
     try {
       await n8n.post('/create-tenant', payload);

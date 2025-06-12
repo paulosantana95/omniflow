@@ -4,6 +4,5 @@ export const n8n = axios.create({
   baseURL: import.meta.env.VITE_N8N_WEBHOOK_URL,
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': `Bearer ${import.meta.env.VITE_SUPER_ADMIN_TOKEN}`
   }
 });
