@@ -366,7 +366,15 @@ export default function App() {
           <footer className="bg-primary-foreground text-primary py-10 px-4 text-sm shadow-md border-t border-border">
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
               <a className="flex items-center gap-2 cursor-pointer" href="#start">
-                <img src="/logo.png" alt="Omniflow" className="w-28 h-auto" />
+                <img
+                  src={
+                    theme === 'dark' || (theme === 'system' && isSystemDark)
+                      ? '/logo-dark.png'
+                      : '/logo.png'
+                  }
+                  alt="Omniflow"
+                  className="w-28 h-auto"
+                />
                 <span className="font-bold text-base hidden">Omniflow</span>
               </a>
               <nav className="flex flex-wrap gap-4 text-muted-foreground -ml-16">
@@ -379,7 +387,7 @@ export default function App() {
               </nav>
               <div className="flex gap-3">
                 <a href="https://wa.me/558596738254" target="_blank" rel="noopener" aria-label="WhatsApp">
-                  <img src="/whatsapp.png" alt="WhatsApp" className="w-6 h-6" />
+                  <img src="/whatsapp.png" alt="WhatsApp" className="w-6 h-6 object-contain dark:invert" />
                 </a>
                 {/* <a href="https://www.linkedin.com/company/omniflow" target="_blank" rel="noopener" aria-label="LinkedIn">
                   <img src="/linkedin.png" alt="LinkedIn" className="w-6 h-6" />
