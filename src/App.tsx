@@ -54,7 +54,7 @@ export default function App() {
         '3 Usuários',
         '1 Canal de Atendimento',
         'Gerenciamento de Grupos (Whatsapp)',
-        'Chat bot integrado com IA (Custo direcionado ao Cliente em caso de uso com IA)',
+        'Chat bot integrado com IA (Custo da IA não incluso)',
         'Chat Entre Usuários',
         '700 Atendimentos/mês',
         'Armazenamento de 1GB de Dados(16R$ por GB adicional)',
