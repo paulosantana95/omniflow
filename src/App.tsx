@@ -377,7 +377,7 @@ export default function App() {
                 />
                 <span className="font-bold text-base hidden">Omniflow</span>
               </a>
-              <nav className="flex flex-wrap gap-4 text-muted-foreground -ml-16">
+              <nav className="flex flex-wrap gap-4 text-muted-foreground">
                 <a href="#start" className="hover:text-primary transition">Planos</a>
                 <a href="#plans" className="hover:text-primary transition">Inicio</a>
                 <a href="#faq" className="hover:text-primary transition">FAQ</a>
