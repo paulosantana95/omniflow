@@ -396,7 +396,7 @@ export default function App() {
               </div>
             </div>
             <div className="mt-6 text-center text-xs text-muted-foreground">
-              © {new Date().getFullYear()} Omniflow – Todos os direitos reservados.
+              © {new Date().getFullYear()} Omni<span className="bg-gradient-to-br from-green-500 to-blue-500 bg-clip-text text-transparent">flow</span> – Todos os direitos reservados.
             </div>
           </footer>
 
