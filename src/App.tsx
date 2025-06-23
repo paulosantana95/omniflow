@@ -46,7 +46,86 @@ export default function App() {
     AOS.init({ once: true });
   }, []);
 
-  const planPrices = ["R$-/mês", "R$-/mês", "R$-/mês"];
+
+  const plans1 = [
+    {
+      title: 'Start',
+      benefits: [
+        '3 Usuários',
+        '1 Canal de Atendimento',
+        'Gerenciamento de Grupos (Whatsapp)',
+        'Chat Entre Usuários',
+        '700 Atendimentos/mês',
+        'Armazenamento de 1GB de Dados(16R$ por GB adicional)',
+      ],
+      price: "R$49,90/mês",
+      highlight: null,
+      tryFree: t.tryFree,
+    },
+    {
+      title: 'Connect',
+      benefits: [
+        'Tudo do plano Start',
+        '6 Usuários',
+        '2 Canais de Atendimento',
+        'Relatórios Avançados',
+        'Equipes',
+        '1200 Atendimentos/mês',
+        'Armazenamento de 3GB de Dados(12R$ por GB adicional)',
+      ],
+      price: "R$79,90/mês",
+      highlight: null,
+      tryFree: t.tryFree,
+    },
+    {
+      title: 'Boost',
+      benefits: [
+        'Tudo do plano Connect',
+        '12 Usuários',
+        '4 Canais de Atendimento',
+        'CRM Integrado com Kanban, Funil de Vendas e Checklist de Tarefas',
+        'Até 10 Campanhas de Marketing/mês',
+        'Até 20 Disparos em Massa/mês',
+        '2200 Atendimentos/mês',
+        'Armazenamento de 5GB de Dados(10R$ por GB adicional)',
+      ],
+      price: "R$149,90/mês",
+      highlight: true,
+      tryFree: t.tryFree,
+    },
+  ]
+
+  const plans2 = [
+    {
+      title: 'Infinity',
+      benefits: [
+        'Tudo do plano Boost',
+        'Usuários e Canais Ilimitados',
+        'Atendimentos Ilimitados',
+        'Suporte Prioritário',
+        'Integração com API',
+        'Campanhas de Marketing Ilimitadas',
+        'Disparos em Massa Ilimitados',
+        'Armazenamento de 8GB de Dados(10R$ por GB adicional)',
+      ],
+      price: "R$699,90/mês",
+      highlight: null,
+      tryFree: t.tryFree,
+    },
+    {
+      title: 'Omni',
+      benefits: [
+        'Se encaixa no plano que sua empresa precisa',
+        'Usuários e Canais a definir',
+        'Atendimentos a definir',
+        'Funcionalidades personalizadas',
+        'Integração conforme a necessidade da empresa',
+      ],
+      price: "Solicite uma proposta",
+      highlight: null,
+      tryFree: "Solicite uma proposta",
+    },
+  ]
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -194,19 +273,36 @@ export default function App() {
 
           <section id="plans" className="bg-muted text-primary py-16 px-4 sm:px-6 text-center shadow-md" data-aos="fade-up">
             <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-shadow-2xs">{t.plans}</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-              {t.planTitle.map((title, index) => (
-                <PlanCard
-                  key={index}
-                  title={title}
-                  benefits={t.benefits}
-                  highlight={index === 1 ? t.bestValue : null}
-                  tryFree={t.tryFree}
-                  price={planPrices[index]}
-                  onTry={() => setOpenForm(true)}
-                  animate={index === 1}
-                />
-              ))}
+            <div className="max-w-7xl mx-auto">
+              {/* Primeira linha: 3 primeiros planos */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 min-h-[568px]">
+                {plans1.map((plan, index) => (
+                  <div key={index} className="flex justify-center">
+                    <PlanCard
+                      title={plan.title}
+                      benefits={plan.benefits}
+                      highlight={plan.highlight}
+                      buttonTitle={plan.tryFree}
+                      price={plan.price}
+                      onTry={() => setOpenForm(true)}
+                    />
+                  </div>
+                ))}
+              </div>
+              {/* Segunda linha: 2 últimos planos */}
+              <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 min-h-[568px]">
+                {plans2.map((plan, index) => (
+                  <PlanCard
+                    key={index}
+                    title={plan.title}
+                    benefits={plan.benefits}
+                    highlight={plan.highlight}
+                    buttonTitle={plan.tryFree}
+                    price={plan.price}
+                    onTry={() => setOpenForm(true)}
+                  />
+                ))}
+              </div>
             </div>
           </section>
 
@@ -267,9 +363,33 @@ export default function App() {
             </div>
           </section> */}
           <div className="w-full h-1 rounded-full bg-gradient-to-br from-green-500 to-blue-500" />
-          <footer className="bg-primary-foreground text-primary py-10 text-center text-sm shadow-md">
-            <p>© {new Date().getFullYear()} <span className="font-bold">Omniflow</span> – Todos os direitos reservados.</p>
-            <p className="mt-2">Feito com ❤️ para empresas que valorizam atendimento de qualidade.</p>
+          <footer className="bg-primary-foreground text-primary py-10 px-4 text-sm shadow-md border-t border-border">
+            <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+              <a className="flex items-center gap-2 cursor-pointer" href="#start">
+                <img src="/logo.png" alt="Omniflow" className="w-28 h-auto" />
+                <span className="font-bold text-base hidden">Omniflow</span>
+              </a>
+              <nav className="flex flex-wrap gap-4 text-muted-foreground -ml-16">
+                <a href="#start" className="hover:text-primary transition">Planos</a>
+                <a href="#plans" className="hover:text-primary transition">Inicio</a>
+                <a href="#faq" className="hover:text-primary transition">FAQ</a>
+                <a href="#contact" className="hover:text-primary transition">Contato</a>
+                <a href="/privacidade" className="hover:text-primary transition">Privacidade</a>
+                <a href="/termos" className="hover:text-primary transition">Termos</a>
+              </nav>
+              <div className="flex gap-3">
+                <a href="https://wa.me/558596738254" target="_blank" rel="noopener" aria-label="WhatsApp">
+                  <img src="/whatsapp.png" alt="WhatsApp" className="w-6 h-6" />
+                </a>
+                {/* <a href="https://www.linkedin.com/company/omniflow" target="_blank" rel="noopener" aria-label="LinkedIn">
+                  <img src="/linkedin.png" alt="LinkedIn" className="w-6 h-6" />
+                </a> */}
+                {/* Adicione outros ícones conforme desejar */}
+              </div>
+            </div>
+            <div className="mt-6 text-center text-xs text-muted-foreground">
+              © {new Date().getFullYear()} Omniflow – Todos os direitos reservados.
+            </div>
           </footer>
 
           <Dialog open={openForm} onOpenChange={setOpenForm}>

@@ -26,7 +26,7 @@ export function ContactCard() {
               placeholder="Digite sua mensagem aqui..."
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              className="w-full mb-4"
+              className="w-full mb-4 focus-visible:border-green-500 focus-visible:ring-1 focus-visible:ring-green-500/50"
             />
             <Button
               onClick={handleRedirect}

@@ -3,7 +3,7 @@ export const messages = {
     home: "Início",
     headline: "Todos os seus canais de atendimentos em um só lugar",
     sub: "Transforme o atendimento da sua empresa com nosso sistema multicanal.",
-    tryFree: "Testar grátis",
+    tryFree: "Solicite um teste gratuito",
     plans: "Planos",
     contact: "Contato",
     faq: "Perguntas Frequentes",
