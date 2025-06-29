@@ -1,6 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { useState } from "react";
 import { toast } from "sonner";
 import { n8n } from "@/lib/axios";
@@ -12,6 +21,7 @@ export function SignupForm({ onCancel }: { onCancel?: () => void }) {
     email: "",
     whatsapp: "",
     document: "",
+    plan: "",
     password: "",
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -27,6 +37,7 @@ export function SignupForm({ onCancel }: { onCancel?: () => void }) {
       const doc = form.document.replace(/\D/g, "");
       if (!(validateCPF(doc) || validateCNPJ(doc))) newErrors.document = "CPF/CNPJ inválido";
     }
+    if (!form.plan.trim()) newErrors.plan = "Selecione um plano para teste";
     if (!form.password.trim()) newErrors.password = "Senha é obrigatória";
     return newErrors;
   };
@@ -94,7 +105,8 @@ export function SignupForm({ onCancel }: { onCancel?: () => void }) {
       userName: cleanForm.name,
       profile: "admin",
       acceptTerms: acceptTerms,
-      wppNumber: cleanForm.whatsapp
+      wppNumber: cleanForm.whatsapp,
+      selectedPlan: cleanForm.plan
     };
 
     try {
@@ -114,6 +126,7 @@ export function SignupForm({ onCancel }: { onCancel?: () => void }) {
       email: "",
       whatsapp: "",
       document: "",
+      plan: "",
       password: "",
     });
     setErrors({});
@@ -206,6 +219,27 @@ export function SignupForm({ onCancel }: { onCancel?: () => void }) {
         />
         <span className={`text-red-500 text-xs mt-1 min-h-[18px] block ${errors.password ? "" : "opacity-0"}`}>
           {errors.password || "placeholder"}
+        </span>
+      </div>
+
+      <div className="flex flex-col gap-1">
+        <Select value={form.plan} onValueChange={(value) => handleChange("plan", value)}>
+          <SelectTrigger className="w-full focus:border-green-500 focus:ring-1 focus:ring-green-500/50 data-[state=open]:border-green-500 data-[state=open]:ring-1 data-[state=open]:ring-green-500/50">
+            <SelectValue placeholder="Selecione o plano desejado" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              <SelectLabel>Selecione o plano desejado</SelectLabel>
+              <SelectItem value="start">Start - R$49,90/mês</SelectItem>
+              <SelectItem value="connect">Connect - R$79,90/mês</SelectItem>
+              <SelectItem value="boost">Boost - R$149,90/mês (Mais Popular)</SelectItem>
+              <SelectItem value="infinity">Infinity - R$699,90/mês</SelectItem>
+              <SelectItem value="omni">Omni - Proposta Personalizada</SelectItem>
+            </SelectGroup>
+          </SelectContent>
+        </Select>
+        <span className={`text-red-500 text-xs mt-1 min-h-[18px] block ${errors.plan ? "" : "opacity-0"}`}>
+          {errors.plan || "placeholder"}
         </span>
       </div>
 
