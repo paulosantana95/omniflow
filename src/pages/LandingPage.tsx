@@ -334,7 +334,7 @@ export default function LandingPage() {
 
         <section id="contact" className=" bg-background text-primary py-16 px-4 shadow-md sm:px-6" data-aos="fade-up">
           <h2 className="text-2xl sm:text-3xl font-bold text-center text-shadow-2xs">
-            Ficou interessado e quer sabre o Omni
+            Ficou interessado e quer saber mais sobre o Omni
             <span className="bg-gradient-to-br from-green-500 to-blue-500 bg-clip-text text-transparent">flow</span> ?
           </h2>
           <div className="max-w-3xl mx-auto">
