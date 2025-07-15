@@ -363,7 +363,7 @@ export default function LandingPage() {
               <a href="#faq" className="hover:text-primary transition">FAQ</a>
               <a href="#contact" className="hover:text-primary transition">Contato</a>
               <a href="/privacidade" className="hover:text-primary transition">Privacidade</a>
-              <Link to="/termos-de-uso" className="hover:text-primary transition">Termos</Link>
+              <Link to="/termos-de-uso" target="_blank" className="hover:text-primary transition">Termos</Link>
             </nav>
             <div className="flex gap-3">
               <a href="https://wa.me/558597095694" target="_blank" rel="noopener" aria-label="WhatsApp">

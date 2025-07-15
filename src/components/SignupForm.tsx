@@ -253,7 +253,7 @@ export function SignupForm({ onCancel }: { onCancel?: () => void }) {
             onCheckedChange={checked => setAcceptTerms(checked === true)}
             className="focus-visible:ring-green-500/50 focus-visible:border-green-500"
           />
-          <span>Li e aceito os <Link to="/termos-de-uso" target="_blank" rel="noopener" className="text-green-600 hover:underline">Termos de uso</Link></span>
+          <span>Li e aceito os <Link to="/termos-de-uso" target="_blank" className="text-green-600 hover:underline">Termos de uso</Link></span>
         </label>
         <span className={`text-red-500 text-xs mt-1 min-h-[18px] block ${!acceptTerms ? "" : "opacity-0"}`}>
           {!acceptTerms ? "Você deve aceitar os termos" : "placeholder"}
