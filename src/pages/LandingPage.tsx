@@ -366,7 +366,7 @@ export default function LandingPage() {
               <Link to="/termos-de-uso" className="hover:text-primary transition">Termos</Link>
             </nav>
             <div className="flex gap-3">
-              <a href="https://wa.me/558596738254" target="_blank" rel="noopener" aria-label="WhatsApp">
+              <a href="https://wa.me/558597095694" target="_blank" rel="noopener" aria-label="WhatsApp">
                 <img src="/whatsapp.png" alt="WhatsApp" className="w-6 h-6 object-contain dark:invert" />
               </a>
             </div>

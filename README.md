@@ -1,54 +1,92 @@
-# React + TypeScript + Vite
+# Omniflow Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Landing page para o Omniflow com React + TypeScript + Vite + shadcn/ui.
 
-Currently, two official plugins are available:
+## 🚀 Deploy no Cloudflare Pages
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Este projeto está configurado para funcionar perfeitamente no Cloudflare Pages como uma SPA (Single Page Application).
 
-## Expanding the ESLint configuration
+### Configurações importantes:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. **Build Command**: `npm run build`
+2. **Build Output Directory**: `dist`
+3. **Node.js Version**: 18 ou superior
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### Arquivos de configuração:
+
+- `public/_redirects`: Configura o roteamento SPA para o Cloudflare Pages
+- `public/_headers`: Configura cache e headers de segurança
+- `wrangler.json`: Configurações específicas do Cloudflare
+
+### Rotas disponíveis:
+
+- `/` - Página principal
+- `/termos-de-uso` - Termos de uso
+
+## 🛠️ Desenvolvimento
+
+Para iniciar o ambiente de desenvolvimento, siga estes passos:
+
+1. **Instalação das dependências**:
+
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. **Execução do servidor de desenvolvimento**:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+npm run dev
 ```
+
+3. **Acesso à aplicação**:
+
+Abra seu navegador e acesse `http://localhost:5173`.
+
+### Estrutura de pastas
+
+A estrutura de pastas deste projeto foi organizada da seguinte forma:
+
+```
+src/
+├── app/
+│   ├── api/
+│   ├── components/
+│   ├── hooks/
+│   ├── layouts/
+│   ├── pages/
+│   └── styles/
+├── public/
+│   ├── _headers
+│   └── _redirects
+├── tests/
+└── wrangler.json
+```
+
+- **app/**: Contém todo o código fonte da aplicação.
+- **public/**: Arquivos públicos, como redirects e headers para o Cloudflare.
+- **tests/**: Testes automatizados.
+- **wrangler.json**: Configurações do Cloudflare Workers.
+
+## 🔧 Configurações Adicionais
+
+Para um melhor desenvolvimento e integração contínua, considere as seguintes configurações:
+
+- **EditorConfig**: Um arquivo `.editorconfig` está incluído para padronizar configurações de editor entre diferentes IDEs e editores.
+- **Linting e Formatação**: Utilize o ESLint e Prettier para manter a qualidade e padronização do código. Configurações recomendadas estão incluídas.
+- **Git Hooks**: Hooks do Git estão configurados para rodar linting e testes automaticamente em commits e pushes.
+
+## 📚 Documentação
+
+Para mais informações sobre as tecnologias e ferramentas utilizadas neste projeto, consulte:
+
+- [React](https://reactjs.org/docs/getting-started.html)
+- [TypeScript](https://www.typescriptlang.org/docs/)
+- [Vite](https://vitejs.dev/guide/)
+- [shadcn/ui](https://ui.shadcn.com/docs)
+- [Cloudflare Pages](https://developers.cloudflare.com/pages)
+
+
+## 📝 Licença
+
+Este projeto está licenciado sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
