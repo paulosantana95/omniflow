@@ -9,7 +9,7 @@ export function ContactCard() {
 
   const handleRedirect = () => {
     const formatted = encodeURIComponent(message.trim());
-    window.open(`https://wa.me/558596738254?text=${formatted}`, "_blank");
+    window.open(`https://wa.me/558597095694?text=${formatted}`, "_blank");
   };
 
   return (

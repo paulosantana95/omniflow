@@ -49,7 +49,7 @@ export default function LandingPage() {
     {
       title: 'Start',
       benefits: [
-        '3 Usuários',
+        '2 Usuários',
         '1 Canal de Atendimento',
         'Gerenciamento de Grupos (Whatsapp)',
         'Chat bot integrado com IA (Custo da IA não incluso)',
@@ -377,14 +377,14 @@ export default function LandingPage() {
         </footer>
 
         <Dialog open={openForm} onOpenChange={setOpenForm}>
-          <DialogContent className="bg-background text-primary max-w-md">
+          <DialogContent className="bg-background text-primary max-w-md max-h-[90vh] overflow-y-auto">
             <DialogHeader>
               <DialogTitle>Cadastre-se e teste grátis!</DialogTitle>
             </DialogHeader>
             <SignupForm onCancel={() => setOpenForm(false)} />
           </DialogContent>
         </Dialog>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 }

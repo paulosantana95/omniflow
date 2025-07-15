@@ -18,6 +18,7 @@ function useSystemTheme() {
 }
 
 import { useState, useEffect } from "react";
+import { ModeToggle } from "@/components/mode-toggle";
 
 export default function TermosDeUso() {
   const { theme } = useTheme();
@@ -29,7 +30,7 @@ export default function TermosDeUso() {
       <nav className="w-full bg-background flex items-center justify-between shadow-md py-4 px-4">
         <div className="flex items-center gap-4">
           <Link to="/">
-            <Button variant="ghost" size="sm" className="flex items-center gap-2">
+            <Button variant="ghost" size="sm" className="flex items-center gap-2 cursor-pointer">
               <ArrowLeft className="w-4 h-4" />
               Voltar
             </Button>
@@ -43,6 +44,9 @@ export default function TermosDeUso() {
             }
             alt="Logo da Omniflow"
           />
+        </div>
+        <div className="flex justify-center md:justify-start w-full md:w-auto mt-2 md:mt-0">
+          <ModeToggle />
         </div>
       </nav>
 
@@ -185,14 +189,14 @@ export default function TermosDeUso() {
             <p>
               Para dúvidas sobre estes Termos e Condições de Uso, entre em contato conosco:
             </p>
-            <div className="bg-muted p-4 rounded-lg">
-              <p><strong>WhatsApp:</strong> <a href="https://wa.me/558596738254" className="text-green-600 hover:underline">+55 85 9673-8254</a></p>
-              <p><strong>Email:</strong> contato@omniflow.com.br</p>
+            <div className="bg-muted p-4 rounded-lg mt-2">
+              <p><strong>WhatsApp:</strong> <a href="https://wa.me/558597095694" className="text-green-600 hover:underline">+55 85 9709-5694</a></p>
+              <p><strong>Email:</strong> contato@omniflow.chat</p>
             </div>
           </section>
 
           <div className="text-sm text-muted-foreground mt-8 pt-8 border-t">
-            <p><strong>Data de vigência:</strong> 01 de janeiro de 2024</p>
+            <p><strong>Data de vigência:</strong> 01 de Junho de 2025</p>
             <p><strong>Última atualização:</strong> {new Date().toLocaleDateString('pt-BR')}</p>
           </div>
         </div>
