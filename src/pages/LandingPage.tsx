@@ -130,6 +130,16 @@ export default function LandingPage() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  // Função para navegar para seções com âncoras
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    // Fechar menu mobile após navegar
+    setMobileMenuOpen(false);
+  };
+
   // Carousel Embla
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -191,7 +201,7 @@ export default function LandingPage() {
       <nav className="fixed top-0 left-0 w-full z-50 bg-background flex items-center justify-between shadow-md">
         <div className="flex items-center justify-between w-full max-w-7xl mx-auto">
           <div className="text-2xl font-bold cursor-pointer px-4" onClick={scrollToTop}>
-            <a href="#start" className="flex items-center gap-2">
+            <button onClick={() => scrollToSection('start')} className="flex items-center gap-2">
               <img
                 className="w-56"
                 src={
@@ -201,7 +211,7 @@ export default function LandingPage() {
                 }
                 alt="Logo da Omniflow - Atendimento Inteligente"
               />
-            </a>
+            </button>
           </div>
           <div className="md:hidden px-4">
             <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
@@ -209,10 +219,10 @@ export default function LandingPage() {
             </button>
           </div>
           <div className={`md:flex flex-wrap items-center gap-4 text-primary px-4 ${mobileMenuOpen ? "block absolute top-full left-0 w-full bg-background py-4 shadow-lg z-50" : "hidden md:flex"}`}>
-            <a href="#start" className="block cursor-pointer font-semibold text-md hover:text-muted-foreground text-shadow-2xs py-2 md:py-0 text-center">{t.home ?? "Início"}</a>
-            <a href="#plans" className="block cursor-pointer font-semibold text-md hover:text-muted-foreground text-shadow-2xs py-2 md:py-0 text-center">{t.plans}</a>
-            <a href="#faq" className="block cursor-pointer font-semibold text-md hover:text-muted-foreground text-shadow-2xs py-2 md:py-0 text-center">FAQ</a>
-            <a href="#contact" className="block cursor-pointer font-semibold text-md hover:text-muted-foreground text-shadow-2xs py-2 md:py-0 text-center">Contato</a>
+            <button onClick={() => scrollToSection('start')} className="block cursor-pointer font-semibold text-md hover:text-muted-foreground text-shadow-2xs py-2 md:py-0 text-center">{t.home ?? "Início"}</button>
+            <button onClick={() => scrollToSection('plans')} className="block cursor-pointer font-semibold text-md hover:text-muted-foreground text-shadow-2xs py-2 md:py-0 text-center">{t.plans}</button>
+            <button onClick={() => scrollToSection('faq')} className="block cursor-pointer font-semibold text-md hover:text-muted-foreground text-shadow-2xs py-2 md:py-0 text-center">FAQ</button>
+            <button onClick={() => scrollToSection('contact')} className="block cursor-pointer font-semibold text-md hover:text-muted-foreground text-shadow-2xs py-2 md:py-0 text-center">Contato</button>
             <Button variant="outline" className="ml-0 md:ml-8 shadow-md w-full md:w-auto mt-2 md:mt-0 cursor-pointer" onClick={() => setOpenForm(true)}>Registrar-se</Button>
             <Button variant="default" asChild className="shadow-md w-full md:w-auto mt-2 md:mt-0">
               <a href="https://app.omniflow.chat">
@@ -345,7 +355,7 @@ export default function LandingPage() {
         <div className="w-full h-1 rounded-full bg-gradient-to-br from-green-500 to-blue-500" />
         <footer className="bg-primary-foreground text-primary py-10 px-4 text-sm shadow-md border-t border-border">
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-            <a className="flex items-center gap-2 cursor-pointer" href="#start">
+            <button onClick={() => scrollToSection('start')} className="flex items-center gap-2 cursor-pointer">
               <img
                 src={
                   theme === 'dark' || (theme === 'system' && isSystemDark)
@@ -356,12 +366,12 @@ export default function LandingPage() {
                 className="w-28 h-auto"
               />
               <span className="font-bold text-base hidden">Omniflow</span>
-            </a>
+            </button>
             <nav className="flex flex-wrap gap-4 text-muted-foreground">
-              <a href="#start" className="hover:text-primary transition">Inicio</a>
-              <a href="#plans" className="hover:text-primary transition">Planos</a>
-              <a href="#faq" className="hover:text-primary transition">FAQ</a>
-              <a href="#contact" className="hover:text-primary transition">Contato</a>
+              <button onClick={() => scrollToSection('start')} className="hover:text-primary transition">Inicio</button>
+              <button onClick={() => scrollToSection('plans')} className="hover:text-primary transition">Planos</button>
+              <button onClick={() => scrollToSection('faq')} className="hover:text-primary transition">FAQ</button>
+              <button onClick={() => scrollToSection('contact')} className="hover:text-primary transition">Contato</button>
               <a href="/privacidade" className="hover:text-primary transition">Privacidade</a>
               <Link to="/termos-de-uso" target="_blank" className="hover:text-primary transition">Termos</Link>
             </nav>
