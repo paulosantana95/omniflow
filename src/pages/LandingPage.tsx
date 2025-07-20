@@ -278,6 +278,59 @@ export default function LandingPage() {
           </div>
         </header>
 
+        <section id="discovery" className="bg-muted text-primary py-16 px-4 sm:px-6 shadow-md" data-aos="fade-up">
+          <div className="flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-16 max-w-7xl mx-auto">
+            <div className="w-full my-auto lg:w-xl">
+              <div>
+                <h3 className="text-lg sm:text-xl mb-6 lg:mb-8 text-shadow-2xs underline decoration-green-500 underline-offset-6 decoration-3">
+                  Conheça
+                </h3>
+                <h1 className="text-primary font-bold text-shadow-xs mb-4 text-2xl sm:text-3xl">O que é o Omni<span className="bg-gradient-to-br from-green-500 to-blue-500 bg-clip-text text-transparent">flow</span> ?</h1>
+                <h2 className="text-base text-shadow-2xs sm:text-lg lg:text-xl">Um sistema completo de chatbots, I.As, automações e gestão de atendimento com multiusuários para WhatsApp e vários outros canais de conversa.</h2>
+              </div>
+              <div className="mt-8">
+                <h3 className="text-sm sm:text-md mb-4 lg:mb-2 text-shadow-xs">
+                  Concentre todas as suas mensagens
+                </h3>
+                <h1 className="text-primary text-shadow-2xs font-bold mb-4 text-2xl sm:text-3xl underline decoration-blue-500 underline-offset-2 decoration-5">Múltiplos Canais
+                  de atendimento</h1>
+                <h2 className="text-base text-shadow-2xs sm:text-lg lg:text-xl">API WhatsApp Oficial (WABA), APIs WhatsApp não oficiais (bailyes, webjs, meow, evolution), Hub Notificame (Facebook Messenger, Instagram, Webchat, Email), Telegram.</h2>
+              </div>
+            </div>
+            <div className="w-full my-auto lg:w-xl hidden lg:block">
+              <img src="/whatsapp-interface.svg" alt="Omniflow Logo" className="w-150 h-100 mx-auto mb-8" />
+            </div>
+          </div>
+
+
+        </section>
+
+        <section id="about" className="bg-background text-primary py-16 px-4 sm:px-6 shadow-md" data-aos="fade-up">
+          <div className="flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-16 max-w-7xl mx-auto">
+            <div className="w-full my-auto lg:w-xl hidden lg:block">
+              <img src="/omni-arts.svg" alt="Omniflow Logo" className="w-150 h-100 mx-auto mb-8" />
+            </div>
+            <div>
+              <div className="w-full lg:w-xl">
+                <div className="my-auto">
+                  <h3 className="text-lg sm:text-xl mb-4 lg:mb-8 text-shadow-2xs relative inline-block underline decoration-blue-500 underline-offset-6 decoration-3">
+                    Solução para seu atendimento
+                  </h3>
+                  <h1 className="text-primary font-bold mb-4 text-2xl text-shadow-xs sm:text-3xl">Conquiste e Retenha Mais Clientes</h1>
+                  <h2 className="text-base sm:text-lg lg:text-xl">O Omni<span className="bg-gradient-to-br from-green-500 to-blue-500 bg-clip-text text-transparent">flow</span> é um sistema avançado que une a gestão de multi-atendimentos com um construtor de chatbots nativo e diversas integrações com ferramentas de automação e I.As.</h2>
+                </div>
+                <div className="mt-8">
+                  <h3 className="text-sm sm:text-md mb-4 lg:mb-2 text-shadow-2xs relative inline-block">
+                    Integrações Nativas
+                  </h3>
+                  <h1 className="text-primary font-bold mb-4 text-2xl sm:text-3xl relative inline-block  underline decoration-green-500 underline-offset-2 decoration-5">Chatbots, Ferramentas de Automação e APIs</h1>
+                  <h2 className="text-base sm:text-lg lg:text-xl">Integre-se facilmente com aplicativos externos usando nossas APIs e Webhooks, ou aproveite nossas integrações nativas com Typebot, Dify.ai, Chat GPT, LM Studio, Wavoip e vários outros canais de atendimento através do Hub Notificame</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section id="plans" className="bg-muted text-primary py-16 px-4 sm:px-6 text-center shadow-md" data-aos="fade-up">
           <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-shadow-2xs">{t.plans}</h2>
           <div className="max-w-7xl mx-auto">
@@ -342,8 +395,8 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section id="contact" className=" bg-background text-primary py-16 px-4 shadow-md sm:px-6" data-aos="fade-up">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center text-shadow-2xs">
+        <section id="contact" className="bg-background text-primary py-12 sm:py-16 px-4 shadow-md sm:px-6" data-aos="fade-up">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-center text-shadow-2xs mb-6 sm:mb-8">
             Ficou interessado e quer saber mais sobre o Omni
             <span className="bg-gradient-to-br from-green-500 to-blue-500 bg-clip-text text-transparent">flow</span> ?
           </h2>
