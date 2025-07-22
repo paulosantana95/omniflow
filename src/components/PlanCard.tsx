@@ -61,7 +61,7 @@ export function PlanCard({
               ))}
             </ul>
             <div className="w-full mt-auto">
-              <Button className="w-full cursor-pointer bg-gradient-to-br from-green-500 to-blue-500  text-primary text-base py-2 shadow-md text-shadow-2xs" onClick={onTry}>
+              <Button className="w-full cursor-pointer bg-gradient-to-br from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-primary text-base py-2 shadow-md hover:shadow-lg text-shadow-2xs transition-all duration-300 hover:scale-105" onClick={onTry}>
                 {buttonTitle}
               </Button>
             </div>

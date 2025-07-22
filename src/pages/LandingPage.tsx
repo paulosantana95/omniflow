@@ -268,7 +268,7 @@ export default function LandingPage() {
                 {slides.map((_, idx) => (
                   <button
                     key={idx}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${selectedIndex === idx ? 'bg-gradient-to-br from-green-500 to-blue-5000 scale-125' : 'bg-muted-foreground/40'}`}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${selectedIndex === idx ? 'bg-gradient-to-br from-green-500 to-blue-5000 scale-125' : 'bg-muted-foreground/40'} cursor-pointer`}
                     onClick={() => emblaApi && emblaApi.scrollTo(idx)}
                     aria-label={`Ir para slide ${idx + 1}`}
                   />
