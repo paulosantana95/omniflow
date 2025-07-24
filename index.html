@@ -50,9 +50,9 @@
     const widgetHTML = `
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@7.2.96/css/materialdesignicons.min.css" rel="stylesheet">
     <div id="channel-chat-widget">
-        <button id="channel-chat-button">
+        <div id="channel-chat-button">
             <img src="/omniflow-icon.ico" alt="Omniflow Chat">
-        </button>
+        </div>
     </div>
 
     <div id="channel-chat-container">
@@ -84,10 +84,11 @@
         #channel-chat-button {
             width: 60px;
             height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #3EC25A, #0F95D8);
+            // border-radius: 50%;
+            // background: linear-gradient(135deg, #3EC25A, #0F95D8);
+            background: transparent;
             border: none;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            // box-shadow: 0 2px 10px rgba(0,0,0,0.2);
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -100,8 +101,8 @@
         }
 
         #channel-chat-button img {
-            width: 30px;
-            height: 30px;
+            // width: 30px;
+            // height: 30px;
         }
 
         #channel-chat-container {
@@ -109,8 +110,8 @@
             position: fixed;
             bottom: 90px;
             right: 20px;
-            width: 320px;
-            height: 500px;
+            width: 460px;
+            height: 680px;
             background: #fff;
             border-radius: 16px;
             box-shadow: 0 4px 24px rgba(0,0,0,0.08);
@@ -155,6 +156,7 @@
             overflow-y: auto;
             padding: 16px;
             background: #f7fafd;
+            color: #1a1a1a;
         }
 
         #channel-chat-input-area {
@@ -188,6 +190,8 @@
             font-size: 14px;
             outline: none;
             margin-right: 8px;
+            background: #ffffff;
+            color: #1a1a1a;
         }
 
         #channel-chat-send {
@@ -222,6 +226,7 @@
             border-radius: 16px;
             word-break: break-word;
             font-size: 14px;
+            color: #1a1a1a;
         }
 
         .channel-sent {
@@ -229,6 +234,7 @@
             margin-left: auto;
             border-bottom-right-radius: 4px;
             border: 1px solid rgba(62, 194, 90, 0.2);
+            color: #1a1a1a;
         }
 
         .channel-received {
@@ -237,6 +243,7 @@
             border-bottom-left-radius: 4px;
             border: 1px solid #e3f2fd;
             box-shadow: 0 1px 2px rgba(62, 194, 90, 0.06);
+            color: #1a1a1a;
         }
 
         .channel-ack {
@@ -290,6 +297,262 @@
             border-radius: 4px;
         }
 
+        /* Default Light Mode - Força aplicação do modo claro */
+        #channel-chat-container:not(.dark-theme) {
+            background: #fff !important;
+            border: 1px solid #e0e0e0 !important;
+        }
+
+        #channel-chat-messages:not(.dark-theme) {
+            background: #f7fafd !important;
+            color: #1a1a1a !important;
+        }
+
+        #channel-chat-input-area:not(.dark-theme) {
+            background: #f7fafd !important;
+            border-top: 1px solid #e0e0e0 !important;
+        }
+
+        #channel-chat-input:not(.dark-theme) {
+            background: #ffffff !important;
+            border: 1px solid #cfd8dc !important;
+            color: #1a1a1a !important;
+        }
+
+        .channel-message:not(.dark-theme) {
+            color: #1a1a1a !important;
+        }
+
+        .channel-sent:not(.dark-theme) {
+            background: linear-gradient(135deg, rgba(62, 194, 90, 0.1), rgba(15, 149, 216, 0.1)) !important;
+            border: 1px solid rgba(62, 194, 90, 0.2) !important;
+            color: #1a1a1a !important;
+        }
+
+        .channel-received:not(.dark-theme) {
+            background: #fff !important;
+            border: 1px solid #e3f2fd !important;
+            box-shadow: 0 1px 2px rgba(62, 194, 90, 0.06) !important;
+            color: #1a1a1a !important;
+        }
+
+        /* Dark Mode Support */
+        @media (prefers-color-scheme: dark) {
+            #channel-chat-container {
+                background: #1e1e1e;
+                border: 1px solid #404040;
+            }
+
+            #channel-chat-messages {
+                background: #1e1e1e;
+                color: #e0e0e0;
+            }
+
+            #channel-chat-input-area {
+                background: #1e1e1e;
+                border-top: 1px solid #404040;
+            }
+
+            #channel-chat-input {
+                background: #2d2d2d;
+                border: 1px solid #404040;
+                color: #e0e0e0;
+            }
+
+            #channel-chat-input::placeholder {
+                color: #888;
+            }
+
+            .channel-message {
+                color: #e0e0e0;
+            }
+
+            .channel-sent {
+                background: linear-gradient(135deg, rgba(62, 194, 90, 0.2), rgba(15, 149, 216, 0.2));
+                border: 1px solid rgba(62, 194, 90, 0.3);
+                color: #e0e0e0;
+            }
+
+            .channel-received {
+                background: #2d2d2d;
+                border: 1px solid #404040;
+                box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+                color: #e0e0e0;
+            }
+
+            .channel-ack {
+                color: #aaa;
+            }
+
+            .channel-media-document {
+                background: #2d2d2d;
+                color: #e0e0e0;
+                border: 1px solid #404040;
+            }
+
+            .channel-media-caption {
+                background: #2d2d2d;
+                color: #ccc;
+                border: 1px solid #404040;
+            }
+
+            /* Melhor contraste para timestamps */
+            .channel-message span[style*="color:#888"] {
+                color: #aaa !important;
+            }
+        }
+
+        /* Force Dark Mode Classes */
+        .dark #channel-chat-container,
+        [data-theme="dark"] #channel-chat-container {
+            background: #1e1e1e;
+            border: 1px solid #404040;
+        }
+
+        .dark #channel-chat-messages,
+        [data-theme="dark"] #channel-chat-messages {
+            background: #1e1e1e;
+            color: #e0e0e0;
+        }
+
+        .dark #channel-chat-input-area,
+        [data-theme="dark"] #channel-chat-input-area {
+            background: #1e1e1e;
+            border-top: 1px solid #404040;
+        }
+
+        .dark #channel-chat-input,
+        [data-theme="dark"] #channel-chat-input {
+            background: #2d2d2d;
+            border: 1px solid #404040;
+            color: #e0e0e0;
+        }
+
+        .dark #channel-chat-input::placeholder,
+        [data-theme="dark"] #channel-chat-input::placeholder {
+            color: #888;
+        }
+
+        .dark .channel-message,
+        [data-theme="dark"] .channel-message {
+            color: #e0e0e0;
+        }
+
+        .dark .channel-sent,
+        [data-theme="dark"] .channel-sent {
+            background: linear-gradient(135deg, rgba(62, 194, 90, 0.2), rgba(15, 149, 216, 0.2));
+            border: 1px solid rgba(62, 194, 90, 0.3);
+            color: #e0e0e0;
+        }
+
+        .dark .channel-received,
+        [data-theme="dark"] .channel-received {
+            background: #2d2d2d;
+            border: 1px solid #404040;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            color: #e0e0e0;
+        }
+
+        .dark .channel-ack,
+        [data-theme="dark"] .channel-ack {
+            color: #aaa;
+        }
+
+        .dark .channel-media-document,
+        [data-theme="dark"] .channel-media-document {
+            background: #2d2d2d;
+            color: #e0e0e0;
+            border: 1px solid #404040;
+        }
+
+        .dark .channel-media-caption,
+        [data-theme="dark"] .channel-media-caption {
+            background: #2d2d2d;
+            color: #ccc;
+            border: 1px solid #404040;
+        }
+
+        /* Classes dinâmicas para tema escuro */
+        .dark-theme#channel-chat-container {
+            background: #1e1e1e !important;
+            border: 1px solid #404040 !important;
+        }
+
+        .dark-theme#channel-chat-messages {
+            background: #1e1e1e !important;
+            color: #e0e0e0 !important;
+        }
+
+        .dark-theme#channel-chat-input-area {
+            background: #1e1e1e !important;
+            border-top: 1px solid #404040 !important;
+        }
+
+        .dark-theme#channel-chat-input {
+            background: #2d2d2d !important;
+            border: 1px solid #404040 !important;
+            color: #e0e0e0 !important;
+        }
+
+        .dark-theme#channel-chat-input::placeholder {
+            color: #888 !important;
+        }
+
+        .dark-theme.channel-message {
+            color: #e0e0e0 !important;
+        }
+
+        .dark-theme.channel-sent {
+            background: linear-gradient(135deg, rgba(62, 194, 90, 0.2), rgba(15, 149, 216, 0.2)) !important;
+            border: 1px solid rgba(62, 194, 90, 0.3) !important;
+            color: #e0e0e0 !important;
+        }
+
+        .dark-theme.channel-received {
+            background: #2d2d2d !important;
+            border: 1px solid #404040 !important;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+            color: #e0e0e0 !important;
+        }
+
+        .dark-theme .channel-ack {
+            color: #aaa !important;
+        }
+
+        .dark-theme .channel-media-document {
+            background: #2d2d2d !important;
+            color: #e0e0e0 !important;
+            border: 1px solid #404040 !important;
+        }
+
+        .dark-theme .channel-media-caption {
+            background: #2d2d2d !important;
+            color: #ccc !important;
+            border: 1px solid #404040 !important;
+        }
+
+        /* Melhorar visibilidade dos timestamps em modo escuro */
+        .dark-theme span[style*="color:#888"] {
+            color: #aaa !important;
+        }
+
+        .message-timestamp {
+            font-size: 10px;
+            color: #888;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .message-timestamp {
+                color: #aaa !important;
+            }
+        }
+
+        .dark .message-timestamp,
+        [data-theme="dark"] .message-timestamp,
+        .dark-theme .message-timestamp {
+            color: #aaa !important;
+        }
+
         @media (max-width: 480px) {
             #channel-chat-container {
                 width: 100%;
@@ -308,6 +571,85 @@
 
     // Adiciona o widget ao documento
     document.body.insertAdjacentHTML('beforeend', widgetHTML);
+
+    // Função para detectar tema atual
+    function isDarkModeActive() {
+        // Verificar preferências manuais primeiro
+        const hasManualDark = document.documentElement.classList.contains('dark') ||
+                             document.documentElement.getAttribute('data-theme') === 'dark' ||
+                             document.body.classList.contains('dark');
+        
+        const hasManualLight = document.documentElement.classList.contains('light') ||
+                              document.documentElement.getAttribute('data-theme') === 'light';
+        
+        // Se há preferência manual explícita, usar ela
+        if (hasManualDark) return true;
+        if (hasManualLight) return false;
+        
+        // Caso contrário, usar preferência do sistema
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        console.log('[WebChat] Detecção de tema:', {
+            hasManualDark,
+            hasManualLight,
+            systemPrefersDark,
+            resultado: hasManualDark || (!hasManualLight && systemPrefersDark)
+        });
+        
+        return systemPrefersDark;
+    }
+
+    // Função para detectar e aplicar tema
+    function applyTheme() {
+        const isDarkMode = isDarkModeActive();
+        
+        console.log('[WebChat] Aplicando tema:', isDarkMode ? 'escuro' : 'claro');
+        
+        const chatContainer = document.getElementById('channel-chat-container');
+        const chatMessages = document.getElementById('channel-chat-messages');
+        const chatInputArea = document.getElementById('channel-chat-input-area');
+        const chatInput = document.getElementById('channel-chat-input');
+        
+        if (isDarkMode) {
+            if (chatContainer) chatContainer.classList.add('dark-theme');
+            if (chatMessages) chatMessages.classList.add('dark-theme');
+            if (chatInputArea) chatInputArea.classList.add('dark-theme');
+            if (chatInput) chatInput.classList.add('dark-theme');
+        } else {
+            if (chatContainer) chatContainer.classList.remove('dark-theme');
+            if (chatMessages) chatMessages.classList.remove('dark-theme');
+            if (chatInputArea) chatInputArea.classList.remove('dark-theme');
+            if (chatInput) chatInput.classList.remove('dark-theme');
+        }
+        
+        // Aplicar tema a todas as mensagens existentes
+        if (typeof applyThemeToAllMessages === 'function') {
+            applyThemeToAllMessages();
+        }
+    }
+
+    // Observar mudanças no tema do sistema
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyTheme);
+    
+    // Observar mudanças na classe do documento
+    const observer = new MutationObserver(applyTheme);
+    observer.observe(document.documentElement, { 
+        attributes: true, 
+        attributeFilter: ['class', 'data-theme'] 
+    });
+    observer.observe(document.body, { 
+        attributes: true, 
+        attributeFilter: ['class'] 
+    });
+
+    // Aplicar tema inicial imediatamente
+    applyTheme();
+    
+    // Verificar novamente após um tempo para garantir que funcionou
+    setTimeout(() => {
+        console.log('[WebChat] Verificação adicional do tema');
+        applyTheme();
+    }, 250);
 
     // Inicializa o widget
     const chatButton = document.getElementById('channel-chat-button');
@@ -332,6 +674,13 @@
     // Funções de controle do widget
     chatButton.addEventListener('click', async () => {
         chatContainer.classList.add('show');
+        
+        // Aplicar tema quando o chat for aberto
+        setTimeout(() => {
+            console.log('[WebChat] Aplicando tema ao abrir chat');
+            applyTheme();
+        }, 50);
+        
         if (!chatLoaded) {
             await loadMessageHistory();
             connectWebSocket();
@@ -456,7 +805,20 @@
             contentHtml = `<span>${formatWhatsapp(text)}</span>`;
         }
 
-        messageDiv.innerHTML = `${contentHtml}<br><span style="font-size:10px;color:#888;">${time} ${ackHtml}</span>`;
+        messageDiv.innerHTML = `${contentHtml}<br><span class="message-timestamp" style="font-size:10px;color:#888;">${time} ${ackHtml}</span>`;
+        
+        // Aplicar tema para novas mensagens
+        const isDarkMode = isDarkModeActive();
+        
+        if (isDarkMode) {
+            messageDiv.classList.add('dark-theme');
+            // Melhorar cor do timestamp em modo escuro
+            const timestamp = messageDiv.querySelector('.message-timestamp');
+            if (timestamp) {
+                timestamp.style.color = '#aaa';
+            }
+        }
+        
         messagesDiv.appendChild(messageDiv);
         messagesDiv.scrollTop = messagesDiv.scrollHeight;
     }
@@ -495,6 +857,32 @@
                 msg.mediaType,
                 msg.mediaUrl
             );
+        });
+        // Aplicar tema a todas as mensagens depois de renderizar
+        applyThemeToAllMessages();
+    }
+
+    // Função para aplicar tema a todas as mensagens existentes
+    function applyThemeToAllMessages() {
+        const isDarkMode = isDarkModeActive();
+        
+        const allMessages = document.querySelectorAll('.channel-message');
+        allMessages.forEach(msg => {
+            if (isDarkMode) {
+                msg.classList.add('dark-theme');
+                // Atualizar cor dos timestamps
+                const timestamps = msg.querySelectorAll('.message-timestamp, span[style*="color:#888"]');
+                timestamps.forEach(ts => {
+                    ts.style.color = '#aaa';
+                });
+            } else {
+                msg.classList.remove('dark-theme');
+                // Restaurar cor original dos timestamps
+                const timestamps = msg.querySelectorAll('.message-timestamp, span[style*="color:#aaa"]');
+                timestamps.forEach(ts => {
+                    ts.style.color = '#888';
+                });
+            }
         });
     }
 
