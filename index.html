@@ -227,6 +227,7 @@
             word-break: break-word;
             font-size: 14px;
             color: #1a1a1a;
+            white-space: pre-wrap; /* Preserva quebras de linha */
         }
 
         .channel-sent {
@@ -321,6 +322,10 @@
 
         .channel-message:not(.dark-theme) {
             color: #1a1a1a !important;
+        }
+
+        .channel-message span {
+            white-space: pre-wrap; /* Garante quebras de linha em spans também */
         }
 
         .channel-sent:not(.dark-theme) {
@@ -741,7 +746,10 @@
 
     // Função para formatar texto estilo WhatsApp
     function formatWhatsapp(text) {
-        return text.replace(/\*(.*?)\*/g, '<b>$1</b>');
+        if (!text) return '';
+        return text
+            .replace(/\*(.*?)\*/g, '<b>$1</b>')
+            .replace(/\n/g, '<br>'); // Converte quebras de linha para <br>
     }
 
     // Função para construir URL completa da mídia
