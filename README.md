@@ -50,7 +50,6 @@ A estrutura de pastas deste projeto foi organizada da seguinte forma:
 ```
 src/
 ├── app/
-│   ├── api/
 │   ├── components/
 │   ├── hooks/
 │   ├── layouts/
@@ -59,13 +58,11 @@ src/
 ├── public/
 │   ├── _headers
 │   └── _redirects
-├── tests/
 └── wrangler.json
 ```
 
 - **app/**: Contém todo o código fonte da aplicação.
 - **public/**: Arquivos públicos, como redirects e headers para o Cloudflare.
-- **tests/**: Testes automatizados.
 - **wrangler.json**: Configurações do Cloudflare Workers.
 
 ## 🔧 Configurações Adicionais
