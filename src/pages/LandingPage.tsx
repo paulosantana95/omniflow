@@ -366,7 +366,17 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section id="integrations" className="bg-background text-primary py-16 px-4 text-center shadow-md sm:px-6" data-aos="fade-up">
+        {/* Seção de Clientes */}
+        <section id="clients" className="bg-background text-primary py-16 px-4 text-center shadow-md sm:px-6" data-aos="fade-up">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-12 text-shadow-2xs">Clientes que confiam na Omni<span className="bg-gradient-to-br from-green-500 to-blue-500 bg-clip-text text-transparent">flow</span></h2>
+          <div className="flex flex-wrap justify-center items-center gap-20 max-w-6xl mx-auto">
+            <img src="/clients/neofin-logo.png" alt="Neofin Tecnologia" className="h-16 object-contain" />
+            <img src="/clients/organizee-logo.png" alt="Organizee" className="h-45 object-contain" />
+          </div>
+          <p className="mt-8 text-base text-muted-foreground">Empresas de diferentes segmentos já utilizam a Omni<span className="bg-gradient-to-br from-green-500 to-blue-500 bg-clip-text text-transparent">flow</span> para potencializar seu atendimento e automação.</p>
+        </section>
+
+        <section id="integrations" className="bg-muted text-primary py-16 px-4 text-center shadow-md sm:px-6" data-aos="fade-up">
           <h2 className="text-2xl sm:text-3xl font-bold mb-16 text-shadow-2xs">Principais Integrações</h2>
           <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-9 gap-4 md:gap-8 xl:gap-16 place-items-center max-w-6xl mx-auto">
             <img src="/whatsapp.png" alt="WhatsApp" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
@@ -381,7 +391,7 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section id="faq" className="bg-muted text-primary py-16 px-4 shadow-md sm:px-6" data-aos="fade-up">
+        <section id="faq" className="bg-background text-primary py-16 px-4 shadow-md sm:px-6" data-aos="fade-up">
           <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 text-shadow-2xs">{t.faq}</h2>
           <div className="max-w-3xl mx-auto space-y-6">
             <details className="bg-background p-4 rounded shadow">
@@ -395,7 +405,7 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section id="contact" className="bg-background text-primary py-12 sm:py-16 px-4 shadow-md sm:px-6" data-aos="fade-up">
+        <section id="contact" className="bg-muted text-primary py-12 sm:py-16 px-4 shadow-md sm:px-6" data-aos="fade-up">
           <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-center text-shadow-2xs mb-6 sm:mb-8">
             Ficou interessado e quer saber mais sobre o Omni
             <span className="bg-gradient-to-br from-green-500 to-blue-500 bg-clip-text text-transparent">flow</span> ?
