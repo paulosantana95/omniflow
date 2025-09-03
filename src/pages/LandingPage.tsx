@@ -83,8 +83,8 @@ export default function LandingPage() {
         '12 Usuários',
         '4 Canais de Atendimento',
         'CRM Integrado com Kanban, Funil de Vendas e Checklist de Tarefas',
-        'Até 10 Campanhas de Marketing/mês',
-        'Até 20 Disparos em Massa/mês',
+        'Campanhas de Marketing automatizadas (até 5.000 mensagens/mês - excedente cobrado)',
+        'Disparos em massa segmentados (até 5.000 envios/mês - excedente cobrado)',
         '2200 Atendimentos/mês(20R$ a cada 500 atendimentos adicionais)',
         'Armazenamento de 5GB de Dados(10R$ por GB adicional)',
       ],
@@ -362,6 +362,36 @@ export default function LandingPage() {
                   onTry={() => setOpenForm(true)}
                 />
               ))}
+            </div>
+          </div>
+
+          {/* Nota sobre período de teste */}
+          <div className="mt-12 max-w-[90rem] mx-auto px-4">
+            <div className="bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 border border-green-200 dark:border-green-800 rounded-lg p-8">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0">
+                  <svg className="w-8 h-8 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div className="text-left flex-1">
+                  <h3 className="text-xl font-semibold text-green-800 dark:text-green-200 mb-3">
+                    🎯 Período de Teste Gratuito
+                  </h3>
+                  <p className="text-base text-green-700 dark:text-green-300 leading-relaxed mb-4">
+                    Durante o período de teste, você terá acesso limitado às funcionalidades para avaliar a plataforma:
+                    <br />• <strong>Campanhas de Marketing:</strong> até 100 mensagens
+                    <br />• <strong>Disparos em Massa:</strong> até 50 envios
+                    <br />• <strong>Atendimentos:</strong> até 100 conversas
+                    <br />• Todas as outras funcionalidades disponíveis conforme o plano escolhido
+                  </p>
+                  <div className="p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-md">
+                    <p className="text-base text-amber-800 dark:text-amber-200">
+                      <strong>⚠️ Importante:</strong> Ao exceder os limites durante o teste ou período pago, será cobrado automaticamente o valor integral da mensalidade do plano escolhido.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
