@@ -18,6 +18,7 @@ import { ModeToggle } from "@/components/mode-toggle";
 import useEmblaCarousel from 'embla-carousel-react';
 import { useRef } from 'react';
 import { Link } from "react-router-dom";
+import AffiliationBanner from "@/components/AffiliationBanner";
 
 // Hook para detectar o modo do sistema
 function useSystemTheme() {
@@ -237,123 +238,114 @@ export default function LandingPage() {
         </div>
       </nav >
 
-      <div className="pt-6 shadow-md">
-        <header id="start" className="bg-background text-center py-16 px-4 md:py-24 text-primary" data-aos="fade-up">
-          <div className="max-w-3xl mx-auto">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 text-shadow-lg">
-              {t.headline}
-            </h1>
-            <p className="text-base text-shadow-lg sm:text-lg md:text-xl mb-6">{t.sub}</p>
+      {/* Faixa do Programa de Indicações */}
+      <AffiliationBanner scrollToSection={scrollToSection} />
 
-            {/* Carousel de anúncios com Embla */}
-            <div className="max-w-2xl mx-auto mt-12">
-              <div className="overflow-hidden pb-2" ref={emblaRef}>
-                <div className="flex">
-                  {slides.map((slide, idx) => (
-                    <div
-                      className="min-w-0 flex-[0_0_100%] flex justify-center"
-                      key={idx}
-                    >
-                      <div className="bg-muted rounded-2xl p-12 shadow-lg flex flex-col items-center max-w-md w-full border-1 gap-4">
-                        <span className="text-primary">{slide.icon}</span>
-                        <div className="w-32 h-0.5 rounded-full bg-gradient-to-br from-green-500 to-blue-500 my-4" />
-                        <span className="text-center text-lg font-medium text-primary">{slide.text}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              {/* Bolinhas de paginação */}
-              <div className="flex justify-center gap-2 mt-4">
-                {slides.map((_, idx) => (
-                  <button
+      <div className="pt-6 shadow-md">
+      </div>
+
+
+      <header id="start" className="bg-background text-center py-16 px-4 md:py-24 text-primary" data-aos="fade-up">
+        <div className="max-w-3xl mx-auto">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 text-shadow-lg">
+            {t.headline}
+          </h1>
+          <p className="text-base text-shadow-lg sm:text-lg md:text-xl mb-6">{t.sub}</p>
+
+          {/* Carousel de anúncios com Embla */}
+          <div className="max-w-2xl mx-auto mt-12">
+            <div className="overflow-hidden pb-2" ref={emblaRef}>
+              <div className="flex">
+                {slides.map((slide, idx) => (
+                  <div
+                    className="min-w-0 flex-[0_0_100%] flex justify-center"
                     key={idx}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${selectedIndex === idx ? 'bg-gradient-to-br from-green-500 to-blue-5000 scale-125' : 'bg-muted-foreground/40'} cursor-pointer`}
-                    onClick={() => emblaApi && emblaApi.scrollTo(idx)}
-                    aria-label={`Ir para slide ${idx + 1}`}
-                  />
+                  >
+                    <div className="bg-muted rounded-2xl p-12 shadow-lg flex flex-col items-center max-w-md w-full border-1 gap-4">
+                      <span className="text-primary">{slide.icon}</span>
+                      <div className="w-32 h-0.5 rounded-full bg-gradient-to-br from-green-500 to-blue-500 my-4" />
+                      <span className="text-center text-lg font-medium text-primary">{slide.text}</span>
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>
-          </div>
-        </header>
-
-        <section id="discovery" className="bg-muted text-primary py-16 px-4 sm:px-6 shadow-md" data-aos="fade-up">
-          <div className="flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-16 max-w-7xl mx-auto">
-            <div className="w-full my-auto lg:w-xl">
-              <div>
-                <h3 className="text-lg sm:text-xl mb-6 lg:mb-8 text-shadow-2xs underline decoration-green-500 underline-offset-6 decoration-3">
-                  Conheça
-                </h3>
-                <h1 className="text-primary font-bold text-shadow-xs mb-4 text-2xl sm:text-3xl">O que é o Omni<span className="bg-gradient-to-br from-green-500 to-blue-500 bg-clip-text text-transparent">flow</span> ?</h1>
-                <h2 className="text-base text-shadow-2xs sm:text-lg lg:text-xl">Um sistema completo de chatbots, I.As, automações e gestão de atendimento com multiusuários para WhatsApp e vários outros canais de conversa.</h2>
-              </div>
-              <div className="mt-8">
-                <h3 className="text-sm sm:text-md mb-4 lg:mb-2 text-shadow-xs">
-                  Concentre todas as suas mensagens
-                </h3>
-                <h1 className="text-primary text-shadow-2xs font-bold mb-4 text-2xl sm:text-3xl underline decoration-blue-500 underline-offset-2 decoration-5">Múltiplos Canais
-                  de atendimento</h1>
-                <h2 className="text-base text-shadow-2xs sm:text-lg lg:text-xl">API WhatsApp Oficial (WABA), APIs WhatsApp não oficiais (bailyes, webjs, meow, evolution), Hub Notificame (Facebook Messenger, Instagram, Webchat, Email), Telegram.</h2>
-              </div>
-            </div>
-            <div className="w-full my-auto lg:w-xl hidden lg:block">
-              <img src="/whatsapp-interface.svg" alt="Omniflow Logo" className="w-150 h-100 mx-auto mb-8" />
-            </div>
-          </div>
-
-
-        </section>
-
-        <section id="about" className="bg-background text-primary py-16 px-4 sm:px-6 shadow-md" data-aos="fade-up">
-          <div className="flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-16 max-w-7xl mx-auto">
-            <div className="w-full my-auto lg:w-xl hidden lg:block">
-              <img src="/omni-arts.svg" alt="Omniflow Logo" className="w-150 h-100 mx-auto mb-8" />
-            </div>
-            <div>
-              <div className="w-full lg:w-xl">
-                <div className="my-auto">
-                  <h3 className="text-lg sm:text-xl mb-4 lg:mb-8 text-shadow-2xs relative inline-block underline decoration-blue-500 underline-offset-6 decoration-3">
-                    Solução para seu atendimento
-                  </h3>
-                  <h1 className="text-primary font-bold mb-4 text-2xl text-shadow-xs sm:text-3xl">Conquiste e Retenha Mais Clientes</h1>
-                  <h2 className="text-base sm:text-lg lg:text-xl">O Omni<span className="bg-gradient-to-br from-green-500 to-blue-500 bg-clip-text text-transparent">flow</span> é um sistema avançado que une a gestão de multi-atendimentos com um construtor de chatbots nativo e diversas integrações com ferramentas de automação e I.As.</h2>
-                </div>
-                <div className="mt-8">
-                  <h3 className="text-sm sm:text-md mb-4 lg:mb-2 text-shadow-2xs relative inline-block">
-                    Integrações Nativas
-                  </h3>
-                  <h1 className="text-primary font-bold mb-4 text-2xl sm:text-3xl relative inline-block  underline decoration-green-500 underline-offset-2 decoration-5">Chatbots, Ferramentas de Automação e APIs</h1>
-                  <h2 className="text-base sm:text-lg lg:text-xl">Integre-se facilmente com aplicativos externos usando nossas APIs e Webhooks, ou aproveite nossas integrações nativas com Typebot, Dify.ai, Chat GPT, LM Studio, Wavoip e vários outros canais de atendimento através do Hub Notificame</h2>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="plans" className="bg-muted text-primary py-16 px-4 sm:px-6 text-center shadow-md" data-aos="fade-up">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-shadow-2xs">{t.plans}</h2>
-          <div className="max-w-7xl mx-auto">
-            {/* Primeira linha: 3 primeiros planos */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 min-h-[568px]">
-              {plans1.map((plan, index) => (
-                <div key={index} className="flex justify-center">
-                  <PlanCard
-                    title={plan.title}
-                    benefits={plan.benefits}
-                    highlight={plan.highlight}
-                    buttonTitle={plan.tryFree}
-                    price={plan.price}
-                    onTry={() => setOpenForm(true)}
-                  />
-                </div>
+            {/* Bolinhas de paginação */}
+            <div className="flex justify-center gap-2 mt-4">
+              {slides.map((_, idx) => (
+                <button
+                  key={idx}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${selectedIndex === idx ? 'bg-gradient-to-br from-green-500 to-blue-5000 scale-125' : 'bg-muted-foreground/40'} cursor-pointer`}
+                  onClick={() => emblaApi && emblaApi.scrollTo(idx)}
+                  aria-label={`Ir para slide ${idx + 1}`}
+                />
               ))}
             </div>
-            {/* Segunda linha: 2 últimos planos */}
-            <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 min-h-[568px]">
-              {plans2.map((plan, index) => (
+          </div>
+        </div>
+      </header>
+
+      <section id="discovery" className="bg-muted text-primary py-16 px-4 sm:px-6 shadow-md" data-aos="fade-up">
+        <div className="flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-16 max-w-7xl mx-auto">
+          <div className="w-full my-auto lg:w-xl">
+            <div>
+              <h3 className="text-lg sm:text-xl mb-6 lg:mb-8 text-shadow-2xs underline decoration-green-500 underline-offset-6 decoration-3">
+                Conheça
+              </h3>
+              <h1 className="text-primary font-bold text-shadow-xs mb-4 text-2xl sm:text-3xl">O que é o Omni<span className="bg-gradient-to-br from-green-500 to-blue-500 bg-clip-text text-transparent">flow</span> ?</h1>
+              <h2 className="text-base text-shadow-2xs sm:text-lg lg:text-xl">Um sistema completo de chatbots, I.As, automações e gestão de atendimento com multiusuários para WhatsApp e vários outros canais de conversa.</h2>
+            </div>
+            <div className="mt-8">
+              <h3 className="text-sm sm:text-md mb-4 lg:mb-2 text-shadow-xs">
+                Concentre todas as suas mensagens
+              </h3>
+              <h1 className="text-primary text-shadow-2xs font-bold mb-4 text-2xl sm:text-3xl underline decoration-blue-500 underline-offset-2 decoration-5">Múltiplos Canais
+                de atendimento</h1>
+              <h2 className="text-base text-shadow-2xs sm:text-lg lg:text-xl">API WhatsApp Oficial (WABA), APIs WhatsApp não oficiais (bailyes, webjs, meow, evolution), Hub Notificame (Facebook Messenger, Instagram, Webchat, Email), Telegram.</h2>
+            </div>
+          </div>
+          <div className="w-full my-auto lg:w-xl hidden lg:block">
+            <img src="/whatsapp-interface.svg" alt="Omniflow Logo" className="w-150 h-100 mx-auto mb-8" />
+          </div>
+        </div>
+
+
+      </section>
+
+      <section id="about" className="bg-background text-primary py-16 px-4 sm:px-6 shadow-md" data-aos="fade-up">
+        <div className="flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-16 max-w-7xl mx-auto">
+          <div className="w-full my-auto lg:w-xl hidden lg:block">
+            <img src="/omni-arts.svg" alt="Omniflow Logo" className="w-150 h-100 mx-auto mb-8" />
+          </div>
+          <div>
+            <div className="w-full lg:w-xl">
+              <div className="my-auto">
+                <h3 className="text-lg sm:text-xl mb-4 lg:mb-8 text-shadow-2xs relative inline-block underline decoration-blue-500 underline-offset-6 decoration-3">
+                  Solução para seu atendimento
+                </h3>
+                <h1 className="text-primary font-bold mb-4 text-2xl text-shadow-xs sm:text-3xl">Conquiste e Retenha Mais Clientes</h1>
+                <h2 className="text-base sm:text-lg lg:text-xl">O Omni<span className="bg-gradient-to-br from-green-500 to-blue-500 bg-clip-text text-transparent">flow</span> é um sistema avançado que une a gestão de multi-atendimentos com um construtor de chatbots nativo e diversas integrações com ferramentas de automação e I.As.</h2>
+              </div>
+              <div className="mt-8">
+                <h3 className="text-sm sm:text-md mb-4 lg:mb-2 text-shadow-2xs relative inline-block">
+                  Integrações Nativas
+                </h3>
+                <h1 className="text-primary font-bold mb-4 text-2xl sm:text-3xl relative inline-block  underline decoration-green-500 underline-offset-2 decoration-5">Chatbots, Ferramentas de Automação e APIs</h1>
+                <h2 className="text-base sm:text-lg lg:text-xl">Integre-se facilmente com aplicativos externos usando nossas APIs e Webhooks, ou aproveite nossas integrações nativas com Typebot, Dify.ai, Chat GPT, LM Studio, Wavoip e vários outros canais de atendimento através do Hub Notificame</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="plans" className="bg-muted text-primary py-16 px-4 sm:px-6 text-center shadow-md" data-aos="fade-up">
+        <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-shadow-2xs">{t.plans}</h2>
+        <div className="max-w-7xl mx-auto">
+          {/* Primeira linha: 3 primeiros planos */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 min-h-[568px]">
+            {plans1.map((plan, index) => (
+              <div key={index} className="flex justify-center">
                 <PlanCard
-                  key={index}
                   title={plan.title}
                   benefits={plan.benefits}
                   highlight={plan.highlight}
@@ -361,133 +353,163 @@ export default function LandingPage() {
                   price={plan.price}
                   onTry={() => setOpenForm(true)}
                 />
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
+          {/* Segunda linha: 2 últimos planos */}
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 min-h-[568px]">
+            {plans2.map((plan, index) => (
+              <PlanCard
+                key={index}
+                title={plan.title}
+                benefits={plan.benefits}
+                highlight={plan.highlight}
+                buttonTitle={plan.tryFree}
+                price={plan.price}
+                onTry={() => setOpenForm(true)}
+              />
+            ))}
+          </div>
+        </div>
 
-          {/* Nota sobre período de teste */}
-          <div className="mt-12 max-w-[90rem] mx-auto px-4">
-            <div className="bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 border border-green-200 dark:border-green-800 rounded-lg p-8">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0">
-                  <svg className="w-8 h-8 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <div className="text-left flex-1">
-                  <h3 className="text-xl font-semibold text-green-800 dark:text-green-200 mb-3">
-                    🎯 Período de Teste Gratuito
-                  </h3>
-                  <p className="text-base text-green-700 dark:text-green-300 leading-relaxed mb-4">
-                    Durante o período de teste, você terá acesso limitado às funcionalidades para avaliar a plataforma:
-                    <br />• <strong>Campanhas de Marketing:</strong> até 100 mensagens
-                    <br />• <strong>Disparos em Massa:</strong> até 50 envios
-                    <br />• <strong>Atendimentos:</strong> até 100 conversas
-                    <br />• Todas as outras funcionalidades disponíveis conforme o plano escolhido
+        {/* Nota sobre período de teste */}
+        <div className="mt-12 max-w-[90rem] mx-auto px-4">
+          <div className="bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 border border-green-200 dark:border-green-800 rounded-lg p-8">
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0">
+                <svg className="w-8 h-8 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div className="text-left flex-1">
+                <h3 className="text-xl font-semibold text-green-800 dark:text-green-200 mb-3">
+                  🎯 Período de Teste Gratuito
+                </h3>
+                <p className="text-base text-green-700 dark:text-green-300 leading-relaxed mb-4">
+                  Durante o período de teste, você terá acesso limitado às funcionalidades para avaliar a plataforma:
+                  <br />• <strong>7 dias para teste</strong>
+                  <br />• <strong>Campanhas de Marketing:</strong> até 100 mensagens
+                  <br />• <strong>Disparos em Massa:</strong> até 50 envios
+                  <br />• <strong>Atendimentos:</strong> até 100 conversas
+                  <br />• Todas as outras funcionalidades disponíveis conforme o plano escolhido
+                </p>
+                <div className="p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-md">
+                  <p className="text-base text-amber-800 dark:text-amber-200">
+                    <strong>⚠️ Importante:</strong> Ao exceder os limites durante o teste ou período pago, será cobrado automaticamente o valor integral da mensalidade do plano escolhido.
                   </p>
-                  <div className="p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-md">
-                    <p className="text-base text-amber-800 dark:text-amber-200">
-                      <strong>⚠️ Importante:</strong> Ao exceder os limites durante o teste ou período pago, será cobrado automaticamente o valor integral da mensalidade do plano escolhido.
-                    </p>
-                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Seção de Clientes */}
-        <section id="clients" className="bg-background text-primary py-16 px-4 text-center shadow-md sm:px-6" data-aos="fade-up">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-12 text-shadow-2xs">Clientes que confiam na Omni<span className="bg-gradient-to-br from-green-500 to-blue-500 bg-clip-text text-transparent">flow</span></h2>
-          <div className="flex flex-wrap justify-center items-center gap-20 max-w-6xl mx-auto">
-            <img src="/clients/neofin-logo.png" alt="Neofin Tecnologia" className="h-16 object-contain" />
-            <img src="/clients/organizee-logo.png" alt="Organizee" className="h-45 object-contain" />
-          </div>
-          <p className="mt-8 text-base text-muted-foreground">Empresas de diferentes segmentos já utilizam a Omni<span className="bg-gradient-to-br from-green-500 to-blue-500 bg-clip-text text-transparent">flow</span> para potencializar seu atendimento e automação.</p>
-        </section>
+      {/* Seção de Clientes */}
+      <section id="clients" className="bg-background text-primary py-16 px-4 text-center shadow-md sm:px-6" data-aos="fade-up">
+        <h2 className="text-2xl sm:text-3xl font-bold mb-12 text-shadow-2xs">Clientes que confiam na Omni<span className="bg-gradient-to-br from-green-500 to-blue-500 bg-clip-text text-transparent">flow</span></h2>
+        <div className="flex flex-wrap justify-center items-center gap-20 max-w-6xl mx-auto">
+          <img src="/clients/neofin-logo.png" alt="Neofin Tecnologia" className="h-16 object-contain" />
+          <img src="/clients/organizee-logo.png" alt="Organizee" className="h-45 object-contain" />
+        </div>
+        <p className="mt-8 text-base text-muted-foreground">Empresas de diferentes segmentos já utilizam a Omni<span className="bg-gradient-to-br from-green-500 to-blue-500 bg-clip-text text-transparent">flow</span> para potencializar seu atendimento e automação.</p>
+      </section>
 
-        <section id="integrations" className="bg-muted text-primary py-16 px-4 text-center shadow-md sm:px-6" data-aos="fade-up">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-16 text-shadow-2xs">Principais Integrações</h2>
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-9 gap-4 md:gap-8 xl:gap-16 place-items-center max-w-6xl mx-auto">
-            <img src="/whatsapp.png" alt="WhatsApp" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
-            <img src="/telegram.png" alt="Telegram" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
-            <img src="/email.png" alt="E-mail" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
-            <img src="/sms.png" alt="SMS" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
-            <img src="/facebook.png" alt="Facebook" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
-            <img src="/linkedin.png" alt="LinkedIn" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
-            <img src="/chatgpt.png" alt="ChatGPT" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
-            <img src="/google.png" alt="Google" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
-            <img src="/tik-tok.png" alt="TikTok" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
-          </div>
-        </section>
+      <section id="integrations" className="bg-muted text-primary py-16 px-4 text-center shadow-md sm:px-6" data-aos="fade-up">
+        <h2 className="text-2xl sm:text-3xl font-bold mb-16 text-shadow-2xs">Principais Integrações</h2>
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-9 gap-4 md:gap-8 xl:gap-16 place-items-center max-w-6xl mx-auto">
+          <img src="/whatsapp.png" alt="WhatsApp" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
+          <img src="/telegram.png" alt="Telegram" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
+          <img src="/email.png" alt="E-mail" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
+          <img src="/sms.png" alt="SMS" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
+          <img src="/facebook.png" alt="Facebook" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
+          <img src="/linkedin.png" alt="LinkedIn" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
+          <img src="/chatgpt.png" alt="ChatGPT" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
+          <img src="/google.png" alt="Google" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
+          <img src="/tik-tok.png" alt="TikTok" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
+        </div>
+      </section>
 
-        <section id="faq" className="bg-background text-primary py-16 px-4 shadow-md sm:px-6" data-aos="fade-up">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 text-shadow-2xs">{t.faq}</h2>
-          <div className="max-w-3xl mx-auto space-y-6">
-            <details className="bg-background p-4 rounded shadow">
-              <summary className="cursor-pointer font-semibold">{t.faq1}</summary>
-              <p className="mt-2">{t.faq1desc}</p>
-            </details>
-            <details className="bg-background p-4 rounded shadow">
-              <summary className="cursor-pointer font-semibold">{t.faq2}</summary>
-              <p className="mt-2">{t.faq2desc}</p>
-            </details>
-          </div>
-        </section>
+      <section id="faq" className="bg-background text-primary py-16 px-4 shadow-md sm:px-6" data-aos="fade-up">
+        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 text-shadow-2xs">{t.faq}</h2>
+        <div className="max-w-3xl mx-auto space-y-6">
+          <details className="bg-background p-4 rounded shadow hover:bg-muted/50 hover:shadow-lg transition-shadow">
+            <summary className="cursor-pointer font-semibold">{t.faq1}</summary>
+            <p className="mt-2">{t.faq1desc}</p>
+          </details>
+          <details className="bg-background p-4 rounded shadow hover:bg-muted/50 hover:shadow-lg transition-shadow">
+            <summary className="cursor-pointer font-semibold">{t.faq2}</summary>
+            <p className="mt-2">{t.faq2desc}</p>
+          </details>
+          <details className="bg-background p-4 rounded shadow hover:bg-muted/50 hover:shadow-lg transition-shadow">
+            <summary className="cursor-pointer font-semibold">🎁 Como funciona o programa de indicações?</summary>
+            <p className="mt-2">
+              Nosso programa de indicações é uma forma de recompensar nossos clientes que ajudam a divulgar a Omniflow.
+              <br /><br />
+              <strong>Como funciona:</strong>
+              <br />• Quando você indica um novo cliente e ele contrata qualquer um de nossos planos, você recebe o valor equivalente à primeira mensalidade escolhida pelo cliente indicado
+              <br />• O bônus será pago somente após a empresa indicada completar um período mínimo de 3 meses de permanência ativa na plataforma
+              <br />• Não há limite de indicações - quanto mais você indicar, mais você pode ganhar
+              <br /><br />
+              <strong>Exemplo:</strong> Se você indicar uma empresa que contratar o plano Boost (R$ 149,90/mês), você receberá R$ 149,90 após ela completar 3 meses como cliente ativo.
+              <br /><br />
+              Entre em contato conosco para mais detalhes sobre como participar do programa de indicações!
+            </p>
+          </details>
+        </div>
+      </section>
 
-        <section id="contact" className="bg-muted text-primary py-12 sm:py-16 px-4 shadow-md sm:px-6" data-aos="fade-up">
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-center text-shadow-2xs mb-6 sm:mb-8">
-            Ficou interessado e quer saber mais sobre o Omni
-            <span className="bg-gradient-to-br from-green-500 to-blue-500 bg-clip-text text-transparent">flow</span> ?
-          </h2>
-          <div className="max-w-3xl mx-auto">
-            <ContactCard />
-          </div>
-        </section>
+      <section id="contact" className="bg-muted text-primary py-12 sm:py-16 px-4 shadow-md sm:px-6" data-aos="fade-up">
+        <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-center text-shadow-2xs mb-6 sm:mb-8">
+          Ficou interessado e quer saber mais sobre o Omni
+          <span className="bg-gradient-to-br from-green-500 to-blue-500 bg-clip-text text-transparent">flow</span> ?
+        </h2>
+        <div className="max-w-3xl mx-auto">
+          <ContactCard />
+        </div>
+      </section>
 
-        <div className="w-full h-1 rounded-full bg-gradient-to-br from-green-500 to-blue-500" />
-        <footer className="bg-primary-foreground text-primary py-10 px-4 text-sm shadow-md border-t border-border">
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-            <button onClick={() => scrollToSection('start')} className="flex items-center gap-2 cursor-pointer">
-              <img
-                src={
-                  theme === 'dark' || (theme === 'system' && isSystemDark)
-                    ? '/logo-dark.png'
-                    : '/logo.png'
-                }
-                alt="Omniflow"
-                className="w-28 h-auto"
-              />
-              <span className="font-bold text-base hidden">Omniflow</span>
-            </button>
-            <nav className="flex flex-wrap gap-4 text-muted-foreground">
-              <button onClick={() => scrollToSection('start')} className="hover:text-primary transition">Inicio</button>
-              <button onClick={() => scrollToSection('plans')} className="hover:text-primary transition">Planos</button>
-              <button onClick={() => scrollToSection('faq')} className="hover:text-primary transition">FAQ</button>
-              <button onClick={() => scrollToSection('contact')} className="hover:text-primary transition">Contato</button>
-              <a href="/privacidade" className="hover:text-primary transition">Privacidade</a>
-              <Link to="/termos-de-uso" target="_blank" className="hover:text-primary transition">Termos</Link>
-            </nav>
-            <div className="flex gap-3">
-              <a href="https://wa.me/558597095694" target="_blank" rel="noopener" aria-label="WhatsApp">
-                <img src="/whatsapp.png" alt="WhatsApp" className="w-6 h-6 object-contain dark:invert" />
-              </a>
-            </div>
+      <div className="w-full h-1 rounded-full bg-gradient-to-br from-green-500 to-blue-500" />
+      <footer className="bg-primary-foreground text-primary py-10 px-4 text-sm shadow-md border-t border-border">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+          <button onClick={() => scrollToSection('start')} className="flex items-center gap-2 cursor-pointer">
+            <img
+              src={
+                theme === 'dark' || (theme === 'system' && isSystemDark)
+                  ? '/logo-dark.png'
+                  : '/logo.png'
+              }
+              alt="Omniflow"
+              className="w-28 h-auto"
+            />
+            <span className="font-bold text-base hidden">Omniflow</span>
+          </button>
+          <nav className="flex flex-wrap gap-4 text-muted-foreground">
+            <button onClick={() => scrollToSection('start')} className="hover:text-primary transition">Inicio</button>
+            <button onClick={() => scrollToSection('plans')} className="hover:text-primary transition">Planos</button>
+            <button onClick={() => scrollToSection('faq')} className="hover:text-primary transition">FAQ</button>
+            <button onClick={() => scrollToSection('contact')} className="hover:text-primary transition">Contato</button>
+            <a href="/privacidade" className="hover:text-primary transition">Privacidade</a>
+            <Link to="/termos-de-uso" target="_blank" className="hover:text-primary transition">Termos</Link>
+          </nav>
+          <div className="flex gap-3">
+            <a href="https://wa.me/558597095694" target="_blank" rel="noopener" aria-label="WhatsApp">
+              <img src="/whatsapp.png" alt="WhatsApp" className="w-6 h-6 object-contain dark:invert" />
+            </a>
           </div>
-          <div className="mt-6 text-center text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Omni<span className="bg-gradient-to-br from-green-500 to-blue-500 bg-clip-text text-transparent">flow</span> – Todos os direitos reservados.
-          </div>
-        </footer>
+        </div>
+        <div className="mt-6 text-center text-xs text-muted-foreground">
+          © {new Date().getFullYear()} Omni<span className="bg-gradient-to-br from-green-500 to-blue-500 bg-clip-text text-transparent">flow</span> – Todos os direitos reservados.
+        </div>
+      </footer>
 
-        <Dialog open={openForm} onOpenChange={setOpenForm}>
-          <DialogContent className="bg-background text-primary max-w-md max-h-[90vh] overflow-y-auto">
-            <DialogHeader>
-              <DialogTitle>Cadastre-se e teste grátis!</DialogTitle>
-            </DialogHeader>
-            <SignupForm onCancel={() => setOpenForm(false)} />
-          </DialogContent>
-        </Dialog>
-      </div >
-    </div >
+      <Dialog open={openForm} onOpenChange={setOpenForm}>
+        <DialogContent className="bg-background text-primary max-w-md max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle>Cadastre-se e teste grátis!</DialogTitle>
+          </DialogHeader>
+          <SignupForm onCancel={() => setOpenForm(false)} />
+        </DialogContent>
+      </Dialog>
+    </div>
   );
 }
