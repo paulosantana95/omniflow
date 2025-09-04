@@ -9,16 +9,12 @@ import { messages } from "@/i18n/messages";
 import { PlanCard } from "@/components/PlanCard";
 import { SignupForm } from "@/components/SignupForm";
 import { ContactCard } from "@/components/ContactCard";
-import { LogIn, Menu, X } from "lucide-react";
 import "aos/dist/aos.css";
 import AOS from "aos";
-import { Button } from "@/components/ui/button";
-import { useTheme } from "@/providers/theme-provider";
-import { ModeToggle } from "@/components/mode-toggle";
-import useEmblaCarousel from 'embla-carousel-react';
-import { useRef } from 'react';
-import { Link } from "react-router-dom";
 import AffiliationBanner from "@/components/AffiliationBanner";
+import Navigation from "@/components/Navigation";
+import HeroCarousel from "@/components/HeroCarousel";
+import Footer from "@/components/Footer";
 
 // Hook para detectar o modo do sistema
 function useSystemTheme() {
@@ -37,8 +33,6 @@ function useSystemTheme() {
 export default function LandingPage() {
   const [locale] = useState("pt-BR");
   const [openForm, setOpenForm] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { theme } = useTheme();
   const isSystemDark = useSystemTheme();
   const t = messages[locale as keyof typeof messages];
 
@@ -90,7 +84,7 @@ export default function LandingPage() {
         'Armazenamento de 5GB de Dados(10R$ por GB adicional)',
       ],
       price: "R$149,90/mês",
-      highlight: true,
+      highlight: false,
       tryFree: t.tryFree,
     },
   ]
@@ -109,7 +103,7 @@ export default function LandingPage() {
         'Armazenamento de 8GB de Dados(10R$ por GB adicional)',
       ],
       price: "R$699,90/mês",
-      highlight: null,
+      highlight: true,
       tryFree: t.tryFree,
     },
     {
@@ -127,142 +121,21 @@ export default function LandingPage() {
     },
   ]
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   // Função para navegar para seções com âncoras
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
-    // Fechar menu mobile após navegar
-    setMobileMenuOpen(false);
   };
-
-  // Carousel Embla
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: true,
-    duration: 20 // Duração da transição em frames (mais suave)
-  });
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const autoplayRef = useRef<NodeJS.Timeout | null>(null);
-  const slides = [
-    {
-      icon: (
-        <img src="/group.png" alt="Gestão de Leads" className="w-24 h-24 object-contain" />
-      ),
-      text: "Gerencie seus leads de forma inteligente com CRM integrado, funil de vendas e controle completo do processo comercial.",
-    },
-    {
-      icon: (
-        <img src="/chat.png" alt="Campanhas e Marketing" className="w-24 h-24 object-contain" />
-      ),
-      text: "Crie campanhas de marketing automatizadas e envie mensagens em massa segmentadas para ampliar seu alcance.",
-    },
-    {
-      icon: (
-        <img src="/bot.png" alt="AI Assistant" className="w-24 h-24 object-contain" />
-      ),
-      text: "Nosso sistema multicanal conecta seus clientes com múltiplos atendentes pelo mesmo canal, com fluxo de bots operando 24h. Agilize o suporte, aumente a satisfação e converta mais!",
-    },
-    {
-      icon: (
-        <img src="/bar-graph.png" alt="AI Assistant" className="w-24 h-24 object-contain" />
-
-      ),
-      text: "Com nossa plataforma você centraliza seus atendimentos com métricas e relatórios completos, além de possibilitar integrações para automação de processos.",
-    },
-    {
-      icon: (
-        <img src="/phone-message.png" alt="AI Assistant" className="w-24 h-24 object-contain" />
-      ),
-      text: "Ideal para qualquer tipo de empresa que busca qualidade e rastreabilidade no atendimento, seja por WhatsApp, Telegram, Instagram ou outros canais.",
-    },
-    {
-      icon: (
-        <img src="/ai-assistant.png" alt="AI Assistant" className="w-24 h-24 object-contain" />
-      ),
-      text: "Plataforma que Integra com diversas IA's para tornar seu atendimento mais inteligente.",
-    },
-  ];
-
-  // Autoplay effect
-  useEffect(() => {
-    if (!emblaApi) return;
-
-    // Limpar qualquer timer existente
-    if (autoplayRef.current) {
-      clearInterval(autoplayRef.current);
-    }
-
-    const autoplay = () => {
-      if (!emblaApi) return;
-      emblaApi.scrollNext();
-    };
-
-    // Configurar para 6 segundos - tempo adequado para leitura
-    autoplayRef.current = setInterval(autoplay, 8000);
-
-    return () => {
-      if (autoplayRef.current) {
-        clearInterval(autoplayRef.current);
-      }
-    };
-  }, [emblaApi]);
-
-  // Update selected index for dots
-  useEffect(() => {
-    if (!emblaApi) return;
-    const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
-    emblaApi.on('select', onSelect);
-    onSelect();
-    return () => {
-      emblaApi.off('select', onSelect);
-    };
-  }, [emblaApi]);
 
   return (
     <div className="font-sans text-primary min-h-screen w-full relative">
-      <nav className="fixed top-0 left-0 w-full z-50 bg-background flex items-center justify-between shadow-md">
-        <div className="flex items-center justify-between w-full max-w-7xl mx-auto">
-          <div className="text-2xl font-bold cursor-pointer px-4" onClick={scrollToTop}>
-            <button onClick={() => scrollToSection('start')} className="flex items-center gap-2">
-              <img
-                className="w-56"
-                src={
-                  theme === 'dark' || (theme === 'system' && isSystemDark)
-                    ? '/logo-dark.png'
-                    : '/logo.png'
-                }
-                alt="Logo da Omniflow - Atendimento Inteligente"
-              />
-            </button>
-          </div>
-          <div className="md:hidden px-4">
-            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
-          <div className={`md:flex flex-wrap items-center gap-4 text-primary px-4 ${mobileMenuOpen ? "block absolute top-full left-0 w-full bg-background py-4 shadow-lg z-50" : "hidden md:flex"}`}>
-            <button onClick={() => scrollToSection('start')} className="block cursor-pointer font-semibold text-md hover:text-muted-foreground text-shadow-2xs py-2 md:py-0 text-center">{t.home ?? "Início"}</button>
-            <button onClick={() => scrollToSection('plans')} className="block cursor-pointer font-semibold text-md hover:text-muted-foreground text-shadow-2xs py-2 md:py-0 text-center">{t.plans}</button>
-            <button onClick={() => scrollToSection('faq')} className="block cursor-pointer font-semibold text-md hover:text-muted-foreground text-shadow-2xs py-2 md:py-0 text-center">FAQ</button>
-            <button onClick={() => scrollToSection('contact')} className="block cursor-pointer font-semibold text-md hover:text-muted-foreground text-shadow-2xs py-2 md:py-0 text-center">Contato</button>
-            <Button variant="outline" className="ml-0 md:ml-8 shadow-md w-full md:w-auto mt-2 md:mt-0 cursor-pointer" onClick={() => setOpenForm(true)}>Registrar-se</Button>
-            <Button variant="default" asChild className="shadow-md w-full md:w-auto mt-2 md:mt-0">
-              <a href="https://app.omniflow.chat">
-                <LogIn className="w-4 h-4 mr-2" />
-                Entrar
-              </a>
-            </Button>
-            <div className="flex justify-center md:justify-start w-full md:w-auto mt-2 md:mt-0">
-              <ModeToggle />
-            </div>
-          </div>
-        </div>
-      </nav >
+      <Navigation
+        scrollToSection={scrollToSection}
+        setOpenForm={setOpenForm}
+        isSystemDark={isSystemDark}
+      />
 
       {/* Faixa do Programa de Indicações */}
       <AffiliationBanner scrollToSection={scrollToSection} />
@@ -270,46 +143,10 @@ export default function LandingPage() {
       <div className="pt-6 shadow-md">
       </div>
 
-
-      <header id="start" className="bg-background text-center py-16 px-4 md:py-24 text-primary" data-aos="fade-up">
-        <div className="max-w-3xl mx-auto">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 text-shadow-lg">
-            {t.headline}
-          </h1>
-          <p className="text-base text-shadow-lg sm:text-lg md:text-xl mb-6">{t.sub}</p>
-
-          {/* Carousel de anúncios com Embla */}
-          <div className="max-w-2xl mx-auto mt-12">
-            <div className="overflow-hidden pb-2" ref={emblaRef}>
-              <div className="flex">
-                {slides.map((slide, idx) => (
-                  <div
-                    className="min-w-0 flex-[0_0_100%] flex justify-center"
-                    key={idx}
-                  >
-                    <div className="bg-muted rounded-2xl p-12 shadow-lg flex flex-col items-center max-w-md w-full border-1 gap-4">
-                      <span className="text-primary">{slide.icon}</span>
-                      <div className="w-32 h-0.5 rounded-full bg-gradient-to-br from-green-500 to-blue-500 my-4" />
-                      <span className="text-center text-lg font-medium text-primary">{slide.text}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            {/* Bolinhas de paginação */}
-            <div className="flex justify-center gap-2 mt-4">
-              {slides.map((_, idx) => (
-                <button
-                  key={idx}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${selectedIndex === idx ? 'bg-green-500 scale-125' : 'bg-muted-foreground/30'} cursor-pointer`}
-                  onClick={() => emblaApi && emblaApi.scrollTo(idx)}
-                  aria-label={`Ir para slide ${idx + 1}`}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </header>
+      <HeroCarousel
+        headline={t.headline}
+        subtitle={t.sub}
+      />
 
       <section id="discovery" className="bg-muted text-primary py-16 px-4 sm:px-6 shadow-md" data-aos="fade-up">
         <div className="flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-16 max-w-7xl mx-auto">
@@ -494,39 +331,10 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <div className="w-full h-1 rounded-full bg-gradient-to-br from-green-500 to-blue-500" />
-      <footer className="bg-primary-foreground text-primary py-10 px-4 text-sm shadow-md border-t border-border">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          <button onClick={() => scrollToSection('start')} className="flex items-center gap-2 cursor-pointer">
-            <img
-              src={
-                theme === 'dark' || (theme === 'system' && isSystemDark)
-                  ? '/logo-dark.png'
-                  : '/logo.png'
-              }
-              alt="Omniflow"
-              className="w-28 h-auto"
-            />
-            <span className="font-bold text-base hidden">Omniflow</span>
-          </button>
-          <nav className="flex flex-wrap gap-4 text-muted-foreground">
-            <button onClick={() => scrollToSection('start')} className="hover:text-primary transition">Inicio</button>
-            <button onClick={() => scrollToSection('plans')} className="hover:text-primary transition">Planos</button>
-            <button onClick={() => scrollToSection('faq')} className="hover:text-primary transition">FAQ</button>
-            <button onClick={() => scrollToSection('contact')} className="hover:text-primary transition">Contato</button>
-            <a href="/privacidade" className="hover:text-primary transition">Privacidade</a>
-            <Link to="/termos-de-uso" target="_blank" className="hover:text-primary transition">Termos</Link>
-          </nav>
-          <div className="flex gap-3">
-            <a href="https://wa.me/558597095694" target="_blank" rel="noopener" aria-label="WhatsApp">
-              <img src="/whatsapp.png" alt="WhatsApp" className="w-6 h-6 object-contain dark:invert" />
-            </a>
-          </div>
-        </div>
-        <div className="mt-6 text-center text-xs text-muted-foreground">
-          © {new Date().getFullYear()} Omni<span className="bg-gradient-to-br from-green-500 to-blue-500 bg-clip-text text-transparent">flow</span> – Todos os direitos reservados.
-        </div>
-      </footer>
+      <Footer
+        scrollToSection={scrollToSection}
+        isSystemDark={isSystemDark}
+      />
 
       <Dialog open={openForm} onOpenChange={setOpenForm}>
         <DialogContent className="bg-background text-primary max-w-md max-h-[90vh] overflow-y-auto">
