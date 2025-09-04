@@ -65,13 +65,13 @@ export default function AffiliationBanner({ scrollToSection }: { scrollToSection
           </div>
           <div className="text-sm sm:text-base">
             <span className="font-medium text-glow-pulse">
-              Indique e ganhe o valor da primeira mensalidade!
+              Indique e escolha: valor integral ou 10% recorrente!
             </span>
             <span
               className="hidden sm:inline ml-2 opacity-90"
               style={{ filter: 'drop-shadow(0 0 3px rgba(255,255,255,0.3))' }}
             >
-              • Mínimo 3 meses de permanência
+              • Duas modalidades de recompensa
             </span>
           </div>
           <button

@@ -309,13 +309,27 @@ export default function LandingPage() {
               Nosso programa de indicações é uma forma de recompensar nossos clientes que ajudam a divulgar a Omniflow.
               <br /><br />
               <strong>Como funciona:</strong>
-              <br />• Quando você indica um novo cliente e ele contrata qualquer um de nossos planos, você recebe o valor equivalente à primeira mensalidade escolhida pelo cliente indicado
-              <br />• O bônus será pago somente após a empresa indicada completar um período mínimo de 3 meses de permanência ativa na plataforma
+              <br />Quando você indica um novo cliente e ele contrata qualquer um de nossos planos, você pode escolher entre duas opções de recompensa:
+              <br /><br />
+              <strong>📋 Opção 1 - Valor Integral:</strong>
+              <br />• Receba o valor equivalente à primeira mensalidade escolhida pelo cliente indicado
+              <br />• O bônus será pago após a empresa indicada completar 3 meses de permanência ativa na plataforma
+              <br /><br />
+              <strong>💰 Opção 2 - Comissão Recorrente:</strong>
+              <br />• Receba 10% da mensalidade do cliente indicado enquanto ele permanecer ativo
+              <br />• O pagamento da comissão inicia já no primeiro mês de permanência
+              <br />• Continue recebendo mensalmente enquanto o cliente permanecer na plataforma
+              <br /><br />
+              <strong>✨ Benefícios Gerais:</strong>
               <br />• Não há limite de indicações - quanto mais você indicar, mais você pode ganhar
+              <br />• Você escolhe qual modalidade de recompensa prefere para cada indicação
+              <br />• Acompanhe seus ganhos através do painel de indicações
               <br /><br />
-              <strong>Exemplo:</strong> Se você indicar uma empresa que contratar o plano Boost (R$ 149,90/mês), você receberá R$ 149,90 após ela completar 3 meses como cliente ativo.
+              <strong>📊 Exemplos:</strong>
+              <br />• <strong>Opção 1:</strong> Cliente contrata plano Boost (R$ 149,90/mês) → Você recebe R$ 149,90 após 3 meses
+              <br />• <strong>Opção 2:</strong> Cliente contrata plano Boost (R$ 149,90/mês) → Você recebe R$ 14,99 mensalmente enquanto ele permanecer
               <br /><br />
-              Entre em contato conosco para mais detalhes sobre como participar do programa de indicações!
+              Entre em contato conosco para mais detalhes sobre como participar do programa de indicações e escolher sua modalidade preferida!
             </p>
           </details>
         </div>

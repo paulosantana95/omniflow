@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 
 interface HeroCarouselProps {
@@ -8,7 +8,7 @@ interface HeroCarouselProps {
 
 export default function HeroCarousel({ headline, subtitle }: HeroCarouselProps) {
   // Carousel Embla
-  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+  const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
     duration: 20 // Duração da transição em frames (mais suave)
   });
@@ -54,29 +54,35 @@ export default function HeroCarousel({ headline, subtitle }: HeroCarouselProps) 
     },
   ];
 
-  // Autoplay effect
-  useEffect(() => {
-    if (!emblaApi) return;
-    
+  // Função para resetar o timer
+  const resetAutoplay = useCallback(() => {
     // Limpar qualquer timer existente
     if (autoplayRef.current) {
       clearInterval(autoplayRef.current);
     }
-    
+
+    if (!emblaApi) return;
+
     const autoplay = () => {
       if (!emblaApi) return;
       emblaApi.scrollNext();
     };
-    
+
     // Configurar para 8 segundos - tempo adequado para leitura
     autoplayRef.current = setInterval(autoplay, 8000);
-    
+  }, [emblaApi]);
+
+  // Autoplay effect
+  useEffect(() => {
+    if (!emblaApi) return;
+    resetAutoplay();
+
     return () => {
       if (autoplayRef.current) {
         clearInterval(autoplayRef.current);
       }
     };
-  }, [emblaApi]);
+  }, [emblaApi, resetAutoplay]);
 
   // Update selected index for dots
   useEffect(() => {
@@ -121,7 +127,13 @@ export default function HeroCarousel({ headline, subtitle }: HeroCarouselProps) 
               <button
                 key={idx}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${selectedIndex === idx ? 'bg-green-500 scale-125' : 'bg-muted-foreground/30'} cursor-pointer`}
-                onClick={() => emblaApi && emblaApi.scrollTo(idx)}
+                onClick={() => {
+                  if (emblaApi) {
+                    emblaApi.scrollTo(idx);
+                    // Resetar o timer quando houver seleção manual
+                    resetAutoplay();
+                  }
+                }}
                 aria-label={`Ir para slide ${idx + 1}`}
               />
             ))}
