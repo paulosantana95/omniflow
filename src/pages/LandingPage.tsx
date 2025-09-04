@@ -142,28 +142,43 @@ export default function LandingPage() {
   };
 
   // Carousel Embla
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    duration: 20 // Duração da transição em frames (mais suave)
+  });
   const [selectedIndex, setSelectedIndex] = useState(0);
   const autoplayRef = useRef<NodeJS.Timeout | null>(null);
   const slides = [
     {
       icon: (
+        <img src="/group.png" alt="Gestão de Leads" className="w-24 h-24 object-contain" />
+      ),
+      text: "Gerencie seus leads de forma inteligente com CRM integrado, funil de vendas e controle completo do processo comercial.",
+    },
+    {
+      icon: (
+        <img src="/chat.png" alt="Campanhas e Marketing" className="w-24 h-24 object-contain" />
+      ),
+      text: "Crie campanhas de marketing automatizadas e envie mensagens em massa segmentadas para ampliar seu alcance.",
+    },
+    {
+      icon: (
         <img src="/bot.png" alt="AI Assistant" className="w-24 h-24 object-contain" />
       ),
-      text: t.intro1,
+      text: "Nosso sistema multicanal conecta seus clientes com múltiplos atendentes pelo mesmo canal, com fluxo de bots operando 24h. Agilize o suporte, aumente a satisfação e converta mais!",
     },
     {
       icon: (
         <img src="/bar-graph.png" alt="AI Assistant" className="w-24 h-24 object-contain" />
 
       ),
-      text: t.intro2,
+      text: "Com nossa plataforma você centraliza seus atendimentos com métricas e relatórios completos, além de possibilitar integrações para automação de processos.",
     },
     {
       icon: (
         <img src="/phone-message.png" alt="AI Assistant" className="w-24 h-24 object-contain" />
       ),
-      text: t.intro3,
+      text: "Ideal para qualquer tipo de empresa que busca qualidade e rastreabilidade no atendimento, seja por WhatsApp, Telegram, Instagram ou outros canais.",
     },
     {
       icon: (
@@ -176,13 +191,24 @@ export default function LandingPage() {
   // Autoplay effect
   useEffect(() => {
     if (!emblaApi) return;
+
+    // Limpar qualquer timer existente
+    if (autoplayRef.current) {
+      clearInterval(autoplayRef.current);
+    }
+
     const autoplay = () => {
       if (!emblaApi) return;
       emblaApi.scrollNext();
     };
-    autoplayRef.current = setInterval(autoplay, 4000);
+
+    // Configurar para 6 segundos - tempo adequado para leitura
+    autoplayRef.current = setInterval(autoplay, 8000);
+
     return () => {
-      if (autoplayRef.current) clearInterval(autoplayRef.current);
+      if (autoplayRef.current) {
+        clearInterval(autoplayRef.current);
+      }
     };
   }, [emblaApi]);
 
@@ -275,7 +301,7 @@ export default function LandingPage() {
               {slides.map((_, idx) => (
                 <button
                   key={idx}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${selectedIndex === idx ? 'bg-gradient-to-br from-green-500 to-blue-5000 scale-125' : 'bg-muted-foreground/40'} cursor-pointer`}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${selectedIndex === idx ? 'bg-green-500 scale-125' : 'bg-muted-foreground/30'} cursor-pointer`}
                   onClick={() => emblaApi && emblaApi.scrollTo(idx)}
                   aria-label={`Ir para slide ${idx + 1}`}
                 />
