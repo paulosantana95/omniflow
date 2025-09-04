@@ -326,8 +326,8 @@ export default function LandingPage() {
               <br />• Acompanhe seus ganhos através do painel de indicações
               <br /><br />
               <strong>📊 Exemplos:</strong>
-              <br />• <strong>Opção 1:</strong> Cliente contrata plano Boost (R$ 149,90/mês) → Você recebe R$ 149,90 após 3 meses
-              <br />• <strong>Opção 2:</strong> Cliente contrata plano Boost (R$ 149,90/mês) → Você recebe R$ 14,99 mensalmente enquanto ele permanecer
+              <br />• <strong>Opção 1:</strong> Cliente contrata plano Infinity (R$ 699,90/mês) → Você recebe R$ 699,90 após 3 meses
+              <br />• <strong>Opção 2:</strong> Cliente contrata plano Infinity (R$ 699,90/mês) → Você recebe R$ 69,99 mensalmente enquanto ele permanecer
               <br /><br />
               Entre em contato conosco para mais detalhes sobre como participar do programa de indicações e escolher sua modalidade preferida!
             </p>
