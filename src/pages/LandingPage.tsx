@@ -40,7 +40,7 @@ export default function LandingPage() {
     AOS.init({ once: true });
   }, []);
 
-  const plans1 = [
+  const plans = [
     {
       title: 'Start',
       benefits: [
@@ -87,9 +87,6 @@ export default function LandingPage() {
       highlight: false,
       tryFree: t.tryFree,
     },
-  ]
-
-  const plans2 = [
     {
       title: 'Infinity',
       benefits: [
@@ -119,7 +116,7 @@ export default function LandingPage() {
       highlight: null,
       tryFree: "Solicite uma proposta",
     },
-  ]
+  ];
 
   // Função para navegar para seções com âncoras
   const scrollToSection = (sectionId: string) => {
@@ -204,10 +201,13 @@ export default function LandingPage() {
       <section id="plans" className="bg-muted text-primary py-16 px-4 sm:px-6 text-center shadow-md" data-aos="fade-up">
         <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-shadow-2xs">{t.plans}</h2>
         <div className="max-w-7xl mx-auto">
-          {/* Primeira linha: 3 primeiros planos */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 min-h-[568px]">
-            {plans1.map((plan, index) => (
-              <div key={index} className="flex justify-center">
+          {/* Grid responsivo que se adapta automaticamente */}
+          <div className="grid gap-8 min-h-[568px]" style={{
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            justifyItems: 'center'
+          }}>
+            {plans.map((plan, index) => (
+              <div key={index} className="flex justify-center max-w-sm w-full">
                 <PlanCard
                   title={plan.title}
                   benefits={plan.benefits}
@@ -217,20 +217,6 @@ export default function LandingPage() {
                   onTry={() => setOpenForm(true)}
                 />
               </div>
-            ))}
-          </div>
-          {/* Segunda linha: 2 últimos planos */}
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 min-h-[568px]">
-            {plans2.map((plan, index) => (
-              <PlanCard
-                key={index}
-                title={plan.title}
-                benefits={plan.benefits}
-                highlight={plan.highlight}
-                buttonTitle={plan.tryFree}
-                price={plan.price}
-                onTry={() => setOpenForm(true)}
-              />
             ))}
           </div>
         </div>
