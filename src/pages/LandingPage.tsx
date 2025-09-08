@@ -133,6 +133,18 @@ export default function LandingPage() {
       width: 180,
       height: 140,
     },
+    {
+      src: "/clients/neofin-logo.png",
+      alt: "Neofin Tecnologia",
+      width: 220,
+      height: 120,
+    },
+    {
+      src: "/clients/organizee-logo.png",
+      alt: "Organizee",
+      width: 180,
+      height: 140,
+    },
   ];
 
   // Função para navegar para seções com âncoras
