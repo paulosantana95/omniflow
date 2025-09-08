@@ -130,6 +130,15 @@ export default function TermosDeUso() {
                 <li>Enviar spam ou mensagens não solicitadas;</li>
                 <li>Violar direitos de propriedade intelectual de terceiros.</li>
               </ul>
+
+              <div className="bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 rounded-lg p-4 mt-4">
+                <p><strong>⚠️ NÃO MONITORAMENTO E ISENÇÃO DE RESPONSABILIDADE:</strong></p>
+                <p><strong>6.3.</strong> É <strong>EXPRESSAMENTE PROIBIDO</strong> o uso da plataforma para atividades relacionadas a casas de apostas, jogos de azar ou apostas online, mesmo que sejam licenciadas ou legais.</p>
+                <p><strong>6.4.</strong> A Omniflow <strong>NÃO MONITORA</strong> nem controla o conteúdo, mensagens ou atividades realizadas pelos clientes através da plataforma.</p>
+                <p><strong>6.5.</strong> A Omniflow <strong>NÃO SE RESPONSABILIZA</strong> por qualquer uso inadequado, ilegal ou criminoso da plataforma por parte dos clientes.</p>
+                <p><strong>6.6.</strong> O cliente assume <strong>TOTAL RESPONSABILIDADE</strong> civil e criminal por todas as atividades realizadas através de sua conta, garantindo que utilizará a plataforma exclusivamente para fins lícitos.</p>
+                <p><strong>6.7.</strong> Em caso de identificação de uso para atividades ilegais ou em desacordo com estes Termos, a Omniflow reserva-se o direito de suspender ou encerrar imediatamente a conta do cliente, sem aviso prévio e sem reembolso.</p>
+              </div>
             </div>
           </section>
 
@@ -137,7 +146,7 @@ export default function TermosDeUso() {
             <h2 className="text-2xl font-semibold mb-4">7. PLANOS E PAGAMENTOS</h2>
             <div className="space-y-4">
               <p><strong>7.1.</strong> Os Serviços são oferecidos através de diferentes planos de assinatura, conforme detalhado em nosso site.</p>
-              <p><strong>7.2.</strong> As taxas são cobradas conforme o plano escolhido e devem ser pagas antecipadamente.</p>
+              <p><strong>7.2.</strong> As taxas são  cobradas conforme o plano escolhido e devem ser pagas antecipadamente.</p>
               <p><strong>7.3.</strong> Todas as taxas são não reembolsáveis, exceto quando expressamente previsto em lei.</p>
               <p><strong>7.4.</strong> A Omniflow pode alterar os preços mediante aviso prévio de 30 dias.</p>
 
@@ -154,7 +163,7 @@ export default function TermosDeUso() {
           <section>
             <h2 className="text-2xl font-semibold mb-4">8. CANCELAMENTO E SUSPENSÃO</h2>
             <div className="space-y-4">
-              <p><strong>8.1.</strong> Você pode cancelar sua assinatura a qualquer momento através de sua conta.</p>
+              <p><strong>8.1.</strong> Você pode cancelar sua assinatura a qualquer momento entrando em contato com o suporte.</p>
               <p><strong>8.2.</strong> A Omniflow pode suspender ou encerrar sua conta em caso de violação destes Termos.</p>
               <p><strong>8.3.</strong> Após o cancelamento, você perderá o acesso aos Serviços, mas os dados poderão ser mantidos conforme nossa Política de Privacidade.</p>
             </div>
