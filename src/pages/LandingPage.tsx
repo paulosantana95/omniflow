@@ -15,6 +15,7 @@ import AffiliationBanner from "@/components/AffiliationBanner";
 import Navigation from "@/components/Navigation";
 import HeroCarousel from "@/components/HeroCarousel";
 import Footer from "@/components/Footer";
+import { InfiniteMovingLogos } from "@/components/ui/infinite-moving-logos";
 
 // Hook para detectar o modo do sistema
 function useSystemTheme() {
@@ -115,6 +116,22 @@ export default function LandingPage() {
       price: "Solicite uma proposta",
       highlight: null,
       tryFree: "Solicite uma proposta",
+    },
+  ];
+
+  // Logos dos clientes para o carrossel infinito
+  const clientLogos = [
+    {
+      src: "/clients/neofin-logo.png",
+      alt: "Neofin Tecnologia",
+      width: 220,
+      height: 120,
+    },
+    {
+      src: "/clients/organizee-logo.png",
+      alt: "Organizee",
+      width: 180,
+      height: 140,
     },
   ];
 
@@ -256,25 +273,30 @@ export default function LandingPage() {
       {/* Seção de Clientes */}
       <section id="clients" className="bg-background text-primary py-16 px-4 text-center shadow-md sm:px-6" data-aos="fade-up">
         <h2 className="text-2xl sm:text-3xl font-bold mb-12 text-shadow-2xs">Clientes que confiam na Omni<span className="bg-gradient-to-br from-green-500 to-blue-500 bg-clip-text text-transparent">flow</span></h2>
-        <div className="flex flex-wrap justify-center items-center gap-20 max-w-6xl mx-auto">
-          <img src="/clients/neofin-logo.png" alt="Neofin Tecnologia" className="h-16 object-contain" />
-          <img src="/clients/organizee-logo.png" alt="Organizee" className="h-45 object-contain" />
-        </div>
+
+        <InfiniteMovingLogos
+          items={clientLogos}
+          direction="left"
+          speed="normal"
+          pauseOnHover={true}
+          className="py-4"
+        />
+
         <p className="mt-8 text-base text-muted-foreground">Empresas de diferentes segmentos já utilizam a Omni<span className="bg-gradient-to-br from-green-500 to-blue-500 bg-clip-text text-transparent">flow</span> para potencializar seu atendimento e automação.</p>
       </section>
 
       <section id="integrations" className="bg-muted text-primary py-16 px-4 text-center shadow-md sm:px-6" data-aos="fade-up">
         <h2 className="text-2xl sm:text-3xl font-bold mb-16 text-shadow-2xs">Principais Integrações</h2>
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-9 gap-4 md:gap-8 xl:gap-16 place-items-center max-w-6xl mx-auto">
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-8 gap-4 md:gap-8 xl:gap-16 place-items-center max-w-6xl mx-auto">
           <img src="/whatsapp.png" alt="WhatsApp" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
           <img src="/telegram.png" alt="Telegram" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
+          <img src="/instagram.png" alt="Instagram" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
           <img src="/email.png" alt="E-mail" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
-          <img src="/sms.png" alt="SMS" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
+          {/* <img src="/sms.png" alt="SMS" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" /> */}
           <img src="/facebook.png" alt="Facebook" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
           <img src="/linkedin.png" alt="LinkedIn" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
           <img src="/chatgpt.png" alt="ChatGPT" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
           <img src="/google.png" alt="Google" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
-          <img src="/tik-tok.png" alt="TikTok" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
         </div>
       </section>
 
