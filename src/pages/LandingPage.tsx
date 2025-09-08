@@ -291,7 +291,7 @@ export default function LandingPage() {
           direction="left"
           speed="normal"
           pauseOnHover={true}
-          className="py-4"
+          className="py-4 mx-auto max-w-[70%]"
         />
 
         <p className="mt-8 text-base text-muted-foreground">Empresas de diferentes segmentos já utilizam a Omni<span className="bg-gradient-to-br from-green-500 to-blue-500 bg-clip-text text-transparent">flow</span> para potencializar seu atendimento e automação.</p>
