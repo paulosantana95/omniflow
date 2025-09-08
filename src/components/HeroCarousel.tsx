@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
-import { AnimatedTestimonials } from './ui/animated-testimonials';
 
 interface HeroCarouselProps {
   headline: string;
