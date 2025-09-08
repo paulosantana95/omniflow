@@ -1,6 +1,6 @@
 export default function AffiliationBanner({ scrollToSection }: { scrollToSection: (section: string) => void }) {
   return (
-    <div className="bg-gradient-to-r from-green-600 to-blue-600 text-white py-2 px-4 text-center shadow-lg mt-16 md:mt-20 relative overflow-hidden">
+    <div className="bg-gradient-to-r from-green-600 to-blue-600 text-white py-2 px-4 text-center shadow-lg mt-20 md:mt-20 relative overflow-hidden">
       <style dangerouslySetInnerHTML={{
         __html: `
           @keyframes glow-pulse {
