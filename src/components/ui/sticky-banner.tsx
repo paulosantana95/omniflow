@@ -1,4 +1,3 @@
-"use client";
 import React, { type SVGProps, useState } from "react";
 import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import { cn } from "@/lib/utils";

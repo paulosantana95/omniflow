@@ -1,5 +1,4 @@
-"use client";
-
+/* eslint-disable react-hooks/exhaustive-deps */
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "motion/react";
 
