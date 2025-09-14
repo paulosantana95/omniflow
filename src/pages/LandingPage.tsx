@@ -16,6 +16,7 @@ import Navigation from "@/components/Navigation";
 import HeroCarousel from "@/components/HeroCarousel";
 import Footer from "@/components/Footer";
 import { InfiniteMovingLogos } from "@/components/ui/infinite-moving-logos";
+import { useTheme } from "@/providers/theme-provider";
 
 // Hook para detectar o modo do sistema
 function useSystemTheme() {
@@ -35,7 +36,10 @@ export default function LandingPage() {
   const [locale] = useState("pt-BR");
   const [openForm, setOpenForm] = useState(false);
   const isSystemDark = useSystemTheme();
+  const { theme } = useTheme();
   const t = messages[locale as keyof typeof messages];
+
+  const isDark = theme === 'dark' || (theme === 'system' && isSystemDark);
 
   useEffect(() => {
     AOS.init({ once: true });
@@ -134,15 +138,9 @@ export default function LandingPage() {
       height: 140,
     },
     {
-      src: "/clients/neofin-logo.png",
-      alt: "Neofin Tecnologia",
+      src: isDark ? "/clients/santlabs-logo.svg" : "/clients/santlabs-darklogo.svg",
+      alt: "Santlabs",
       width: 220,
-      height: 120,
-    },
-    {
-      src: "/clients/organizee-logo.png",
-      alt: "Organizee",
-      width: 180,
       height: 140,
     },
     {
@@ -155,6 +153,30 @@ export default function LandingPage() {
       src: "/clients/organizee-logo.png",
       alt: "Organizee",
       width: 180,
+      height: 140,
+    },
+    {
+      src: isDark ? "/clients/santlabs-logo.svg" : "/clients/santlabs-darklogo.svg",
+      alt: "Santlabs",
+      width: 220,
+      height: 140,
+    },
+    {
+      src: "/clients/neofin-logo.png",
+      alt: "Neofin Tecnologia",
+      width: 220,
+      height: 120,
+    },
+    {
+      src: "/clients/organizee-logo.png",
+      alt: "Organizee",
+      width: 180,
+      height: 140,
+    },
+    {
+      src: isDark ? "/clients/santlabs-logo.svg" : "/clients/santlabs-darklogo.svg",
+      alt: "Santlabs",
+      width: 220,
       height: 140,
     },
   ];
@@ -172,7 +194,7 @@ export default function LandingPage() {
       <Navigation
         scrollToSection={scrollToSection}
         setOpenForm={setOpenForm}
-        isSystemDark={isSystemDark}
+        isSystemDark={isDark}
       />
 
       {/* Faixa do Programa de Indicações */}
@@ -426,7 +448,7 @@ export default function LandingPage() {
 
       <Footer
         scrollToSection={scrollToSection}
-        isSystemDark={isSystemDark}
+        isSystemDark={isDark}
       />
 
       <Dialog open={openForm} onOpenChange={setOpenForm}>
