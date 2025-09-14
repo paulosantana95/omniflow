@@ -187,16 +187,40 @@ export default function TermosDeUso() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold mb-4">11. LIMITAÇÃO DE RESPONSABILIDADE</h2>
+            <h2 className="text-2xl font-semibold mb-4">11. INTEGRAÇÕES E CUSTOS TERCEIRIZADOS</h2>
             <div className="space-y-4">
-              <p><strong>11.1.</strong> Os Serviços são fornecidos "como estão", sem garantias de qualquer tipo.</p>
-              <p><strong>11.2.</strong> A Omniflow não será responsável por danos indiretos, incidentais, especiais ou consequenciais.</p>
-              <p><strong>11.3.</strong> Nossa responsabilidade total não excederá o valor pago pelos Serviços nos últimos 12 meses.</p>
+              <p><strong>11.1.</strong> A Omniflow oferece integração com diversas plataformas e serviços de terceiros como parte de seus Serviços.</p>
+
+              <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 mt-4">
+                <p><strong>💡 CUSTOS DE INTEGRAÇÃO:</strong></p>
+                <p><strong>11.2.</strong> A Omniflow <strong>NÃO ASSUME</strong> os custos de integração com plataformas de terceiros. Todos os custos relacionados a integrações são <strong>TERCEIRIZADOS</strong> e devem ser negociados diretamente entre o cliente e a plataforma a ser integrada.</p>
+                <p><strong>11.3.</strong> Os custos podem incluir, mas não se limitam a:</p>
+                <ul className="list-disc ml-6 space-y-1 mt-2">
+                  <li>Taxas de API de plataformas externas;</li>
+                  <li>Licenças de uso de serviços de terceiros;</li>
+                  <li>Custos de processamento de dados externos;</li>
+                  <li>Taxas de transação de plataformas de pagamento;</li>
+                  <li>Custos de armazenamento em serviços externos.</li>
+                </ul>
+              </div>
+
+              <p><strong>11.4.</strong> A Omniflow atua exclusivamente como facilitadora da integração, fornecendo a tecnologia necessária para conectar os sistemas.</p>
+              <p><strong>11.5.</strong> É responsabilidade do cliente verificar os termos, condições e custos das plataformas de terceiros antes de realizar qualquer integração.</p>
+              <p><strong>11.6.</strong> A Omniflow não se responsabiliza por mudanças nos preços, políticas ou disponibilidade de serviços de terceiros que possam afetar as integrações.</p>
             </div>
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold mb-4">12. INDENIZAÇÃO</h2>
+            <h2 className="text-2xl font-semibold mb-4">12. LIMITAÇÃO DE RESPONSABILIDADE</h2>
+            <div className="space-y-4">
+              <p><strong>12.1.</strong> Os Serviços são fornecidos "como estão", sem garantias de qualquer tipo.</p>
+              <p><strong>12.2.</strong> A Omniflow não será responsável por danos indiretos, incidentais, especiais ou consequenciais.</p>
+              <p><strong>12.3.</strong> Nossa responsabilidade total não excederá o valor pago pelos Serviços nos últimos 12 meses.</p>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-semibold mb-4">13. INDENIZAÇÃO</h2>
             <p>
               Você concorda em indenizar e isentar a Omniflow de qualquer reclamação, dano ou despesa decorrente de seu uso dos Serviços
               ou violação destes Termos.
@@ -204,7 +228,7 @@ export default function TermosDeUso() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold mb-4">13. MODIFICAÇÕES DOS TERMOS</h2>
+            <h2 className="text-2xl font-semibold mb-4">14. MODIFICAÇÕES DOS TERMOS</h2>
             <p>
               A Omniflow pode modificar estes Termos a qualquer momento. As modificações entrarão em vigor após a publicação.
               O uso continuado dos Serviços após as modificações constitui aceitação dos novos Termos.
@@ -212,23 +236,23 @@ export default function TermosDeUso() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold mb-4">14. LEI APLICÁVEL E JURISDIÇÃO</h2>
+            <h2 className="text-2xl font-semibold mb-4">15. LEI APLICÁVEL E JURISDIÇÃO</h2>
             <p>
               Estes Termos são regidos pelas leis brasileiras. Qualquer disputa será resolvida nos tribunais competentes do Brasil.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold mb-4">15. DISPOSIÇÕES GERAIS</h2>
+            <h2 className="text-2xl font-semibold mb-4">16. DISPOSIÇÕES GERAIS</h2>
             <div className="space-y-4">
-              <p><strong>15.1.</strong> Se qualquer disposição destes Termos for considerada inválida, as demais permanecerão em vigor.</p>
-              <p><strong>15.2.</strong> Estes Termos constituem o acordo completo entre as partes.</p>
-              <p><strong>15.3.</strong> A falha em exercer qualquer direito não constitui renúncia.</p>
+              <p><strong>16.1.</strong> Se qualquer disposição destes Termos for considerada inválida, as demais permanecerão em vigor.</p>
+              <p><strong>16.2.</strong> Estes Termos constituem o acordo completo entre as partes.</p>
+              <p><strong>16.3.</strong> A falha em exercer qualquer direito não constitui renúncia.</p>
             </div>
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold mb-4">16. CONTATO</h2>
+            <h2 className="text-2xl font-semibold mb-4">17. CONTATO</h2>
             <p>
               Para dúvidas sobre estes Termos e Condições de Uso, entre em contato conosco:
             </p>

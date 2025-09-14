@@ -311,16 +311,63 @@ export default function LandingPage() {
 
       <section id="integrations" className="bg-muted text-primary py-16 px-4 text-center shadow-md sm:px-6" data-aos="fade-up">
         <h2 className="text-2xl sm:text-3xl font-bold mb-16 text-shadow-2xs">Principais Integrações</h2>
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-8 gap-4 md:gap-8 xl:gap-16 place-items-center max-w-6xl mx-auto">
-          <img src="/whatsapp.png" alt="WhatsApp" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
-          <img src="/telegram.png" alt="Telegram" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
-          <img src="/instagram.png" alt="Instagram" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
-          <img src="/email.png" alt="E-mail" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
-          {/* <img src="/sms.png" alt="SMS" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" /> */}
-          <img src="/facebook.png" alt="Facebook" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
-          <img src="/linkedin.png" alt="LinkedIn" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
-          <img src="/chatgpt.png" alt="ChatGPT" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
-          <img src="/google.png" alt="Google" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert" />
+
+        {/* Integrações Nativas */}
+        <div className="max-w-6xl mx-auto mb-12">
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-8 gap-4 md:gap-8 xl:gap-16 place-items-center">
+            {/* Integrações Nativas */}
+            <div className="flex flex-col items-center">
+              <img src="/whatsapp.png" alt="WhatsApp" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert mb-2" />
+              <span className="text-sm font-medium">WhatsApp</span>
+              <span className="text-xs text-transparent">.</span>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <img src="/telegram.png" alt="Telegram" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert mb-2" />
+              <span className="text-sm font-medium">Telegram</span>
+              <span className="text-xs text-transparent">.</span>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <img src="/email.png" alt="E-mail" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert mb-2" />
+              <span className="text-sm font-medium">E-mail</span>
+              <span className="text-xs text-transparent">.</span>
+            </div>            {/* Integrações com custos de terceiros */}
+            <div className="flex flex-col items-center">
+              <img src="/instagram.png" alt="Instagram" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert mb-2" />
+              <span className="text-sm font-medium">Instagram</span>
+              <span className="text-xs text-muted-foreground">*</span>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <img src="/facebook.png" alt="Facebook" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert mb-2" />
+              <span className="text-sm font-medium">Messenger</span>
+              <span className="text-xs text-muted-foreground">*</span>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <img src="/linkedin.png" alt="LinkedIn" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert mb-2" />
+              <span className="text-sm font-medium">LinkedIn</span>
+              <span className="text-xs text-muted-foreground">*</span>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <img src="/chatgpt.png" alt="ChatGPT" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert mb-2" />
+              <span className="text-sm font-medium">ChatGPT</span>
+              <span className="text-xs text-muted-foreground">*</span>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <img src="/google.png" alt="Google" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain dark:invert mb-2" />
+              <span className="text-sm font-medium">Google</span>
+              <span className="text-xs text-transparent">.</span>
+            </div>
+          </div>
+
+          {/* Nota discreta */}
+          <p className="text-sm text-muted-foreground mt-8 max-w-2xl mx-auto">
+            * Algumas integrações podem ter custos adicionais de plataformas terceiras
+          </p>
         </div>
       </section>
 
