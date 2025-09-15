@@ -86,4 +86,15 @@ Para mais informações sobre as tecnologias e ferramentas utilizadas neste proj
 
 ## 📝 Licença
 
-Este projeto está licenciado sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+Copyright (c) 2025 Omniflow
+
+All rights reserved.
+
+Este código fonte, incluindo mas não se limitando a layout, design, textos e imagens, 
+é propriedade exclusiva de Omniflow. 
+
+Não é permitida a cópia, modificação, distribuição ou uso deste software 
+sem autorização prévia por escrito de Omniflow.
+
+Para mais informações, entre em contato: omniflow.chat@gmail.com
+
