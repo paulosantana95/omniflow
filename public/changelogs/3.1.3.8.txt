@@ -1,0 +1,32 @@
+🚀 VERSÃO 3.1.3.8 - 16 de Setembro de 2025
+
+🔴 BREAKING CHANGE - MUDANÇA CRÍTICA:
+Para usuários BAILEYS: Atualize fora do horário de expediente, versão da Baileys atualizada. 
+Pode ser necessário reler o QRCode ou recriar o canal.
+Nessa versão alteramos o pacote da Baileys, portanto, instabilidades poderão acontecer nos primeiros momentos com essa API Não Oficial
+
+✨ NOVAS FUNCIONALIDADES:
+
+🤖 Inteligência Artificial:
+- Transbordo humano no chatbot interno + ChatGPT
+
+🛠️ CORREÇÕES E MELHORIAS:
+
+📱 WhatsApp:
+- Compatibilização isLid com Baileys
+- Webpush para WABA
+
+💬 Atendimento:
+- Envio de avaliação após abrir o atendimento
+- Notificação do chat interno (valor decimal)
+
+🔗 Integrações:
+- Telegram + horário de atendimento
+
+🎓 Interface e Sistema:
+- Correções gerais no Vue3
+
+📈 ESTATÍSTICAS DA VERSÃO:
+- 1 nova funcionalidade
+- 6 correções e melhorias
+- 1 breaking change (Baileys)

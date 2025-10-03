@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useTheme } from "@/providers/theme-provider";
 import { ModeToggle } from "@/components/mode-toggle";
 import { messages } from "@/i18n/messages";
+import { Link } from "react-router-dom";
 
 interface NavigationProps {
   scrollToSection: (sectionId: string) => void;
@@ -42,13 +43,13 @@ export default function Navigation({ scrollToSection, setOpenForm, isSystemDark 
             />
           </button>
         </div>
-        
+
         <div className="md:hidden px-4">
           <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
-        
+
         <div className={`md:flex flex-wrap items-center gap-4 text-primary px-4 ${mobileMenuOpen ? "block absolute top-full left-0 w-full bg-background py-4 shadow-lg z-50" : "hidden md:flex"}`}>
           <button onClick={() => handleNavigation('start')} className="block cursor-pointer font-semibold text-md hover:text-muted-foreground text-shadow-2xs py-2 md:py-0 text-center">
             {t.home ?? "Início"}
@@ -62,6 +63,9 @@ export default function Navigation({ scrollToSection, setOpenForm, isSystemDark 
           <button onClick={() => handleNavigation('contact')} className="block cursor-pointer font-semibold text-md hover:text-muted-foreground text-shadow-2xs py-2 md:py-0 text-center">
             Contato
           </button>
+          <Link to="/changelog" className="block cursor-pointer font-semibold text-md hover:text-muted-foreground text-shadow-2xs py-2 md:py-0 text-center">
+            Changelog
+          </Link>
           <Button variant="outline" className="ml-0 md:ml-8 shadow-md w-full md:w-auto mt-2 md:mt-0 cursor-pointer" onClick={() => setOpenForm(true)}>
             Registrar-se
           </Button>

@@ -1,0 +1,17 @@
+🚀 VERSÃO 3.1.4.0 - 02 de Outubro de 2025
+
+🛠️ CORREÇÕES E MELHORIAS:
+
+🔌 Integrações:
+- Configuração de atualização do nome ao receber mensagens (Uzapi e ZAPI)
+- Tratamento de grupos com caracteres especiais (Uzapi)
+- Bloqueio de grupos (Uzapi e ZAPI)
+- Encaminhamento de mensagens Uzapi
+
+🎓 Interface e Sistema:
+- Correções no chatbot Vue3
+
+📈 ESTATÍSTICAS DA VERSÃO:
+- 5 correções e melhorias
+- 2 integrações otimizadas
+- 1 melhoria na interface

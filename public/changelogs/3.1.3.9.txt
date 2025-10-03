@@ -1,0 +1,52 @@
+🚀 VERSÃO 3.1.3.9 - 01 de Outubro de 2025
+
+🔴 BREAKING CHANGE - MUDANÇA CRÍTICA:
+Para usuários BAILEYS: Atualize fora do horário de expediente, versão da Baileys atualizada. 
+Pode ser necessário reler o QRCode ou recriar o canal.
+Nessa versão alteramos o pacote da Baileys, portanto, instabilidades poderão acontecer nos primeiros momentos com essa API Não Oficial
+
+✨ NOVAS FUNCIONALIDADES:
+
+🔌 Integrações:
+- Integração ZAPI (Desenvolvimento)
+- Integração Uazapi (Desenvolvimento)
+
+💬 Atendimento:
+- Transferência para canal Waba fora da janela de conversa
+- Botão buscar mensagem dentro do atendimento
+- Botão para gerenciar grupos dentro do atendimento
+
+📊 Relatórios e Avaliações:
+- Filtro avançado para avaliação
+- Separação de funil + etapa no formulário de oportunidade
+
+🔧 Administração:
+- Limitar canais liberados para cada tenant (Superadmin)
+- Notificação de convite na tela de atendimento
+- Padronização dos webhooks de n8n
+
+🤖 Inteligência Artificial:
+- Reescrita de IA com base no idioma selecionado
+
+🛠️ CORREÇÕES E MELHORIAS:
+
+📱 WhatsApp:
+- Ajuste no encaminhamento Baileys
+- Ajuste no envio de PDF com WABA
+- Ajuste no envio de vCard com WABA (nono dígito)
+
+🔗 Integrações:
+- Ajuste no Google Agenda + chatbot interno
+- Ajuste na reprodução de áudio gravado no Android para WWEBJS
+- Ajuste no envio de áudio em campanha para WWEBJS
+
+🎓 Tutoriais e Interface:
+- Ajuste na edição de tutoriais
+- Ajuste no chatbot + Evolution + número de teste
+- Correções gerais Vue3
+
+📈 ESTATÍSTICAS DA VERSÃO:
+- 12 novas funcionalidades
+- 9 correções e melhorias
+- 1 breaking change (Baileys)
+- 2 novas integrações em desenvolvimento
