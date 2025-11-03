@@ -97,24 +97,36 @@ export default function ChangelogPage() {
               </p>
 
               <div className="mt-3 pt-3 border-t border-border">
-                <p className="text-xs font-semibold text-muted-foreground mb-2">🎨 Sistema de Cores por Tipo de Versão:</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                <p className="text-xs font-semibold text-muted-foreground mb-2">🎨 Sistema de Cores por Semantic Versioning:</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs mb-3">
                   <div className="flex items-center gap-2">
                     <div className="w-3 h-3 rounded bg-gradient-to-r from-orange-500 to-red-500"></div>
-                    <span className="text-muted-foreground">MAJOR (x.0.x) - Grandes mudanças</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded bg-gradient-to-r from-blue-500 to-cyan-500"></div>
-                    <span className="text-muted-foreground">MINOR (3.2.x+) - Novas funcionalidades</span>
+                    <span className="text-muted-foreground"><strong>MAJOR</strong> (x.0.x) - Breaking changes</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-3 h-3 rounded bg-gradient-to-r from-green-500 to-emerald-500"></div>
-                    <span className="text-muted-foreground">PATCH (3.1.x) - Correções e melhorias</span>
+                    <span className="text-muted-foreground"><strong>MINOR</strong> (x.1.x, x.2.x) - Novas funcionalidades</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 rounded bg-gradient-to-r from-blue-500 to-cyan-500"></div>
+                    <span className="text-muted-foreground"><strong>PATCH</strong> (x.x.4+) - Correções incrementais</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-3 h-3 rounded bg-gradient-to-r from-purple-600 to-pink-600"></div>
-                    <span className="text-muted-foreground">FUTURO (4.x.x+) - Versões futuras</span>
+                    <span className="text-muted-foreground"><strong>FUTURO</strong> (4.x.x+) - Versões futuras</span>
                   </div>
+                </div>
+                <div className="text-xs text-muted-foreground bg-muted/30 p-2 rounded">
+                  <p className="font-semibold mb-1">📐 Formato de Versão:</p>
+                  <p className="italic">3.1.4.3 = <strong>MAJOR</strong>(3).<strong>MINOR</strong>(1).<strong>PATCH</strong>(4).<strong>REVISION</strong>(3)</p>
+                  <p className="mt-1 text-xs">• <strong>MAJOR</strong>: Grandes mudanças incompatíveis (3.0.x → 4.0.x)</p>
+                  <p className="text-xs">• <strong>MINOR</strong>: Novas funcionalidades compatíveis (3.1.x → 3.2.x)</p>
+                  <p className="text-xs">• <strong>PATCH</strong>: Correções de bugs dentro da MINOR (3.1.3.x → 3.1.4.x)</p>
+                  <p className="text-xs">• <strong>REVISION</strong>: Revisões/builds (3.1.4.0 → 3.1.4.1)</p>
+                  <p className="mt-2 pt-2 border-t border-border text-xs">
+                    💡 <strong>Exemplo prático:</strong> 3.1.3 → 3.1.4 é um incremento de <strong>PATCH</strong> (correções),
+                    enquanto 3.1.x → 3.2.x é um incremento de <strong>MINOR</strong> (novas funcionalidades).
+                  </p>
                 </div>
               </div>
             </div>

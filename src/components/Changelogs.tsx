@@ -258,32 +258,46 @@ export default function Changelogs() {
     // Remove 'v' prefix se existir
     const cleanVersion = version.replace(/^v/, '');
 
-    // Extrai os componentes da versão (MAJOR.MINOR.PATCH)
+    // Extrai os componentes da versão (MAJOR.MINOR.PATCH.REVISION ou MAJOR.MINOR.PATCH)
     const versionParts = cleanVersion.split('.').map(part => parseInt(part, 10) || 0);
-    const [major, minor] = versionParts;
+    const [major, minor, patch] = versionParts;
 
-    // Sistema de cores baseado em Semantic Versioning
+    // Sistema de cores baseado em Semantic Versioning tradicional
+    // Formato: MAJOR.MINOR.PATCH.REVISION
+    // - MAJOR: Breaking changes incompatíveis (ex: 3.0.x)
+    // - MINOR: Novas funcionalidades compatíveis (ex: 3.1.x, 3.2.x)
+    // - PATCH: Correções de bugs (ex: 3.1.3.x → 3.1.4.x)
+    // - REVISION: Revisão/build (ex: 3.1.4.0 → 3.1.4.1)
+    
     if (major > 3) {
       // Versões futuras MAJOR (4.x.x, 5.x.x, etc.)
       return 'bg-gradient-to-r from-purple-600 to-pink-600';
     } else if (major === 3) {
-      if (minor >= 2) {
-        // Versões MINOR 3.2.x+ (novas funcionalidades significativas)
-        return 'bg-gradient-to-r from-blue-500 to-cyan-500';
-      } else if (minor === 1) {
-        // Versões MINOR 3.1.x (funcionalidades menores)
-        return 'bg-gradient-to-r from-green-500 to-emerald-500';
-      } else if (minor === 0) {
-        // Versões MAJOR 3.0.x (grandes mudanças)
+      if (minor === 0) {
+        // Versões MAJOR 3.0.x (breaking changes)
         return 'bg-gradient-to-r from-orange-500 to-red-500';
+      } else if (minor >= 1) {
+        // Versões MINOR (3.1.x, 3.2.x, etc.)
+        // O incremento do terceiro número (PATCH) indica correções de bugs
+        // 3.1.3 → 3.1.4 = incremento de PATCH (correções)
+        // 3.1.x → 3.2.x = incremento de MINOR (novas funcionalidades)
+        
+        // Versões com PATCH >= 4 são releases focadas em correções incrementais
+        if (patch >= 4) {
+          // Versões MINOR com PATCH >= 4 (3.1.4.x+) - foco em correções/hotfixes
+          return 'bg-gradient-to-r from-blue-500 to-cyan-500';
+        } else {
+          // Versões MINOR com PATCH < 4 (3.1.0.x - 3.1.3.x) - novas funcionalidades
+          return 'bg-gradient-to-r from-green-500 to-emerald-500';
+        }
       }
     } else if (major === 2) {
-      if (minor >= 1) {
-        // Versões MINOR 2.1.x+ (funcionalidades menores)
-        return 'bg-gradient-to-r from-teal-500 to-green-500';
-      } else if (minor === 0) {
+      if (minor === 0) {
         // Versões MAJOR 2.0.x (grandes mudanças)
         return 'bg-gradient-to-r from-indigo-500 to-purple-500';
+      } else if (minor >= 1) {
+        // Versões MINOR 2.1.x+ (novas funcionalidades)
+        return 'bg-gradient-to-r from-teal-500 to-green-500';
       }
     } else if (major === 1) {
       // Versões 1.x.x (versões antigas)
