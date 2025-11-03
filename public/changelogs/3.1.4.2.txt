@@ -1,0 +1,46 @@
+🚀 VERSÃO 3.1.4.2 - 24 de Outubro de 2025
+
+🔴 BREAKING CHANGES - MUDANÇAS CRÍTICAS:
+1- Para usuários BAILEYS: Atualize fora do horário de expediente, versão da Baileys atualizada. 
+Pode ser necessário reler o QRCode ou recriar o canal.
+Nessa versão alteramos o pacote da Baileys, portanto, instabilidades poderão acontecer nos primeiros momentos com essa API Não Oficial
+
+2- Frontend VUE3: O suporte a versões com VUE2 foi descontinuado
+
+✨ NOVAS FUNCIONALIDADES:
+
+📞 Integrações de Voz:
+- Disparo de áudio gravado em ligações com Wavoip Vue3
+
+💬 Atendimento:
+- Nome para fechamento personalizado
+- Opção para pular mensagem na campanha
+
+🤖 Chatbot e Automação:
+- Nó N8N ao chatbot
+- Opção para repetir a mensagem de ausência na metade do tempo no chatbot
+
+📊 CRM e Gestão:
+- Listar etiquetas, kanbans e demandas por ordem alfabética
+
+🛠️ CORREÇÕES E MELHORIAS:
+
+🔌 Integrações:
+- Sincronização de contatos/grupos para Uazapi
+- Validação de contato ao iniciar conversa avulsa com Uazapi e ZAPI
+
+🎓 Interface e Sistema:
+- Botão adicionar/editar tutoriais Vue3
+- Selecionar colunas tela de contatos Vue3
+- Envio de protocolo com WABA Vue3
+- Listagem de contatos para marcação em grupos com Baileys
+- Chatbot + arquivo Hub Notificame Vue3
+- Inserção de emoji nas configurações do chatbot Vue3
+- Ações no fluxo do funil Vue3
+- Horário de atendimento do usuário Vue3
+
+📈 ESTATÍSTICAS DA VERSÃO:
+- 6 novas funcionalidades
+- 8 correções e melhorias
+- 2 breaking changes (Baileys e VUE2)
+- 2 integrações otimizadas

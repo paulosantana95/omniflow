@@ -1,0 +1,39 @@
+🚀 VERSÃO 3.1.4.1 - 20 de Outubro de 2025
+
+🔴 BREAKING CHANGE - MUDANÇA CRÍTICA:
+Para usuários BAILEYS: Atualize fora do horário de expediente, versão da Baileys atualizada. 
+Pode ser necessário reler o QRCode ou recriar o canal.
+Nessa versão alteramos o pacote da Baileys, portanto, instabilidades poderão acontecer nos primeiros momentos com essa API Não Oficial
+
+✨ NOVAS FUNCIONALIDADES:
+
+🔌 Integrações:
+- Importação de contatos por arquivo com Uazapi e ZAPI
+- Recebimento de localização ZAPI
+- Envio de vCard Uazapi
+- Webhook geral no envio de mensagens Uazapi e ZAPI
+
+💬 Atendimento:
+- Tempo para recebimento de avaliação
+- Deletar mensagem com Uazapi
+
+🛠️ CORREÇÕES E MELHORIAS:
+
+🎓 Interface e Sistema:
+- Busca de mensagem nos tickets Vue3
+- Validação de data no formulário de oportunidade Vue3
+- Visual página API PWA Vue3
+- Visual modal QRCode Vue3
+- Botão atualizar lead e nome no modal contato Vue3
+- Variáveis de aniversário/despedida no modal do canal Vue3
+- Abertura de ticket no PWA Vue3
+
+🔗 Integrações:
+- Validação vCard ZAPI
+- Agendamento com mídias e WWEBJS
+
+📈 ESTATÍSTICAS DA VERSÃO:
+- 6 novas funcionalidades
+- 9 correções e melhorias
+- 1 breaking change (Baileys)
+- 2 integrações otimizadas

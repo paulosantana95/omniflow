@@ -1,0 +1,38 @@
+🚀 VERSÃO 3.1.4.3 - 30 de Outubro de 2025
+
+🔴 BREAKING CHANGES - MUDANÇAS CRÍTICAS:
+1- Para usuários BAILEYS: Atualize fora do horário de expediente, versão da Baileys atualizada. 
+Pode ser necessário reler o QRCode ou recriar o canal.
+Nessa versão alteramos o pacote da Baileys, portanto, instabilidades poderão acontecer nos primeiros momentos com essa API Não Oficial
+
+2- Frontend VUE3: O suporte a versões com VUE2 foi descontinuado
+
+✨ NOVAS FUNCIONALIDADES:
+
+🔌 Integrações:
+- Escutar mensagens enviadas pela API do Hub Notificame
+
+📱 WhatsApp:
+- Ativar/desativar validação de contato (nono dígito) com WABA
+
+🛠️ CORREÇÕES E MELHORIAS:
+
+🎓 Interface e Sistema:
+- Deletar notas Vue3
+- Data relatórios Vue3
+- Botões adicionar em ações em massa para grupos Vue3
+- Página de pagamentos no Superadmin Vue3
+- Editar/criar template Vue3
+- Encaminhar mensagem Vue3
+
+🔗 Integrações:
+- Recebimento de mensagens via Hub Notificame
+- ZAPI envio e recebimento de áudio
+- SendClose Uazapi + API
+- Status sended ao enviar mensagem via API WWEBJS
+
+📈 ESTATÍSTICAS DA VERSÃO:
+- 2 novas funcionalidades
+- 10 correções e melhorias
+- 2 breaking changes (Baileys e VUE2)
+- 4 integrações otimizadas
