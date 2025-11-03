@@ -101,7 +101,7 @@ export default function ChangelogPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
                   <div className="flex items-center gap-2">
                     <div className="w-3 h-3 rounded bg-gradient-to-r from-orange-500 to-red-500"></div>
-                    <span className="text-muted-foreground">MAJOR (3.0.x) - Grandes mudanças</span>
+                    <span className="text-muted-foreground">MAJOR (x.0.x) - Grandes mudanças</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-3 h-3 rounded bg-gradient-to-r from-blue-500 to-cyan-500"></div>
@@ -109,7 +109,7 @@ export default function ChangelogPage() {
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-3 h-3 rounded bg-gradient-to-r from-green-500 to-emerald-500"></div>
-                    <span className="text-muted-foreground">MINOR (3.1.x) - Funcionalidades menores</span>
+                    <span className="text-muted-foreground">PATCH (3.1.x) - Correções e melhorias</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-3 h-3 rounded bg-gradient-to-r from-purple-600 to-pink-600"></div>
