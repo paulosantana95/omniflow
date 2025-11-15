@@ -1,0 +1,34 @@
+🚀 VERSÃO 3.1.4.4 - 04 de Novembro de 2025
+
+🔴 BREAKING CHANGES - MUDANÇAS CRÍTICAS:
+Para usuários BAILEYS: Atualize fora do horário de expediente, versão da Baileys atualizada. 
+Pode ser necessário reler o QRCode ou recriar o canal.
+Nessa versão alteramos o pacote da Baileys, portanto, instabilidades poderão acontecer nos primeiros momentos com essa API Não Oficial
+
+✨ NOVAS FUNCIONALIDADES:
+
+👥 Permissões e Controle:
+- Limitação de mensagens rápidas (uso/criação/edição) por usuário (liberado no painel user, removido do painel admin/supervisor)
+- Limitação de listagem de tarefas para usuário comum
+
+🛠️ CORREÇÕES E MELHORIAS:
+
+🔌 Integrações:
+- Chatbot + PDF com Uazapi
+- Caption no envio com legenda para documentos com Uazapi
+- Caption na API SendMessageAPITextBase64 com Uazapi
+- Dify + Uazapi
+- Mensagens via API para grupos com MEOW
+
+💬 Atendimento:
+- Mensagem rápida com MEOW + arquivo Vue3
+
+🎓 Interface e Sistema:
+- Modal WhatsApp Vue3
+- Avatar e nome no bubble da mensagem enviada/recebida
+
+📈 ESTATÍSTICAS DA VERSÃO:
+- 2 novas funcionalidades
+- 8 correções e melhorias
+- 2 breaking changes (Baileys e VUE2)
+- 5 integrações otimizadas
