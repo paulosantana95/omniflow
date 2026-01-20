@@ -231,11 +231,9 @@ export function SignupForm({ onCancel }: { onCancel?: () => void }) {
           <SelectContent>
             <SelectGroup>
               <SelectLabel>Selecione o plano desejado</SelectLabel>
-              <SelectItem value="start">Start - R$49,90/mês</SelectItem>
-              <SelectItem value="connect">Connect - R$79,90/mês</SelectItem>
-              <SelectItem value="boost">Boost - R$149,90/mês (Mais Popular)</SelectItem>
-              <SelectItem value="infinity">Infinity - R$699,90/mês</SelectItem>
-              <SelectItem value="omni">Omni - Proposta Personalizada</SelectItem>
+              <SelectItem value="start">Start - R$79,90/mês</SelectItem>
+              <SelectItem value="connect">Connect - R$159,90/mês</SelectItem>
+              <SelectItem value="boost">Boost - R$299,90/mês (Mais Popular)</SelectItem>
             </SelectGroup>
           </SelectContent>
         </Select>
@@ -258,6 +256,15 @@ export function SignupForm({ onCancel }: { onCancel?: () => void }) {
         <span className={`text-red-500 text-xs mt-1 min-h-[18px] block ${!acceptTerms ? "" : "opacity-0"}`}>
           {!acceptTerms ? "Você deve aceitar os termos" : "placeholder"}
         </span>
+      </div>
+
+      <div className="mt-4 p-3 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-md">
+        <p className="text-xs text-amber-800 dark:text-amber-200">
+          <strong>⚠️ Período de Teste:</strong> Você terá 7 dias de teste gratuito. Ao exceder o período, será cobrado automaticamente o valor integral da mensalidade do plano escolhido.
+        </p>
+        <p className="text-xs text-blue-800 dark:text-blue-200 mt-2">
+          <strong>📋 Responsabilidade:</strong> A responsabilidade pelo uso do canal é do cliente.
+        </p>
       </div>
 
       <div className="flex flex-row gap-4 mt-6">

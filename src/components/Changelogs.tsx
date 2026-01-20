@@ -93,7 +93,7 @@ export default function Changelogs() {
 
     for (const line of lines) {
       const trimmedLine = line.trim();
-
+      
       // Detecta seções principais - novo formato
       if (trimmedLine.startsWith('✨') && trimmedLine.includes('NOVAS FUNCIONALIDADES')) {
         if (currentSection) {
@@ -245,9 +245,9 @@ export default function Changelogs() {
   };
 
   const toggleExpanded = (version: string) => {
-    setChangelogs(prev =>
-      prev.map(note =>
-        note.version === version
+    setChangelogs(prev => 
+      prev.map(note => 
+        note.version === version 
           ? { ...note, isExpanded: !note.isExpanded }
           : note
       )
@@ -321,60 +321,60 @@ export default function Changelogs() {
 
   return (
     <div className="space-y-4 sm:space-y-6">
-      {changelogs.map((note) => {
-        const sections = parseChangelogContent(note.content);
-
-        return (
-          <Card key={note.version} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-            <CardHeader
+          {changelogs.map((note) => {
+            const sections = parseChangelogContent(note.content);
+            
+            return (
+              <Card key={note.version} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                <CardHeader 
               className="cursor-pointer hover:bg-muted/50 transition-colors"
-              onClick={() => toggleExpanded(note.version)}
-            >
+                  onClick={() => toggleExpanded(note.version)}
+                >
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
                   <Badge className={`${getVersionBadgeColor(note.version)} text-white px-3 py-1 w-fit`}>
-                    {note.version}
-                  </Badge>
-                  <div className="flex items-center gap-2 text-muted-foreground">
-                    <Calendar className="w-4 h-4" />
+                        {note.version}
+                      </Badge>
+                      <div className="flex items-center gap-2 text-muted-foreground">
+                        <Calendar className="w-4 h-4" />
                     <span className="text-sm sm:text-base">{note.date}</span>
-                  </div>
-                </div>
+                      </div>
+                    </div>
                 <Button variant="ghost" size="sm" className="self-end sm:self-auto">
                   {note.isExpanded ? <ChevronUp className="w-4 h-4 sm:w-5 sm:h-5" /> : <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5" />}
-                </Button>
-              </div>
-            </CardHeader>
+                    </Button>
+                  </div>
+                </CardHeader>
 
-            {note.isExpanded && (
+                {note.isExpanded && (
               <CardContent className="pt-0 px-4 sm:px-6">
                 <div className="space-y-4 sm:space-y-6">
-                  {sections.map((section, index) => (
+                      {sections.map((section, index) => (
                     <div key={index} className="border-l-4 border-green-500 pl-3 sm:pl-4">
                       <div className="flex items-center gap-2 mb-2 sm:mb-3">
                         <span className={`text-lg sm:text-xl ${section.color}`}>
-                          {section.icon}
-                        </span>
+                              {section.icon}
+                            </span>
                         <h3 className="font-semibold text-base sm:text-lg">{section.title}</h3>
-                      </div>
-                      <div className="text-muted-foreground space-y-2">
-                        {section.content.split('\n').map((line, lineIndex) => (
+                          </div>
+                          <div className="text-muted-foreground space-y-2">
+                            {section.content.split('\n').map((line, lineIndex) => (
                           <p key={lineIndex} className="text-xs sm:text-sm leading-relaxed">
-                            {line}
-                          </p>
-                        ))}
-                      </div>
+                                {line}
+                              </p>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              </CardContent>
-            )}
-          </Card>
-        );
-      })}
+                  </CardContent>
+                )}
+              </Card>
+            );
+          })}
 
       {changelogs.length === 0 && !loading && (
-        <div className="text-center py-12">
+          <div className="text-center py-12">
           <div className="max-w-md mx-auto">
             <div className="text-6xl mb-4">📋</div>
             <h3 className="text-xl font-semibold mb-2 text-primary">Nenhum changelog disponível</h3>
@@ -385,8 +385,8 @@ export default function Changelogs() {
               Os changelogs são adicionados conforme novas versões são lançadas.
             </p>
           </div>
-        </div>
-      )}
-    </div>
+          </div>
+        )}
+      </div>
   );
 }

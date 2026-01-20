@@ -51,75 +51,60 @@ export default function LandingPage() {
       benefits: [
         '2 Usuários',
         '1 Canal de Atendimento',
+        'Armazenamento de 2GB de Dados (10R$ por GB adicional)',
         'Gerenciamento de Grupos (Whatsapp)',
         'Chat bot integrado com IA (Custo da IA não incluso)',
         'Chat Entre Usuários',
-        '700 Atendimentos/mês(20R$ a cada 500 atendimentos adicionais)',
-        'Armazenamento de 1GB de Dados(16R$ por GB adicional)',
-      ],
-      price: "R$49,90/mês",
-      highlight: null,
-      tryFree: t.tryFree,
-    },
-    {
-      title: 'Connect',
-      benefits: [
-        'Tudo do plano Start',
-        '6 Usuários',
-        '2 Canais de Atendimento',
         'Relatórios Avançados',
         'Equipes',
-        '1200 Atendimentos/mês(20R$ a cada 500 atendimentos adicionais)',
-        'Armazenamento de 3GB de Dados(12R$ por GB adicional)',
+        'CRM Integrado com Kanban, Funil de Vendas e Checklist de Tarefas',
+        'Integração com API',
+        'Campanhas de Marketing ilimitadas',
+        'Disparos em massa ilimitados',
       ],
       price: "R$79,90/mês",
       highlight: null,
       tryFree: t.tryFree,
     },
     {
+      title: 'Connect',
+      benefits: [
+        '6 Usuários',
+        '3 Canais de Atendimento',
+        'Armazenamento de 3GB de Dados (10R$ por GB adicional)',
+        'Gerenciamento de Grupos (Whatsapp)',
+        'Chat bot integrado com IA (Custo da IA não incluso)',
+        'Chat Entre Usuários',
+        'Relatórios Avançados',
+        'Equipes',
+        'CRM Integrado com Kanban, Funil de Vendas e Checklist de Tarefas',
+        'Integração com API',
+        'Campanhas de Marketing ilimitadas',
+        'Disparos em massa ilimitados',
+      ],
+      price: "R$159,90/mês",
+      highlight: null,
+      tryFree: t.tryFree,
+    },
+    {
       title: 'Boost',
       benefits: [
-        'Tudo do plano Connect',
         '12 Usuários',
-        '4 Canais de Atendimento',
+        '6 Canais de Atendimento',
+        'Armazenamento de 5GB de Dados (10R$ por GB adicional)',
+        'Gerenciamento de Grupos (Whatsapp)',
+        'Chat bot integrado com IA (Custo da IA não incluso)',
+        'Chat Entre Usuários',
+        'Relatórios Avançados',
+        'Equipes',
         'CRM Integrado com Kanban, Funil de Vendas e Checklist de Tarefas',
-        'Campanhas de Marketing automatizadas (até 5.000 mensagens/mês - excedente cobrado)',
-        'Disparos em massa segmentados (até 5.000 envios/mês - excedente cobrado)',
-        '2200 Atendimentos/mês(20R$ a cada 500 atendimentos adicionais)',
-        'Armazenamento de 5GB de Dados(10R$ por GB adicional)',
-      ],
-      price: "R$149,90/mês",
-      highlight: false,
-      tryFree: t.tryFree,
-    },
-    {
-      title: 'Infinity',
-      benefits: [
-        'Tudo do plano Boost',
-        'Usuários e Canais Ilimitados',
-        'Atendimentos Ilimitados',
-        'Suporte Prioritário',
         'Integração com API',
-        'Campanhas de Marketing Ilimitadas',
-        'Disparos em Massa Ilimitados',
-        'Armazenamento de 8GB de Dados(10R$ por GB adicional)',
+        'Campanhas de Marketing ilimitadas',
+        'Disparos em massa ilimitados',
       ],
-      price: "R$699,90/mês",
+      price: "R$299,90/mês",
       highlight: true,
       tryFree: t.tryFree,
-    },
-    {
-      title: 'Omni',
-      benefits: [
-        'Se encaixa no plano que sua empresa precisa',
-        'Usuários e Canais a definir',
-        'Atendimentos a definir',
-        'Funcionalidades personalizadas',
-        'Integração conforme a necessidade da empresa',
-      ],
-      price: "Solicite uma proposta",
-      highlight: null,
-      tryFree: "Solicite uma proposta",
     },
   ];
 
@@ -193,7 +178,6 @@ export default function LandingPage() {
     <div className="font-sans text-primary min-h-screen w-full relative">
       <Navigation
         scrollToSection={scrollToSection}
-        setOpenForm={setOpenForm}
         isSystemDark={isDark}
       />
 
@@ -277,7 +261,7 @@ export default function LandingPage() {
                   highlight={plan.highlight}
                   buttonTitle={plan.tryFree}
                   price={plan.price}
-                  onTry={() => setOpenForm(true)}
+                  onTry={() => window.open('https://app.omniflow.chat', '_blank')}
                 />
               </div>
             ))}
@@ -300,14 +284,16 @@ export default function LandingPage() {
                 <p className="text-base text-green-700 dark:text-green-300 leading-relaxed mb-4">
                   Durante o período de teste, você terá acesso limitado às funcionalidades para avaliar a plataforma:
                   <br />• <strong>7 dias para teste</strong>
-                  <br />• <strong>Campanhas de Marketing:</strong> até 100 mensagens
-                  <br />• <strong>Disparos em Massa:</strong> até 50 envios
-                  <br />• <strong>Atendimentos:</strong> até 100 conversas
                   <br />• Todas as outras funcionalidades disponíveis conforme o plano escolhido
                 </p>
-                <div className="p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-md">
+                <div className="p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-md mb-4">
                   <p className="text-base text-amber-800 dark:text-amber-200">
-                    <strong>⚠️ Importante:</strong> Ao exceder os limites durante o teste ou período pago, será cobrado automaticamente o valor integral da mensalidade do plano escolhido.
+                    <strong>⚠️ Importante:</strong> Ao exceder o período de teste, será cobrado automaticamente o valor integral da mensalidade do plano escolhido.
+                  </p>
+                </div>
+                <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-md">
+                  <p className="text-base text-blue-800 dark:text-blue-200">
+                    <strong>📋 Responsabilidade:</strong> A responsabilidade pelo uso do canal é do cliente. O cliente é responsável por garantir o uso adequado e em conformidade com as políticas dos provedores de canal.
                   </p>
                 </div>
               </div>
@@ -405,6 +391,19 @@ export default function LandingPage() {
             <p className="mt-2">{t.faq2desc}</p>
           </details>
           <details className="bg-background p-4 rounded shadow hover:bg-muted/50 hover:shadow-lg transition-shadow">
+            <summary className="cursor-pointer font-semibold">🎯 Como funciona o período de teste gratuito?</summary>
+            <p className="mt-2">
+              Durante o período de teste de 7 dias, você terá acesso a todas as funcionalidades disponíveis conforme o plano escolhido.
+              <strong>⚠️ Importante:</strong> Ao exceder o período de teste, será cobrado automaticamente o valor integral da mensalidade do plano escolhido.
+            </p>
+          </details>
+          <details className="bg-background p-4 rounded shadow hover:bg-muted/50 hover:shadow-lg transition-shadow">
+            <summary className="cursor-pointer font-semibold">📋 Quem é responsável pelo uso dos canais?</summary>
+            <p className="mt-2">
+              A responsabilidade pelo uso do canal é do cliente. O cliente é responsável por garantir o uso adequado e em conformidade com as políticas dos provedores de canal (WhatsApp, Telegram, Instagram, etc.).
+            </p>
+          </details>
+          <details className="bg-background p-4 rounded shadow hover:bg-muted/50 hover:shadow-lg transition-shadow">
             <summary className="cursor-pointer font-semibold">🎁 Como funciona o programa de indicações?</summary>
             <p className="mt-2">
               Nosso programa de indicações é uma forma de recompensar nossos clientes que ajudam a divulgar a Omniflow.
@@ -427,8 +426,8 @@ export default function LandingPage() {
               <br />• Acompanhe seus ganhos através do painel de indicações
               <br /><br />
               <strong>📊 Exemplos:</strong>
-              <br />• <strong>Opção 1:</strong> Cliente contrata plano Infinity (R$ 699,90/mês) → Você recebe R$ 699,90 após 3 meses
-              <br />• <strong>Opção 2:</strong> Cliente contrata plano Infinity (R$ 699,90/mês) → Você recebe R$ 69,99 mensalmente enquanto ele permanecer
+              <br />• <strong>Opção 1:</strong> Cliente contrata plano Boost (R$ 299,90/mês) → Você recebe R$ 299,90 após 3 meses
+              <br />• <strong>Opção 2:</strong> Cliente contrata plano Boost (R$ 299,90/mês) → Você recebe R$ 29,99 mensalmente enquanto ele permanecer
               <br /><br />
               Entre em contato conosco para mais detalhes sobre como participar do programa de indicações e escolher sua modalidade preferida!
             </p>

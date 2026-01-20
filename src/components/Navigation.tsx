@@ -8,11 +8,10 @@ import { Link } from "react-router-dom";
 
 interface NavigationProps {
   scrollToSection: (sectionId: string) => void;
-  setOpenForm: (open: boolean) => void;
   isSystemDark: boolean;
 }
 
-export default function Navigation({ scrollToSection, setOpenForm, isSystemDark }: NavigationProps) {
+export default function Navigation({ scrollToSection, isSystemDark }: NavigationProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { theme } = useTheme();
   const [locale] = useState("pt-BR");
@@ -66,8 +65,10 @@ export default function Navigation({ scrollToSection, setOpenForm, isSystemDark 
           <Link to="/changelog" className="block cursor-pointer font-semibold text-md hover:text-muted-foreground text-shadow-2xs py-2 md:py-0 text-center">
             Changelog
           </Link>
-          <Button variant="outline" className="ml-0 md:ml-8 shadow-md w-full md:w-auto mt-2 md:mt-0 cursor-pointer" onClick={() => setOpenForm(true)}>
-            Registrar-se
+          <Button variant="outline" asChild className="ml-0 md:ml-8 shadow-md w-full md:w-auto mt-2 md:mt-0 cursor-pointer">
+            <a href="https://app.omniflow.chat/#/signup">
+              Registrar-se
+            </a>
           </Button>
           <Button variant="default" asChild className="shadow-md w-full md:w-auto mt-2 md:mt-0">
             <a href="https://app.omniflow.chat">

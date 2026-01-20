@@ -1,0 +1,53 @@
+🚀 VERSÃO 3.1.5.0 - 15 de Janeiro de 2026
+
+🔴 BREAKING CHANGES - MUDANÇAS CRÍTICAS:
+
+1- Para usuários BAILEYS: Atualize fora do horário de expediente, versão da Baileys atualizada. 
+Pode ser necessário reler o QRCode ou recriar o canal.
+Nessa versão alteramos o pacote da Baileys, portanto, instabilidades poderão acontecer nos primeiros momentos com essa API Não Oficial
+
+2- Frontend VUE3: O suporte a versões com VUE2 foi descontinuado. Apenas VUE3 agora.
+
+✨ NOVAS FUNCIONALIDADES:
+
+🔌 Integrações:
+- Adicionado BSUID para WABA
+
+🎓 Interface e Sistema:
+- Página home ao logar
+- Opção visualizar todos os tickets + fechados (admin)
+
+🚀 API Externa:
+- Adicionadas 26 novas rotas à API Externa
+- Todas as rotas com isolamento por tenant
+- Autenticação via Bearer Token
+
+🛠️ CORREÇÕES E MELHORIAS:
+
+🤖 Chatbot:
+- Interação de boas vindas chatbot + Instagram nativo
+- Chatbot + captura de variável
+- Correções gerais chatbot
+
+📱 Instagram:
+- Recebimento de PDF no Instagram nativo
+
+💬 Atendimento:
+- Histórico de mensagens nos tickets
+- Atualização de oportunidade no atendimento (status)
+- Contagem de mensagens recebidas no chat interno
+
+🔗 Integrações:
+- Correção de índices críticos WABA
+- Correção API botões e listas WABA
+- Correção atualizar nomes ao receber mensagem (WABA)
+
+🎓 Interface e Sistema:
+- Correção migração entre VPS + tabela settings
+
+📈 ESTATÍSTICAS DA VERSÃO:
+- 3 novas funcionalidades principais
+- 26 novas rotas na API Externa
+- 10 correções e melhorias
+- 2 breaking changes (Baileys e VUE2)
+- 3 integrações otimizadas
