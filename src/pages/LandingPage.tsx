@@ -58,7 +58,6 @@ export default function LandingPage() {
         'Relatórios Avançados',
         'Equipes',
         'CRM Integrado com Kanban, Funil de Vendas e Checklist de Tarefas',
-        'Integração com API',
         'Campanhas de Marketing ilimitadas',
         'Disparos em massa ilimitados',
       ],
